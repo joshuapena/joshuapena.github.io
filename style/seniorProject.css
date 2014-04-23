@@ -10,7 +10,7 @@ body {
   margin: 2em;
 }
 
-.switch {
+.display {
   height: 25px;
   width: 50px;
   border-radius: 50px;
@@ -26,9 +26,25 @@ body {
   font-size: 20px;
 }
 
+.switch {
+  height: 25px;
+  width: 75px;
+  border-radius: 50px;
+  border: 1px black solid;
+  vertial-align: middle;
+  text-align: center;
+  color: black;
+  display: inline-black;
+  margin: 10px;
+  margin-top: 30px;
+  margin-right: 15px;
+  background-color: gray;
+  font-size: 18px;
+}
+
 #container {
   position: relative;
-  width: 400px;
+  width: 425px;
 }
 
 #div1, #div2 {
@@ -41,5 +57,5 @@ body {
 }
 
 #div2 {
-  left: 75px;
+  left: 100px;
 }

@@ -17,4 +17,6 @@ function updateNumbers() {
   }
 }
 
-updateNumbers();
+$(document).ready(function() {
+  updateNumbers();  
+});

@@ -19,8 +19,6 @@ function updateNumbers() {
 }
 
 $(document).ready(function() {
-  document.getElementById("test1").innerHTML="Add '1'";
-  document.getElementById("test2").innerHTML="Add '1'";
   updateNumbers();
 });
 

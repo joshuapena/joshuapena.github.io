@@ -17,6 +17,46 @@ function updateNumbers() {
   }
 }
 
+$('#add1').click(function() {
+  x[6][0] += 1;
+  updateNumbers();
+});
+
+$('#add2').click(function() {
+  x[6][1] += 1;
+  updateNumbers();
+});
+
+$('#add3').click(function() {
+  x[6][2] += 1;
+  updateNumbers();
+});
+
+$('#add4').click(function() {
+  x[6][3] += 1;
+  updateNumbers();
+});
+
+$('#add5').click(function() {
+  x[6][4] += 1;
+  updateNumbers();
+});
+
+$('#add6').click(function() {
+  x[6][5] += 1;
+  updateNumbers();
+});
+
+$('#add7').click(function() {
+  x[6][6] += 1;
+  updateNumbers();
+});
+
+$('#add8').click(function() {
+  x[6][7] += 1;
+  updateNumbers();
+});
+
 $(document).ready(function() {
   updateNumbers();  
 });

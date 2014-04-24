@@ -44,10 +44,10 @@ body {
 
 #container {
   position: relative;
-  width: 425px;
+  width: 475px;
 }
 
-#div1, #div2 {
+#div1, #div2, #div3 {
   position: absolute;
   width: 75px;
 }
@@ -58,4 +58,8 @@ body {
 
 #div2 {
   left: 100px;
+}
+
+#div3 {
+  left: 160px
 }

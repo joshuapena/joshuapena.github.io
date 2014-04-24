@@ -10,10 +10,15 @@ for (var i = 0; i < 7; i++) {
 }
 
 function updateNumbers() {
-  for (var i = 0; i < 7; i++) {
-    for (var j = 0; j < 8; j ++) {
-      document.getElementById("num" + i + j).innerHTML = x[i][j];
+  for (var i = 7; i > -1; i--) {
+    for (var j = 6; j > 0; j --) {
+      if (x[j][i] >= 10) {
+        x[j][i] = x[j][i] % 10;
+        x[j - 1][i] += 1;
+      }
+      document.getElementById("num" + j + i).innerHTML = x[j][i];
     }
+    document.getElementById("num0" + i).innerHTML = x[0][i];
   }
 }
 
@@ -55,6 +60,15 @@ $('#add7').click(function() {
 $('#add8').click(function() {
   x[6][7] += 1;
   updateNumbers();
+});
+
+$('#clear').click(function() {
+  for (var i = 6; i > -1; i--) {
+    for (var j = 6; j > -1; j--) {
+      x[j][i + 1] += x[j][i];
+      updateNumbers();
+    }
+  }
 });
 
 $(document).ready(function() {

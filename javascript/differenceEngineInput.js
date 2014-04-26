@@ -85,12 +85,9 @@ $('#add8').click(function() {
 $('#clear').click(function() {
   for (var i = 6; i > -1; i--) {
     for (var j = 6; j > -1; j--) {
-      //x[j][i + 1] = parseInt(document.getElementById("num" + j + (i + 1)).value);
-      //x[j][i] = parseInt(document.getElementById("num" + j + i).value);
       document.getElementById("num" + j + (i + 1)).value = 
         parseInt(document.getElementById("num" + j + (i + 1)).value) + 
         parseInt(document.getElementById("num" + j + i).value);
-      //document.getElementById("num" + j + (i + 1)).value = x[j][i] + x[j][i + 1];
       updateNumbers();
     }
   }

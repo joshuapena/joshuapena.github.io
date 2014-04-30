@@ -5,17 +5,48 @@
 		<meta charset="utf-8" />
 		<title>Button</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<style>
+		#blank {
+			opacity : 0;
+		}
+		</style>
 	</head>
 	<body>
 		<p id="nice">one more line</p>
 		<p> another paragraph </p>
 		<input type="button" onclick="changeText()" value="click me" />
+		<input type="button" onclick="changeBackground()" value="background" />
+		<input type="button" onclick="changeFontFamily()" value="fontFamily" />
+		<input type="button" onclick="changeFontSize()" value="fontSize" />
+		<input type="button" onclick="changeFontWeight()" value="bold" />
+		<input type="button" onclick="welcome()" value="Welcome" id="changeName" />
+		<input type="text" id="name"/>
+		<p id="blank"> blank </p>
 		<script type="text/javascript">
 			function changeText() {
 				// alert("hi");
-				//#("p").addClass("nice");
+				$("p").addClass("nice");
 				$(".nice").html("Text Change!");
 				$(".nice").fadeOut();
+			}
+			function changeBackground() {
+				$("body").css("background", "green");
+			}
+			function changeFontFamily() {
+				$("body").css("font-family", "Georgia");
+
+			}
+			function changeFontSize() {
+				$("body").css("font-size", "16pt");
+			}
+			function changeFontWeight() {
+				$("body").css("font-Weight", "bold");
+			}
+			function welcome() {
+				var name;
+				name = $("#name").val();
+				$("#blank").css("opacity", "1");
+				$("#blank").html("Welcome " + name);
 			}
 		</script>	
 	</body>

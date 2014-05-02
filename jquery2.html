@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Untitled</title>
+		<link rel="stylesheet" href="style/styleBio.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<p id="first">one more line</p>
+		<input type="button" onclick="changeText_again()" value="click me" />
+		<p id="second"> another paragraph</p>
+		<input type="button" onclick="changeText()" value="click me" />
+
+		
+		<script type="text/javascript">
+			var firstFadeOut = false;
+			var secondFadeOut = false;
+			function changeText() {
+				if (!secondFadeOut) {
+					//alert("hi");
+					$("#second").html("Text change!");
+					$("#second").fadeOut();
+					secondFadeOut = true;
+				} else {
+					$("#second").fadeIn();
+					secondFadeOut = false;
+				}
+			}
+			function changeText_again() {
+				if (!firstFadeOut) {
+					//alert("hi");
+					$("#first").html("Text change!");
+					$("#first").fadeOut();
+					firstFadeOut = true;
+				} else {
+					$("#first").fadeIn();
+					firstFadeOut = false
+				}
+			}
+		</script>
+	</body>
+</html>

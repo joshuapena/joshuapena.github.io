@@ -4,7 +4,6 @@ body {
   font-size: 16pt;
   line-height: 1.4;
   color: #333;
-  background-color: #EEE;
   font-family: "Ubuntu Mono";
   font-weight: 400;
 }
@@ -20,5 +19,17 @@ h2 {
 }
 
 #begin {
+  font-size: 12pt;
+  line-height: 1;
+  color: black;
+  font-family: "Times New Roman";
 	text-align: center;
+}
+
+#info {
+  opacity: 0;
+}
+
+#mePhoto {
+  height: 250px;
 }

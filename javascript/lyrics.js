@@ -1,4 +1,14 @@
+var alternateTitle;
+alternateTitle = true;
+
 function changeTitle() {
-  $("#lyricsTitle").html("All by myself in the ");
-  $("#titleImage").attr("src", "image/frame.jpg");
+  if (!alternateTitle) {
+    $("#lyricsTitle").html("All by myself in the ");
+    $("#titleImage").attr("src", "image/frame.jpg");
+    alternateTitle = true;
+  } else {
+    $("#lyricsTitle").html("Alone in the Universe");
+    $("#titleImage").attr("src", "");
+    alternateTitle = false;
+  }
 }

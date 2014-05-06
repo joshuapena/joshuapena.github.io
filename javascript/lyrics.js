@@ -1,10 +1,10 @@
 var alternateTitle;
-alternateTitle = true;
+alternateTitle = false;
 
 function changeTitle() {
   if (!alternateTitle) {
-    $("#lyricsTitle").html("All by myself in the ");
-    $("#titleImage").attr("src", "image/frame.jpg");
+    $("#lyricsTitle").html("All By Myself in the ");
+    $("#titleImage").attr("src", "image/universe.png");
     alternateTitle = true;
   } else {
     $("#lyricsTitle").html("Alone in the Universe");

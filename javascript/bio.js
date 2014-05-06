@@ -9,8 +9,8 @@ function enterPage() {
 	$("#name").fadeOut();
 	$("#enter").fadeOut();
 	$("#welcome").html("Welcome " + name);
-	$("#info").css('opacity', '1');
-	$("body").css('background-color', '#EEE');
+	$("#info").css("opacity", "1");
+	$("body").css("background-color", "#EEE");
 	$("#welcome").css("font-size", "16pt");
 	$("#welcome").css("font-family", "Ubuntu Mono");
 }

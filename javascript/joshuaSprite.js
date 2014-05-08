@@ -9,6 +9,7 @@ Shift : 16
 */
 
 var walk;
+walk = false
 
 function walking() {
 	$(".joshua").css("width", "80px");
@@ -23,7 +24,13 @@ function idle() {
 }
 
 $(".joshua").click(function() {
-	walking()
+	if (!walk) {
+		walking()
+		walk = true;
+	} else {
+		idle();
+		walk = false
+	}
 });
 
 /*

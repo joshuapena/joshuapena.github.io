@@ -21,73 +21,41 @@ html {background: #9cfcf0;}
 }
 
 @-webkit-keyframes joshua-sprite-idle {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -90px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -90px top; }
 }
 
 @-moz-keyframes joshua-sprite-idle {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -90px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -90px top; }
 }
 
 @-o-keyframes joshua-sprite-idle {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -90px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -90px top; }
 }
 
 @keyframes joshua-sprite-idle {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -90px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -90px top; }
 }
 
 @-webkit-keyframes joshua-sprite-walk {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -80px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -80px top; }
 }
 
 @-moz-keyframes joshua-sprite-walk {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -80px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -80px top; }
 }
 
 @-0-keyframes joshua-sprite-walk {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -80px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -80px top; }
 }
 
 @keyframes joshua-sprite-walk {
-	0% {
-		background-position: 0px top;
-	}
-	50% {
-		background-position: -80px top;
-	}
+	from { background-position: 0px top; }
+	to { background-position: -80px top; }
 }

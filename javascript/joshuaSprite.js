@@ -15,4 +15,6 @@ $(document).keydown(function(e) {
 	}
 });
 
-alert("hi");
+$(document).ready(function() {
+	alert("hi");
+});

@@ -38,7 +38,6 @@ html {background: #9cfcf0;}
 	}
 }
 
-/*
 @-o-keyframes joshua-sprite-idle {
 	0% {
 		background-position: 0px top;
@@ -47,8 +46,8 @@ html {background: #9cfcf0;}
 		background-position: -90px top;
 	}
 }
-*/
 
+/*
 @keyframes joshua-sprite-idle {
 	0% {
 		background-position: 0px top;
@@ -57,6 +56,7 @@ html {background: #9cfcf0;}
 		background-position: -90px top;
 	}
 }
+*/
 
 @-webkit-keyframes joshua-sprite-walk {
 	0% {

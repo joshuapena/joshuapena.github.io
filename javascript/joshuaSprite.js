@@ -23,6 +23,7 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
 	if(e.keyCode == 32) {
 		$(".joshua").css("width", "88px");
+		$(".joshua").css("background-image", "url(../image/joshua-sprite-idle.png)");
 		$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
 	}
 });

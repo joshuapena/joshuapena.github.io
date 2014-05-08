@@ -8,5 +8,6 @@ Left : 37
 $(document).keydown(function(e) {
 	var element = $(.joshua);
 	if(e.keyCode == 39) {
+		alert("hi");
 	}
 });

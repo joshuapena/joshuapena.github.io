@@ -15,7 +15,7 @@ $(document).keydown(function(e) {
 	if(e.keyCode == 32) {
 		//alert("hi");
 		$(".joshua").css("width", "80px");
-		$(".joshua").css("background-image", "url(../image/joshua-sprite-walk.png");
+		$(".joshua").css("background-image", "url(../image/joshua-sprite-walk.png)";
 		$(".joshua").css("-webkit-animation-name", "joshua-sprite-walk");
 	}
 });

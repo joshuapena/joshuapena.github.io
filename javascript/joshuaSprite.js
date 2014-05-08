@@ -8,14 +8,12 @@ SpaceBar : 32
 Shift : 16
 */
 
-/*
 $(document).keydown(function(e) {
 	var element = $(.joshua);
 	if(e.keyCode == 32) {
 		alert("hi");
 	}
 });
-*/
 
 $(document).ready(function() {
 	alert("hi");

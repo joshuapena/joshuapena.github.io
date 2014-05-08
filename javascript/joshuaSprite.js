@@ -14,3 +14,5 @@ $(document).keydown(function(e) {
 		alert("hi");
 	}
 });
+
+alert("hi");

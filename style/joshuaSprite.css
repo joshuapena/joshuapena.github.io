@@ -1,7 +1,7 @@
 html {background: #9cfcf0;}
 
 .joshua {
-	background: url("../image/joshua-sprite-idle.png");
+	background-image: url("../image/joshua-sprite-idle.png");
 	width: 88px;
 	height: 128px;
 	position: absolute;

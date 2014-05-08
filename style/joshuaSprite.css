@@ -21,8 +21,8 @@ html {background: #9cfcf0;}
 }
 
 @-webkit-keyframes joshua-sprite-idle {
-	0% { background-position: 0px 0px; }
-	50% { background-position: -90px 0px; }
+	0% { background-position: 0px top; }
+	50% { background-position: -90px top; }
 }
 
 @-moz-keyframes joshua-sprite-idle {

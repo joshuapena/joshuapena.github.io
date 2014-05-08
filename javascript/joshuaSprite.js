@@ -10,20 +10,28 @@ Shift : 16
 
 var walking;
 
+function walking() {
+	$(".joshua").css("width", "80px");
+	$(".joshua").css("background-image", "url(../image/joshua-sprite-walk.png)");
+	$(".joshua").css("-webkit-animation-name", "joshua-sprite-walk");
+}
+
+function idle() {
+	$(".joshua").css("width", "88px");
+	$(".joshua").css("background-image", "url(../image/joshua-sprite-idle.png)");
+	$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
+}
+
 $(document).keydown(function(e) {
 	//var element = $(".joshua");
 	if(e.keyCode == 39) {
 		//alert("hi");
-		$(".joshua").css("width", "80px");
-		$(".joshua").css("background-image", "url(../image/joshua-sprite-walk.png)");
-		$(".joshua").css("-webkit-animation-name", "joshua-sprite-walk");
+		walking();
 	}
 });
 
 $(document).keyup(function(e) {
 	if(e.keyCode == 39) {
-		$(".joshua").css("width", "88px");
-		$(".joshua").css("background-image", "url(../image/joshua-sprite-idle.png)");
-		$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
+		idle();
 	}
 });

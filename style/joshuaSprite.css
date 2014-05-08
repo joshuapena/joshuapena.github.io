@@ -8,8 +8,8 @@ html {background: #9cfcf0;}
 	left: 50%;
 	top: 20%;
 	
-	-webkit-animation: joshua-sprite-idle 500ms steps(2) infinite;
-	animation: joshua-sprite-idle 500ms steps(2) infinite;
+	-webkit-animation: joshua-sprite-idle 500ms step-end infinite;
+	animation: joshua-sprite-idle 500ms step-end infinite;
 
 	/*
 	-webkit-animation-name: joshua-sprite-idle;
@@ -47,7 +47,6 @@ html {background: #9cfcf0;}
 	}
 }
 
-/*
 @keyframes joshua-sprite-idle {
 	0% {
 		background-position: 0px top;
@@ -56,7 +55,6 @@ html {background: #9cfcf0;}
 		background-position: -90px top;
 	}
 }
-*/
 
 @-webkit-keyframes joshua-sprite-walk {
 	0% {

@@ -8,7 +8,8 @@ html {background: #9cfcf0;}
 	left: 50%;
 	top: 20%;
 	
-	-webkit-animation: joshua-sprite-idle 500 ms steps(2) infinite;
+	-webkit-animation: joshua-sprite-idle 500ms steps(2) infinite;
+	animation: joshua-sprite-idle 500ms steps(2) infinite;
 
 	/*
 	-webkit-animation-name: joshua-sprite-idle;
@@ -16,7 +17,7 @@ html {background: #9cfcf0;}
 	-webkit-animation-timing-function: step-end;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-delay: 0;
-	/*
+	*/
 }
 
 @-webkit-keyframes joshua-sprite-idle {
@@ -28,7 +29,61 @@ html {background: #9cfcf0;}
 	}
 }
 
+@-moz-keyframes joshua-sprite-idle {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -90px top;
+	}
+}
+
+@-o-keyframes joshua-sprite-idle {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -90px top;
+	}
+}
+
+@keyframes joshua-sprite-idle {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -90px top;
+	}
+}
+
 @-webkit-keyframes joshua-sprite-walk {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -80px top;
+	}
+}
+
+@-moz-keyframes joshua-sprite-walk {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -80px top;
+	}
+}
+
+@-0-keyframes joshua-sprite-walk {
+	0% {
+		background-position: 0px top;
+	}
+	50% {
+		background-position: -80px top;
+	}
+}
+
+@keyframes joshua-sprite-walk {
 	0% {
 		background-position: 0px top;
 	}

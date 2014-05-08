@@ -8,7 +8,7 @@ SpaceBar : 32
 Shift : 16
 */
 
-var walking;
+var walk;
 
 function walking() {
 	$(".joshua").css("width", "80px");
@@ -22,6 +22,11 @@ function idle() {
 	$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
 }
 
+$(".joshua").click(function() {
+	walking()
+});
+
+/*
 $(document).keydown(function(e) {
 	//var element = $(".joshua");
 	if(e.keyCode == 39) {
@@ -35,3 +40,4 @@ $(document).keyup(function(e) {
 		idle();
 	}
 });
+*/

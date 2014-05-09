@@ -1,4 +1,8 @@
-html {background: #9cfcf0;}
+html, body {
+	height: 100%;
+	overflow: hidden;
+	background: #9cfcf0;
+}
 
 .joshua {
 	background-image: url("../image/joshua-sprite-idle.png");

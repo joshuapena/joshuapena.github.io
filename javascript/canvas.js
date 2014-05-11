@@ -85,7 +85,7 @@ var update = function (modifier) {
     && hero.y <= (monster.y + 32)
     && monmster.y <= (hero.y + 32)
   ) {
-    ++monstesCaught;
+    ++monstersCaught;
     reset();
   }
 };

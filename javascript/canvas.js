@@ -58,9 +58,9 @@ var reset = function () {
   hero.x = canvas.width / 2;
   hero.y = canvas.height / 2;
   
-  monster.x = canvas.width / 2;
+  monster.x = canvas.width / 2 + 33;
   //32 + (Math.random() * (canvas.width - 64));
-  monster.y = canvas.height / 2;
+  monster.y = canvas.height / 2 + 33;
   //32 + (Math.random() * (canvas.height - 64));
 };
 

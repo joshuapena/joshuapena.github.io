@@ -33,30 +33,34 @@ monsterImage.src = "http://placekitten.com/30/32";
 
 // Game objects
 var hero = {
-	speed: 256 // movement in pixels per second
+  speed: 256,
+  x: 0,
+  y: 0
 };
-var monster = {};
+
+var monster = {
+  x: 0,
+  y: 0
+};
 var monstersCaught = 0;
 
 // Handle keyboard controls
 var keysDown = {};
 
 addEventListener("keydown", function (e) {
-	keysDown[e.keyCode] = true;
+  keysDown[e.keyCode] = true;
 }, false);
 
 addEventListener("keyup", function (e) {
-	delete keysDown[e.keyCode];
+  delete keysDown[e.keyCode];
 }, false);
 
-// Reset the game when the player catches a monster
 var reset = function () {
-	hero.x = canvas.width / 2;
-	hero.y = canvas.height / 2;
-
-	// Throw the monster somewhere on the screen randomly
-	monster.x = 32 + (Math.random() * (canvas.width - 64));
-	monster.y = 32 + (Math.random() * (canvas.height - 64));
+  hero.x = canvas.width / 2;
+  hero.y = canvas.height / 2;
+  
+  monster.x = 32 + (Math.random() * (canvas.width - 64));
+  monster.y = 32 + (Math.random() * (canvas.height - 64));
 };
 
 // Update game objects

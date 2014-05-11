@@ -1,4 +1,4 @@
-var canvas = $(#canvas), 
+var canvas = document.getElementById("canvas"), 
   ctx = canvas.getContext("2d"),
   width = 512,
   height = 480;

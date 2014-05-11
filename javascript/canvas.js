@@ -67,16 +67,19 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    document.write("foo");
+    document.write("up");
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;
+    document.write("down");
   }
   if (37 in keysDown) {
     hero.x -= hero.speed * modifier;
+    document.write("left");
   }
   if (39 in keysDown) {
     hero.x += hero.speed * modifier;
+    document.write("right");
   }
   
   // Collision

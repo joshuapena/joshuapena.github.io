@@ -14,3 +14,116 @@ bgImage.onload = function () {
   bgReady = true;
 };
 bgImage.src = "http://placekitten.com/512/480";
+
+// Hero Image
+var heroReady = false;
+var heroImage = new Image();
+heroReady.onload = function () {
+  heroReady = true;
+};
+heroImage.src = "http://placekitten.com/32/32";
+
+// Enemy Image
+var enemyReady = false;
+var enemyImage = new Image();
+enemyReady.onload = function () {
+  heroReady = true;
+};
+enemyImage.src = "http://placekitten.com/30/32";
+
+// Game objects
+var hero = {
+  speed: 256,
+  x: 0,
+  y: 0
+};
+
+var monster = {
+  x: 0,
+  y: 0
+};
+var monstersCaught = 0;
+
+// Handle keyboard controls
+var keysDown = {};
+
+addEventListener("keydown", function (e) {
+  keysDown[e.keyCode] = true;
+}, false);
+
+addEventListener("keyup", function (e) {
+  delete keysDown[e.keyCode];
+}, false);
+
+var reset = function () {
+  hero.x = canvas.width / 2;
+  hero.y = canvas.height / 2;
+  
+  monster.x = 32 + (Math.random() * (canvas.width - 64));
+  monster.y = 32 + (Math.random() * (canvas.height - 64));
+};
+
+// Update game objects
+var update = function (modifier) {
+  if (38 in keysDown) {
+    hero.y -= hero.speed * modifier;
+  }
+  if (40 in keysDown) {
+    hero.y += hero.speed * modifier;
+  }
+  if (37 in keysDown) {
+    hero.x -= hero.speed * modifier;
+  }
+  if (39 in keysDown) {
+    hero.x += hero.speed * modifier;
+  }
+  
+  // Collision
+  if (
+    hero.x <= (monster.x + 32)
+    && monster.x <= (hero.x + 32)
+    && hero.y <= (monster.y + 32)
+    && monmster.y <= (hero.y + 32)
+  ) {
+    ++monstesCaught;
+    reset();
+  }
+};
+
+// Render
+var render = function () {
+  
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

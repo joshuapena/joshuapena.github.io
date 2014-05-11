@@ -21,7 +21,7 @@ var heroImage = new Image();
 heroReady.onload = function () {
   heroReady = true;
 };
-heroImage.src = "../image/joshua-sprite-idle.png";
+heroImage.src = "http://placekitten.com/32/32";
 
 // Monster Image
 var monsterReady = false;
@@ -67,19 +67,19 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    document.write("up");
+    ++monstersCaught;
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;
-    document.write("down");
+    ++monstersCaught;
   }
   if (37 in keysDown) {
     hero.x -= hero.speed * modifier;
-    document.write("left");
+    ++monstersCaught;
   }
   if (39 in keysDown) {
     hero.x += hero.speed * modifier;
-    document.write("right");
+    ++monstersCaught;
   }
   
   // Collision

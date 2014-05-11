@@ -13,14 +13,14 @@ var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
-bgImage.src = "http://placekitten.com/512/480";
+bgImage.src = "http://placekitten.com/32/32";
 // Hero Image
 var heroReady = false;
 var heroImage = new Image();
 heroReady.onload = function () {
   heroReady = true;
 };
-heroImage.src = "http://placekitten.com/32/32";
+heroImage.src = "http://placekitten.com/512/480";
 
 // Monster Image
 var monsterReady = false;

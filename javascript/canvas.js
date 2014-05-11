@@ -48,7 +48,7 @@ var monstersCaught = 0;
 var keysDown = {};
 
 addEventListener("keydown", function (e) {
-  keysDown[e.keyCode] = true;
+  //keysDown[e.keyCode] = true;
 }, false);
 
 addEventListener("keyup", function (e) {

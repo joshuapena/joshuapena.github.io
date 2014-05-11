@@ -9,11 +9,13 @@ canvas.height = height;
 
 // Background Image
 var bgReady = false;
+/*
 var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
 bgImage.src = "http://placekitten.com/512/480";
+*/
 
 // Hero Image
 var heroReady = false;

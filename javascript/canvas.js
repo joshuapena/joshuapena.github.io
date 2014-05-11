@@ -34,8 +34,8 @@ monsterImage.src = "http://placekitten.com/30/32";
 // Game objects
 var hero = {
   speed: 256,
-  //x: 0,
-  //y: 0
+  x: 0,
+  y: 0
 };
 
 var monster = {
@@ -124,10 +124,7 @@ var main = function () {
 };
 
 var w = window;
-requestAnimationFrame = w.requestAnimationFrame || 
-  w.webkitRequestAnimationFrame || 
-  w.msRequestAnimationFrame || 
-  w.mozRequestAnimationFrame;
+requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 var then = Date.now();
 reset();

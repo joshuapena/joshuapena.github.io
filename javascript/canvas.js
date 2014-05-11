@@ -67,6 +67,7 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
+    document.write("foo");
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;

@@ -48,7 +48,7 @@ var monstersCaught = 0;
 var keysDown = {};
 
 addEventListener("keydown", function (e) {
-  //keysDown[e.keyCode] = true;
+  keysDown[e.keyCode] = true;
 }, false);
 
 addEventListener("keyup", function (e) {
@@ -110,21 +110,25 @@ var render = function () {
   ctx.fillText("Monsters caught : " + monstersCaught, 32, 32);
 };
 
+// The main game loop
 var main = function () {
-  var now = Date.now();
-  var delta = now - then;
-  
-  update(delta / 1000);
-  render();
-  
-  then = now;
-  
-  requestAnimationFrame(main);
+	var now = Date.now();
+	var delta = now - then;
+
+	update(delta / 1000);
+	render();
+
+	then = now;
+
+	// Request to do this again ASAP
+	requestAnimationFrame(main);
 };
 
+// Cross-browser support for requestAnimationFrame
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
+// Let's play this game!
 var then = Date.now();
 reset();
 main();

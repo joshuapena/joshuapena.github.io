@@ -68,19 +68,15 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    ++monstersCaught;
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;
-    ++monstersCaught;
   }
   if (37 in keysDown) {
     hero.x -= hero.speed * modifier;
-    ++monstersCaught;
   }
   if (39 in keysDown) {
     hero.x += hero.speed * modifier;
-    ++monstersCaught;
   }
   
   // Collision

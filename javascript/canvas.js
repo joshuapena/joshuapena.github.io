@@ -104,7 +104,7 @@ var render = function () {
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Monsters caught : " + monstersCaught, 32, 32);
+  ctx.fillText(hero.x + ", " + hero.y + ", " + monster.x + ", " + monster.y, 32, 32);
 };
 
 var main = function () {

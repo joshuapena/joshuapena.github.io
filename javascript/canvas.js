@@ -92,38 +92,43 @@ var update = function (modifier) {
 
 // Render
 var render = function () {
+  if (bgReady) {
+    ctx.drawImage(bgImage, 0, 0);
+  }
   
+  if (heroReady) {
+    ctx.drawImage(heroImage, hero.x, hero.y);
+  }
+  
+  if (monsterReady) {
+    ctx.drawImage(monsterImage, monster.x, monster.y);
+  }
+  
+  ctx.fillStyle = "rgb(250, 250, 250)";
+  ctx.font = "24px Helvetica";
+  ctx.textAlign = "left";
+  ctx.textBaseline = "top";
+  ctx.fillTest("Monsters caught : " + monstersCaught, 32, 32);
 };
 
+var main = function () {
+  var now = Date.now();
+  var delta = now - then;
+  
+  update(delta / 1000);
+  render();
+  
+  then = now;
+  
+  requestAnimationFrame(main);
+};
 
+var w = window;
+requestAnimationFrame = w.requestAnimationFrame || 
+  w.webkitRequestAnimationFrame || 
+  w.msRequestAnimationFrame || 
+  w.mozRequestAnimationFrame;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var then = Date.now();
+reset();
+main();

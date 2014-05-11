@@ -4,8 +4,8 @@ var canvas = document.getElementById("canvas"),
   width = 512,
   height = 480;
 
-canvas.width = width;
-canvas.height = height;
+canvas.width = 512;
+canvas.height = 480;
 
 // Background Image
 var bgReady = false;

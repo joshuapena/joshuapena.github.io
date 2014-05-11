@@ -4,8 +4,8 @@ var canvas = document.getElementById("canvas"),
   width = 512,
   height = 480;
 
-canvas.width = 512;
-canvas.height = 480;
+canvas.width = width;
+canvas.height = height;
 
 // Background Image
 var bgReady = false;
@@ -58,8 +58,10 @@ var reset = function () {
   hero.x = canvas.width / 2;
   hero.y = canvas.height / 2;
   
-  monster.x = 32 + (Math.random() * (canvas.width - 64));
-  monster.y = 32 + (Math.random() * (canvas.height - 64));
+  monster.x = canvas.width / 2;
+  //32 + (Math.random() * (canvas.width - 64));
+  monster.y = canvas.height / 2;
+  //32 + (Math.random() * (canvas.height - 64));
 };
 
 // Update game objects

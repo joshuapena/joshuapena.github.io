@@ -23,13 +23,13 @@ heroReady.onload = function () {
 };
 heroImage.src = "http://placekitten.com/32/32";
 
-// Enemy Image
-var enemyReady = false;
-var enemyImage = new Image();
-enemyReady.onload = function () {
-  heroReady = true;
+// Monster Image
+var monsterReady = false;
+var monsterImage = new Image();
+monsterReady.onload = function () {
+  monsterReady = true;
 };
-enemyImage.src = "http://placekitten.com/30/32";
+monsterImage.src = "http://placekitten.com/30/32";
 
 // Game objects
 var hero = {

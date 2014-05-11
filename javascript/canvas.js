@@ -21,7 +21,7 @@ var heroImage = new Image();
 heroReady.onload = function () {
   heroReady = true;
 };
-heroImage.src = "http://placekitten.com/32/32";
+heroImage.src = "../image/joshua-sprite-idle.png";
 
 // Monster Image
 var monsterReady = false;

@@ -128,7 +128,7 @@ var main = function () {
   
   update(delta / 1000);
   if (countDown >= 5000) {
-    countDown = 0;
+    thenSwitch = nowSwitch;
   }
   render();
   

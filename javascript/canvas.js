@@ -17,7 +17,7 @@ bgImage.src = "http://placekitten.com/512/480";
 // Hero Image
 var heroReady = false;
 var heroImage = new Image();
-heroReady.onload = function () {
+heroImage.onload = function () {
   heroReady = true;
 };
 heroImage.src = "http://placekitten.com/32/32";
@@ -25,7 +25,7 @@ heroImage.src = "http://placekitten.com/32/32";
 // Monster Image
 var monsterReady = false;
 var monsterImage = new Image();
-monsterReady.onload = function () {
+monsterImage.onload = function () {
   monsterReady = true;
 };
 monsterImage.src = "http://placekitten.com/30/32";

@@ -77,6 +77,19 @@ var update = function (modifier) {
     hero.x += hero.speed * modifier;
   }
   
+  // Stop from going off the page
+  if (hero.x >= canvas.width) {
+    hero.x = canvas.width;
+  } else if (hero.x <= 0) {
+    hero.x = 0;
+  }
+  
+  if (hero.y >= canvas.height) {
+    hero.y = canvas.height;
+  } else if (hero.y <= 0) {
+    hero.y = 0;
+  }
+  
   // Collision
   if (hero.x <= (monster.x + 32) && monster.x <= (hero.x + 32) && hero.y <= (monster.y + 32) && monster.y <= (hero.y + 32)) {
     ++monstersCaught;

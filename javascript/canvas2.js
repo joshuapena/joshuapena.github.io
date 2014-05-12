@@ -60,6 +60,8 @@ var reset = function () {
   
   monster.x = 32 + (Math.random() * (canvas.width - 64));
   monster.y = 32 + (Math.random() * (canvas.height - 64));
+  
+  thenSwitch = nowSwitch;
 };
 
 // Update game objects
@@ -128,7 +130,6 @@ var main = function () {
   
   update(delta / 1000);
   if (countDown >= 2500) {
-    thenSwitch = nowSwitch;
     reset();
   }
   render();

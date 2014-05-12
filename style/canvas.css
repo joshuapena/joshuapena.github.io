@@ -43,6 +43,7 @@ h1 {
 
 #start, #restart {
   position: absolute;
+  text-align: center;
   width: 50px;
 }
 

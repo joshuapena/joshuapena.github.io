@@ -58,10 +58,8 @@ var reset = function () {
   hero.x = canvas.width / 2;
   hero.y = canvas.height / 2;
   
-  monster.x = canvas.width / 2 + 33;
-  //32 + (Math.random() * (canvas.width - 64));
-  monster.y = canvas.height / 2 + 33;
-  //32 + (Math.random() * (canvas.height - 64));
+  monster.x = 32 + (Math.random() * (canvas.width - 64));
+  monster.y = 32 + (Math.random() * (canvas.height - 64));
 };
 
 // Update game objects
@@ -104,7 +102,7 @@ var render = function () {
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText(hero.x + ", " + hero.y + ", " + monster.x + ", " + monster.y, 32, 32);
+  ctx.fillText("Monsters caught : " + monstersCaught, 32, 32);
 };
 
 var main = function () {

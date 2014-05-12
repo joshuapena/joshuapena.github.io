@@ -13,14 +13,14 @@ var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
-bgImage.src = "http://placekitten.com/512/480";
+bgImage.src = "http://placepuppy.it/512/480";
 // Hero Image
 var heroReady = false;
 var heroImage = new Image();
 heroImage.onload = function () {
   heroReady = true;
 };
-heroImage.src = "http://placekitten.com/32/32";
+heroImage.src = "http://placepuppy.it/32/32";
 
 // Monster Image
 var monsterReady = false;
@@ -28,7 +28,7 @@ var monsterImage = new Image();
 monsterImage.onload = function () {
   monsterReady = true;
 };
-monsterImage.src = "http://placekitten.com/30/32";
+monsterImage.src = "http://placepuppy.it/30/32";
 
 // Game objects
 var hero = {

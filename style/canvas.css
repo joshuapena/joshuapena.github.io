@@ -35,3 +35,19 @@ h1 {
 #canvas {
   border: 1px solid black;
 }
+
+#container {
+  position: relative;
+}
+
+#start, #restart {
+  position: absolute;
+}
+
+#start {
+  left: 0px;
+}
+
+#restart {
+  left: 100px;
+}

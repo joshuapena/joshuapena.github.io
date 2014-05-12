@@ -28,6 +28,11 @@ h1 {
   font-weight: 700;
 }
 
+#container {
+  position: relative;
+}
+
+
 #start, #restart {
   position: absolute;
 }
@@ -46,8 +51,4 @@ h1 {
 
 #canvas {
   border: 1px solid black;
-}
-
-#container {
-  position: relative;
 }

@@ -48,6 +48,7 @@ var keysDown = {};
 
 addEventListener("keydown", function (e) {
   keysDown[e.keyCode] = true;
+  e.preventDefault();
 }, false);
 
 addEventListener("keyup", function (e) {

@@ -124,7 +124,7 @@ var main = function () {
   var delta = now - then;
   
   var nowSwitch = Date.now();
-  var countdown = nowSwitch - thenSwitch;
+  var countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
   render();

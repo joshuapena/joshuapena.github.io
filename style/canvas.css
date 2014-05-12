@@ -35,22 +35,3 @@ h1 {
 #canvas {
   border: 1px solid black;
 }
-#container {
-  position: relative;
-  width: 300px;
-}
-
-
-#start, #restart {
-  position: relative;
-  text-align: center;
-  width: 50px;
-}
-
-#start {
-  left: 0px;
-}
-
-#restart {
-  left: 100px;
-}

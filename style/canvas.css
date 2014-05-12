@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 
 body {
   font-size: 16pt;
@@ -6,6 +6,10 @@ body {
   color: #333;
   font-family: "Ubuntu Mono";
   font-weight: 400;
+}
+
+h1 {
+  font-weight: 700;
 }
 
 #canvas {

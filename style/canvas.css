@@ -28,18 +28,6 @@ h1 {
   font-weight: 700;
 }
 
-#canvasContainer {
-  text-align: center;
-}
-
-#canvas {
-  border: 1px solid black;
-}
-
-#container {
-  position: relative;
-}
-
 #start, #restart {
   position: absolute;
 }
@@ -50,4 +38,16 @@ h1 {
 
 #restart {
   left: 100px;
+}
+
+#canvasContainer {
+  text-align: center;
+}
+
+#canvas {
+  border: 1px solid black;
+}
+
+#container {
+  position: relative;
 }

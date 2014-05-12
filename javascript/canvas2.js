@@ -22,13 +22,13 @@ heroImage.onload = function () {
 };
 heroImage.src = "http://placekitten.com/32/32";
 
-// Monster Image
-var monsterReady = false;
-var monsterImage = new Image();
-monsterImage.onload = function () {
-  monsterReady = true;
+// Kitty Image
+var kittyReady = false;
+var kittyImage = new Image();
+kittyImage.onload = function () {
+  kittyReady = true;
 };
-monsterImage.src = "http://placekitten.com/30/32";
+kittyImage.src = "http://placekitten.com/30/32";
 
 // Game objects
 var hero = {
@@ -37,11 +37,11 @@ var hero = {
   y: 0
 };
 
-var monster = {
+var kitty = {
   x: 0,
   y: 0
 };
-var monstersCaught = 0;
+var kittyCaught = 0;
 
 // Handle keyboard controls
 var keysDown = {};
@@ -58,8 +58,8 @@ var reset = function () {
   hero.x = (canvas.width / 2) - 16;
   hero.y = (canvas.height / 2) - 16;
   
-  monster.x = 32 + (Math.random() * (canvas.width - 64));
-  monster.y = 32 + (Math.random() * (canvas.height - 64));
+  kitty.x = 32 + (Math.random() * (canvas.width - 64));
+  kitty.y = 32 + (Math.random() * (canvas.height - 64));
 };
 
 // Update game objects
@@ -91,8 +91,8 @@ var update = function (modifier) {
   }
   
   // Collision
-  if (hero.x <= (monster.x + 32) && monster.x <= (hero.x + 32) && hero.y <= (monster.y + 32) && monster.y <= (hero.y + 32)) {
-    ++monstersCaught;
+  if (hero.x <= (kitty.x + 32) && kitty.x <= (hero.x + 32) && hero.y <= (kitty.y + 32) && kitty.y <= (hero.y + 32)) {
+    ++kittyCaught;
     reset();
     thenSwitch = nowSwitch;
   }
@@ -108,15 +108,15 @@ var render = function () {
     ctx.drawImage(heroImage, hero.x, hero.y);
   }
   
-  if (monsterReady) {
-    ctx.drawImage(monsterImage, monster.x, monster.y);
+  if (kittyReady) {
+    ctx.drawImage(kittyImage, kitty.x, kitty.y);
   }
   
   ctx.fillStyle = "rgb(250, 250, 250)";
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Kitties caught : " + monstersCaught + ".         Timer : " + parseInt(countDown / 100), 32, 32);
+  ctx.fillText("Kitties caught : " + kittyCaught + ".         Timer : " + parseInt(countDown / 100), 32, 32);
 };
 
 var main = function () {

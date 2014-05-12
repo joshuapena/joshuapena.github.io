@@ -143,8 +143,14 @@ var main = function () {
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
-var then = Date.now(), nowSwitch = Date.now();
-var thenSwitch = Date.now();
+// Initalized Variables
+var then, thenSwitch, nowSwitch;
 var countDown = 0;
-reset();
-main();
+
+var start = function() {
+  then = thenSwitch = nowSwitch = Date.now();
+  reset();
+  main();
+}
+
+start();

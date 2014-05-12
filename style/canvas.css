@@ -12,6 +12,10 @@ h1 {
   font-weight: 700;
 }
 
+#canvasContainer {
+  text-align: center;
+}
+
 #canvas {
   border: 1px solid black;
 }

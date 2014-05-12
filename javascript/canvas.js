@@ -84,8 +84,8 @@ var update = function (modifier) {
     hero.x = 0;
   }
   
-  if (hero.y >= canvas.height) {
-    hero.y = canvas.height;
+  if (hero.y >= canvas.height - 32) {
+    hero.y = canvas.height - 32;
   } else if (hero.y <= 0) {
     hero.y = 0;
   }

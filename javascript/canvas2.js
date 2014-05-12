@@ -116,11 +116,15 @@ var render = function () {
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText("Monsters caught : " + monstersCaught, 32, 32);
+  ctx.fillText("Seconds Up : " + countDown, 32, 32);
 };
 
 var main = function () {
   var now = Date.now();
   var delta = now - then;
+  
+  var nowSwitch = Date.now();
+  var countdown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
   render();
@@ -134,5 +138,6 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 var then = Date.now();
+var thenSwitch = Date.now();
 reset();
 main();

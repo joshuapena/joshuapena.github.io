@@ -4,6 +4,7 @@ var canvas = document.getElementById("canvas"),
   width = 512,
   height = 480;
 
+canvas.tabIndex = 1;
 canvas.width = width;
 canvas.height = height;
 

@@ -122,7 +122,7 @@ var render = function () {
 };
 
 var main = function () {
-  var now = Date.now();
+  now = Date.now();
   var delta = now - then;
   
   var nowSwitch = Date.now();
@@ -142,7 +142,7 @@ var main = function () {
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
-var then = Date.now();
+var then = Date.now(), now = Date.now();
 var thenSwitch = Date.now();
 var countDown = 0;
 reset();

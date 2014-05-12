@@ -94,6 +94,7 @@ var update = function (modifier) {
   if (hero.x <= (monster.x + 32) && monster.x <= (hero.x + 32) && hero.y <= (monster.y + 32) && monster.y <= (hero.y + 32)) {
     ++monstersCaught;
     reset();
+    thenSwitch = nowSwitch;
   }
 };
 

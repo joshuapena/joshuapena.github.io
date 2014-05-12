@@ -128,7 +128,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 2000) {
+  if (countDown >= 1300) {
     thenSwitch = nowSwitch;
     reset();
   }

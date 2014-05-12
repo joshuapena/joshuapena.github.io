@@ -116,7 +116,7 @@ var render = function () {
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText("Monsters caught : " + monstersCaught, 32, 32);
-  ctx.fillText("Seconds Up : " + countDown, 32, 32);
+  //ctx.fillText("Seconds Up : " + countDown, 32, 32);
 };
 
 var main = function () {

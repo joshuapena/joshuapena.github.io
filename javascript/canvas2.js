@@ -142,7 +142,7 @@ var main = function () {
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
-var then = Date.now(), now = Date.now();
+var then = Date.now(), nowSwitch = Date.now();
 var thenSwitch = Date.now();
 var countDown = 0;
 reset();

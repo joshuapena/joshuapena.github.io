@@ -78,8 +78,8 @@ var update = function (modifier) {
   }
   
   // Stop from going off the page
-  if (hero.x >= canvas.width) {
-    hero.x = canvas.width;
+  if (hero.x >= canvas.width - 32) {
+    hero.x = canvas.width - 32;
   } else if (hero.x <= 0) {
     hero.x = 0;
   }

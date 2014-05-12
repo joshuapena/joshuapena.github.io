@@ -114,7 +114,7 @@ var render = function () {
     ctx.drawImage(kittyImage, kitty.x, kitty.y);
   }
   
-  ctx.fillStyle = "rgb(0, 0, 0)";
+  ctx.fillStyle = "#EEE";
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";

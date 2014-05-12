@@ -124,7 +124,7 @@ var main = function () {
   var delta = now - then;
   
   var nowSwitch = Date.now();
-  var countDown = nowSwitch - thenSwitch;
+  countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
   render();
@@ -139,5 +139,6 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 var then = Date.now();
 var thenSwitch = Date.now();
+var countDown = 0;
 reset();
 main();

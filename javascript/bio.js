@@ -17,7 +17,7 @@ function enterPage() {
 
 $("#mePhoto").click(function() {
 	if (!realPhoto) {
-		$("#mePhoto").attr("src", "image/frame.jpg");
+		$("#mePhoto").attr("src", "image/jpg/frame.jpg");
 		if (photoClicked < 1) {
 			$("#myPhotoText").html("Another Picture of Me");
 			photoClicked++;
@@ -26,7 +26,7 @@ $("#mePhoto").click(function() {
 		}
 		realPhoto = true;
 	} else {
-		$("#mePhoto").attr("src", "image/stickFigure.jpg");
+		$("#mePhoto").attr("src", "image/jpg/stickFigure.jpg");
 		if (photoClicked < 2) {
 			$("#myPhotoText").html("And Another");
 			photoClicked++;

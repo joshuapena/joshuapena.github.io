@@ -134,6 +134,7 @@ var main = function () {
   
   update(delta / 1000);
   if (countDown >= 900) {
+    lives--;
     thenSwitch = nowSwitch;
     reset();
   }

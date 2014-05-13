@@ -118,7 +118,7 @@ var render = function () {
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Kitties caught : " + kittyCaught + ".         Timer : " + parseInt(countDown / 100), 32, 32);
+  ctx.fillText("Kitties caught : " + kittyCaught + ".         Lives : " + lives, 32, 32);
 };
 
 var gameOver = function () {

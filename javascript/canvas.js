@@ -21,7 +21,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
   heroReady = true;
 };
-heroImage.src = "http://placekitten.com/32/32";
+heroImage.src = "http://placepuppy.it/32/32";
 
 // Kitty Image
 var kittyReady = false;

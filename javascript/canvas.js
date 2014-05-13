@@ -14,14 +14,14 @@ var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
-bgImage.src = "http://placekitten.com//512/480";
+bgImage.src = "http://placekitten.com/512/480";
 // Hero Image
 var heroReady = false;
 var heroImage = new Image();
 heroImage.onload = function () {
   heroReady = true;
 };
-heroImage.src = "http://placepuppy.it/32/32";
+heroImage.src = "http://placekitten.com/32/32";
 
 // Kitty Image
 var kittyReady = false;
@@ -129,7 +129,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 1000) {
+  if (countDown >= 950) {
     thenSwitch = nowSwitch;
     reset();
   }

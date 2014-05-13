@@ -122,7 +122,7 @@ var render = function () {
 };
 
 var gameOver = function () {
-  
+  document.write("Game Over. Kitties only have nine lives.");
 };
 
 var main = function () {
@@ -136,7 +136,7 @@ var main = function () {
   if (countDown >= 975) {
     lives--;
     if (lives ==  0) {
-      document.write("Game Over. Kitties only have nine lives.");
+      gameOver();
     }
     thenSwitch = nowSwitch;
     reset();

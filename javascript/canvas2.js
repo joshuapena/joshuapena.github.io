@@ -118,7 +118,7 @@ var render = function () {
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Kitties caught : " + kittyCaught + ".         Lives : " + lives, 32, 32);
+  ctx.fillText("Kitties caught : " + kittyCaught + "             Lives : " + lives, 32, 32);
 };
 
 var gameOver = function () {
@@ -133,10 +133,10 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 900) {
+  if (countDown >= 975) {
     lives--;
     if (lives ==  0) {
-      document.write("Game Over");
+      document.write("Game Over. Kitties only have nine lives.");
     }
     thenSwitch = nowSwitch;
     reset();

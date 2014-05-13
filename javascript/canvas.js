@@ -121,6 +121,10 @@ var render = function () {
   ctx.fillText("Kitties caught : " + kittyCaught + ".         Timer : " + parseInt(countDown / 100), 32, 32);
 };
 
+var gameOver = function () {
+  
+};
+
 var main = function () {
   now = Date.now();
   var delta = now - then;

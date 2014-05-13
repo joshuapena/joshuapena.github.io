@@ -57,8 +57,8 @@ addEventListener("keyup", function (e) {
 }, false);
 
 var reset = function () {
-  hero.x = (canvas.width / 2) - 16;
-  hero.y = (canvas.height / 2) - 16;
+  //hero.x = (canvas.width / 2) - 16;
+  //hero.y = (canvas.height / 2) - 16;
   
   kitty.x = 32 + (Math.random() * (canvas.width - 64));
   kitty.y = 32 + (Math.random() * (canvas.height - 64));
@@ -129,7 +129,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 950) {
+  if (countDown >= 900) {
     thenSwitch = nowSwitch;
     reset();
   }
@@ -150,6 +150,8 @@ var countDown = 0;
 var start = function() {
   then = thenSwitch = nowSwitch = Date.now();
   reset();
+  hero.x = (canvas.width / 2) - 16;
+  hero.y = (canvas.height / 2) - 16;
   main();
 }
 

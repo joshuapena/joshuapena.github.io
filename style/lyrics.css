@@ -14,7 +14,7 @@ h1 {
   font-weight: 700;
 }
 
-.id="titleButton" {
+#titleButton {
 	-moz-box-shadow:inset 0px 0px 16px 3px #2b3285;
 	-webkit-box-shadow:inset 0px 0px 16px 3px #2b3285;
 	box-shadow:inset 0px 0px 16px 3px #2b3285;
@@ -25,16 +25,14 @@ h1 {
 	border:1px solid #1f2f47;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
 	font-size:16px;
 	padding:6px 24px;
 	text-decoration:none;
 }
-.id="titleButton":hover {
+#titleButton:hover {
 	background-color:#382d66;
 }
-.id="titleButton":active {
+#titleButton:active {
 	position:relative;
 	top:1px;
 }

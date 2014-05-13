@@ -154,7 +154,7 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Initalized Variables
 var then, thenSwitch, nowSwitch;
 var countDown = 0;
-var lives = 5;
+var lives = 9;
 
 var start = function() {
   then = thenSwitch = nowSwitch = Date.now();

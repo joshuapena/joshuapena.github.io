@@ -135,6 +135,9 @@ var main = function () {
   update(delta / 1000);
   if (countDown >= 900) {
     lives--;
+    if (lives ==  0) {
+      document.write("Game Over");
+    }
     thenSwitch = nowSwitch;
     reset();
   }

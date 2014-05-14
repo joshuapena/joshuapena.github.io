@@ -23,6 +23,7 @@ function idle() {
 	$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
 }
 
+/*
 $(".joshua").click(function() {
 	if (!walk) {
 		walking()
@@ -32,8 +33,8 @@ $(".joshua").click(function() {
 		walk = false
 	}
 });
+*/
 
-/*
 $(document).keydown(function(e) {
 	//var element = $(".joshua");
 	if(e.keyCode == 39) {
@@ -47,4 +48,3 @@ $(document).keyup(function(e) {
 		idle();
 	}
 });
-*/

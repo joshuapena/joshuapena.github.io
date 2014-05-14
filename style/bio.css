@@ -27,7 +27,7 @@ h2 {
 }
 
 #info {
-  opacity: 0;
+  display: none;
 }
 
 #mePhoto {

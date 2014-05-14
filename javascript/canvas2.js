@@ -135,7 +135,7 @@ var main = function () {
   update(delta / 1000);
   if (countDown >= 20000) {
     lives--;
-    if (lives ==  0) {
+    if (lives ==  timer) {
       gameOver();
     }
     thenSwitch = nowSwitch;
@@ -155,6 +155,7 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 var then, thenSwitch, nowSwitch;
 var countDown = 0;
 var lives = 9;
+var timer = 1200;
 
 var start = function() {
   then = thenSwitch = nowSwitch = Date.now();

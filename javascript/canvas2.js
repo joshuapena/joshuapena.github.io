@@ -115,8 +115,8 @@ var render = function () {
   }
   
   ctx.fillStyle = "#EEE";
-  ctx.font = "24px Helvetica";
-  ctx.textAlign = "left";
+  ctx.font = "24px Ubuntu";
+  ctx.textAlign = "center";
   ctx.textBaseline = "top";
   ctx.fillText("Kitties caught : " + kittyCaught + "             Lives : " + lives, 32, 32);
 };

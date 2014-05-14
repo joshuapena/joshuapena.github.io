@@ -37,5 +37,6 @@ h1 {
 }
 
 #startButton {
+  display: block;
   position: absolute;
 }

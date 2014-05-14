@@ -135,7 +135,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 1300) {
+  if (countDown >= 20000) {
     lives--;
     if (lives ==  0) {
       gameOver();
@@ -163,7 +163,7 @@ var start = function() {
   reset();
   countDown = 0;
   lives = 9;
-  kittiesCaught = 0;
+  kittyCaught = 0;
   //hero.x = (canvas.width / 2) - 16;
   //hero.y = (canvas.height / 2) - 16;
   main();

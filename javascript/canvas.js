@@ -134,7 +134,6 @@ var main = function () {
   var nowSwitch = Date.now();
   countDown = nowSwitch - thenSwitch;
   
-  update(delta / 1000);
   if (countDown >= 5000) {
     lives--;
     if (lives ==  0) {
@@ -143,6 +142,9 @@ var main = function () {
     thenSwitch = nowSwitch;
     reset();
   }
+  
+  update(delta / 1000);
+  
   render();
   
   then = now;

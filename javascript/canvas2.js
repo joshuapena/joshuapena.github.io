@@ -95,8 +95,8 @@ var update = function (modifier) {
   // Collision
   if (hero.x <= (kitty.x + 32) && kitty.x <= (hero.x + 32) && hero.y <= (kitty.y + 32) && kitty.y <= (hero.y + 32)) {
     ++kittyCaught;
-    reset();
     thenSwitch = nowSwitch;
+    reset();
   }
 };
 

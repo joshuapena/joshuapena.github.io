@@ -163,6 +163,7 @@ var start = function() {
   reset();
   countDown = 0;
   lives = 9;
+  kittiesCaught = 0;
   //hero.x = (canvas.width / 2) - 16;
   //hero.y = (canvas.height / 2) - 16;
   main();

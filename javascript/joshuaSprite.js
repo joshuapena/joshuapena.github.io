@@ -13,13 +13,13 @@ walk = false
 
 function walking() {
 	$(".joshua").css("width", "80px");
-	$(".joshua").css("background-image", "url(../image/joshua-sprite-walk.png)");
+	$(".joshua").css("background-image", "url(../image/png/joshua-sprite-walk.png)");
 	$(".joshua").css("-webkit-animation-name", "joshua-sprite-walk");
 }
 
 function idle() {
 	$(".joshua").css("width", "88px");
-	$(".joshua").css("background-image", "url(../image/joshua-sprite-idle.png)");
+	$(".joshua").css("background-image", "url(../image/png/joshua-sprite-idle.png)");
 	$(".joshua").css("-webkit-animation-name", "joshua-sprite-idle");
 }
 

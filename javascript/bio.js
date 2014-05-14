@@ -9,7 +9,7 @@ function enterPage() {
 	$("#name").fadeOut();
 	$("#enter").fadeOut();
 	$("#welcome").html("Welcome " + name);
-	$("#info").css("opacity", "1");
+	$("#info").css("display", "inline");
 	$("body").css("background-color", "#EEE");
 	$("#welcome").css("font-size", "16pt");
 	$("#welcome").css("font-family", "Ubuntu Mono");

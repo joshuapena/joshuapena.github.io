@@ -98,6 +98,17 @@ var update = function (modifier) {
     thenSwitch = nowSwitch;
     reset();
   }
+
+  countDown = nowSwitch - thenSwitch;
+  
+  if (countDown >= 5000) {
+    lives--;
+    if (lives ==  0) {
+      gameOver();
+    }
+    thenSwitch = nowSwitch;
+    reset();
+  }
 };
 
 // Render
@@ -132,16 +143,6 @@ var main = function () {
   var delta = now - then;
   
   var nowSwitch = Date.now();
-  countDown = nowSwitch - thenSwitch;
-  
-  if (countDown >= 5000) {
-    lives--;
-    if (lives ==  0) {
-      gameOver();
-    }
-    thenSwitch = nowSwitch;
-    reset();
-  }
   
   update(delta / 1000);
   

@@ -133,7 +133,7 @@ var main = function () {
   
   nowSwitch = Date.now();
   
-  update(delta / 1000);
+  update(delta / 1100);
   
   countDown = nowSwitch - thenSwitch;
   

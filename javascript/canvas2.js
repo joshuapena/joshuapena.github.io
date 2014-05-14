@@ -133,7 +133,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 2000) {
+  if (countDown >= 20000) {
     lives--;
     if (lives ==  0) {
       gameOver();

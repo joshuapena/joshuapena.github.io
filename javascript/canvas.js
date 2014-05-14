@@ -131,7 +131,7 @@ var main = function () {
   now = Date.now();
   var delta = now - then;
   
-  var nowSwitch = Date.now();
+  nowSwitch = Date.now();
   
   update(delta / 1000);
   

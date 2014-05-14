@@ -120,7 +120,7 @@ var render = function () {
   ctx.textBaseline = "top";
   ctx.fillText("Kitties caught : " + kittyCaught, 32, 32);
   ctx.fillText("Lives : " + lives, 365, 32);
-  ctx.fillText("Timer : " + parseInt(countDown / 100), 32, 64);
+  ctx.fillText("Timer : " + parseInt(countDown / 1000), 32, 64);
 };
 
 var gameOver = function () {
@@ -137,7 +137,7 @@ var main = function () {
   
   countDown = nowSwitch - thenSwitch;
   
-  if (countDown >= 50000) {
+  if (countDown >= 1000) {
     lives--;
     if (lives ==  0) {
       gameOver();

@@ -135,7 +135,7 @@ var main = function () {
   countDown = nowSwitch - thenSwitch;
   
   update(delta / 1000);
-  if (countDown >= 1200) {
+  if (countDown >= 5000) {
     lives--;
     if (lives ==  0) {
       gameOver();

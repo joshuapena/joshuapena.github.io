@@ -118,7 +118,9 @@ var render = function () {
   ctx.font = "24px Ubuntu";
   ctx.textAlign = "center";
   ctx.textBaseline = "top";
-  ctx.fillText("Kitties caught : " + kittyCaught + "             Lives : " + lives, 32, 32);
+  ctx.fillText("Kitties caught : " + kittyCaught, 32, 32);
+  ctx.fillText("Lives : " + lives, 100, 100);
+  ctx.fillText("Timer : " + parseInt(countDown / 100), 200, 200);
 };
 
 var gameOver = function () {

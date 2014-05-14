@@ -155,12 +155,14 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 // Initalized Variables
 var then, thenSwitch, nowSwitch;
-var countDown = 0;
-var lives = 9;
+var countDown;
+var lives;
 
 var start = function() {
   then = thenSwitch = nowSwitch = Date.now();
   reset();
+  countDown = 0;
+  lives = 9;
   //hero.x = (canvas.width / 2) - 16;
   //hero.y = (canvas.height / 2) - 16;
   main();

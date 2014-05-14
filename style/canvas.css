@@ -36,6 +36,6 @@ h1 {
   border: 1px solid black;
 }
 
-#buttonContainer {
-  text-align: center;
+#startButton {;
+  display: block;
 }

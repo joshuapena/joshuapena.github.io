@@ -124,7 +124,7 @@ var render = function () {
 };
 
 var gameOver = function () {
-  document.write("Game Over. Kitties only have nine lives. You caught" + kittyCaught + "kitties.");
+  document.write("Game Over. Kitties only have nine lives. You caught " + kittyCaught + " kitties.");
 };
 
 var main = function () {

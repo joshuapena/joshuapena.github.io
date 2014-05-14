@@ -120,7 +120,7 @@ var render = function () {
   ctx.textBaseline = "top";
   ctx.fillText("Kitties caught : " + kittyCaught, 32, 32);
   ctx.fillText("Lives : " + lives, 350, 32);
-  ctx.fillText("Timer : " + parseInt(countDown / 100), 200, 200);
+  ctx.fillText("Timer : " + parseInt(countDown / 100), 32, 64);
 };
 
 var gameOver = function () {

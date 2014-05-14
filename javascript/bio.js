@@ -15,6 +15,10 @@ function enterPage() {
 	$("#welcome").css("font-family", "Ubuntu Mono");
 }
 
+function collatzConjecture() {
+	alert("hi");
+};
+
 $("#mePhoto").click(function() {
 	if (!realPhoto) {
 		$("#mePhoto").attr("src", "image/jpg/frame.jpg");

@@ -116,7 +116,7 @@ var render = function () {
   
   ctx.fillStyle = "#EEE";
   ctx.font = "24px Ubuntu";
-  ctx.textAlign = "center";
+  ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText("Kitties caught : " + kittyCaught, 32, 32);
   ctx.fillText("Lives : " + lives, 100, 100);

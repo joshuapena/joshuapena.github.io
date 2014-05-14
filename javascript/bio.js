@@ -16,7 +16,8 @@ function enterPage() {
 }
 
 function collatzConjecture() {
-	alert("hi");
+	x = parseInt($("#collatzInital").value);
+	alert(x);
 };
 
 $("#mePhoto").click(function() {

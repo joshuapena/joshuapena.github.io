@@ -9,7 +9,6 @@ function enterPage() {
 	$("#name").fadeOut();
 	$("#enter").fadeOut();
 	$("#welcome").html("Welcome " + name);
-	//$("#info").css("display", "inline");
 	$("#info").fadeIn();
 	$("body").css("background-color", "#EEE");
 	$("#welcome").css("font-size", "16pt");

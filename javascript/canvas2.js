@@ -119,7 +119,7 @@ var render = function () {
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
   ctx.fillText("Kitties caught : " + kittyCaught, 32, 32);
-  ctx.fillText("Lives : " + lives, 300, 32);
+  ctx.fillText("Lives : " + lives, 350, 32);
   ctx.fillText("Timer : " + parseInt(countDown / 100), 200, 200);
 };
 

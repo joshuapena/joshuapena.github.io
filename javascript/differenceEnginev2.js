@@ -83,11 +83,11 @@ $('#add8').click(function() {
 
 // Add row to row
 $('#clear').click(function() {
+  /*
   document.write("foo)";
   for (var i = 0; i < 6; i++) {
     $("#num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
   }
-  /*
   for (i = 6; i > -1; i--) {
     for (var j = 6; j > -1; j--) {
       document.getElementById("num" + j + (i + 1)).value = 

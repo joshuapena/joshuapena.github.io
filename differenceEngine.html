@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Difference Engine Input</title>
+		<link rel="stylesheet" type="text/css" href="style/differenceEngineInput.css">
+	</head>
+  <body>
+    <div id="container">
+      <div id='add'>
+        <p id="clear">Crank</p>
+        <p id="add1" class="switch">Add '1'</p>
+        <p id="add2" class="switch">Add '1'</p>
+        <p id="add3" class="switch">Add '1'</p>
+        <p id="add4" class="switch">Add '1'</p>
+        <p id="add5" class="switch">Add '1'</p>
+        <p id="add6" class="switch">Add '1'</p>
+        <p id="add7" class="switch">Add '1'</p>
+        <p id="add8" class="switch">Add '1'</p>
+      </div>
+      <div id='value'>
+        <p id="title1" class="header">x</p>
+        <p class="digit">1</p>
+        <p class="digit">2</p>
+        <p class="digit">3</p>
+        <p class="digit">4</p>
+        <p class="digit">5</p>
+        <p class="digit">6</p>
+        <p class="digit">7</p>
+        <p class="digit">8</p>
+      </div>
+      <div id='result'>
+        <p id="title2" class="header">R</p>
+        <input id="num00" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num01" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num02" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num03" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num04" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num05" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num06" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num07" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff1'>
+        <p id="title3" class="header">Diff 1</p>
+        <input id="num10" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num11" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num12" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num13" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num14" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num15" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num16" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num17" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff2'>
+        <p id="title4" class="header">Diff 2</p>
+        <input id="num20" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num21" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num22" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num23" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num24" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num25" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num26" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num27" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff3'>
+        <p id="title5" class="header">Diff 3</p>
+        <input id="num30" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num31" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num32" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num33" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num34" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num35" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num36" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num37" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff4'>
+        <p id="title6" class="header">Diff 4</p>
+        <input id="num40" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num41" class="display"
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num42" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num43" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num44" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num45" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num46" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num47" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff5'>
+        <p id="title7" class="header">Diff 5</p>
+        <input id="num50" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num51" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num52" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num53" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num54" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num55" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num56" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num57" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+      <div id='diff6'>
+        <p id="title8" class="header">Diff 6</p>
+        <input id="num60" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num61" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num62" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num63" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num64" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num65" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num66" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+        <input id="num67" class="display" 
+               maxlength="1" onkeypress="return isNumberKey(event)" />
+      </div>
+    </div>
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/differenceEngineInput.js"></script>
+  </body>
+</html>

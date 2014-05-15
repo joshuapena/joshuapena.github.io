@@ -84,8 +84,8 @@ $('#add8').click(function() {
 // Add row to row
 $('#clear').click(function() {
   //document.getElementById("num61").value = 5;
-  for (var i = 1; i < 7; i++) {
-    document.getElementById("num6" + i).value =
+  for (var i = 0; i < 7; i++) {
+    document.getElementById("num6" + (i + 1)).value =
       parseInt(document.getElementById("num6" + (i + 1)).value) + 
       parseInt(document.getElementById("num6" + i).value);
     //document.getElementById("num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;

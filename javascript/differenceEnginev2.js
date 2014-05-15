@@ -84,6 +84,10 @@ $('#add8').click(function() {
 // Add row to row
 $('#clear').click(function() {
   for (var i = 6; i > -1; i--) {
+    $("#num" + 6 + i).value = $("#num" + 6 + (i + 1)).value;
+  }
+  /*
+  for (i = 6; i > -1; i--) {
     for (var j = 6; j > -1; j--) {
       document.getElementById("num" + j + (i + 1)).value = 
         parseInt(document.getElementById("num" + j + (i + 1)).value) + 
@@ -91,6 +95,7 @@ $('#clear').click(function() {
       updateNumbers();
     }
   }
+  */
 });
 
 

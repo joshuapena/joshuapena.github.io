@@ -93,7 +93,7 @@ $('#clear').click(function() {
     //document.getElementById("num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
   }
   for (i = 0; i < 6; i++) {
-    for (var j = 0; j < 8; j++) {
+    for (var j = 0; j < 7; j++) {
       document.getElementById("num" + j + i).value = i;
       //document.getElementById("num" + j + (i + 1)).value = 
       //  parseInt(document.getElementById("num" + j + (i + 1)).value) + 

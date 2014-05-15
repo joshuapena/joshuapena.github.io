@@ -94,7 +94,7 @@ $('#clear').click(function() {
   }
   for (i = 0; i < 7; i++) {
     for (var j = 0; j < 6; j++) {
-      document.getElementById("num" + j + (i + 1).value = 
+      document.getElementById("num" + j + (i + 1)).value = 
         parseInt(document.getElementById("num" + j + (i + 1)).value) + 
         parseInt(document.getElementById("num" + j + i).value);
       //document.getElementById("num" + j + (i + 1)).value = 

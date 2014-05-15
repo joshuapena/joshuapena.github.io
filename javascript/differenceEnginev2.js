@@ -85,7 +85,7 @@ $('#add8').click(function() {
 $('#clear').click(function() {
   //document.getElementById("num61").value = 5;
   for (var i = 0; i < 6; i++) {
-    document.getElementById("num" + 0 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
+    document.getElementById("num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
   }
   /*
   for (i = 6; i > -1; i--) {

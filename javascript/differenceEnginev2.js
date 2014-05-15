@@ -25,11 +25,13 @@ function updateNumbers() {
   for (var i = 7; i > -1; i--) {
     for (var j = 6; j > 0; j--) {
       x[j][i] = parseInt(document.getElementById("num" + j + i).value);
+      /*
       if (x[j][i] >= 10) {
         x[j - 1][i] = parseInt(document.getElementById("num" + (j - 1) + i).value);
         x[j][i] = x[j][i] % 10;
         document.getElementById("num" + (j - 1) + i).value = x[j - 1][i] + 1;
       }
+      */
       document.getElementById("num" + j + i).value = x[j][i];
     }
     x[0][i] = parseInt(document.getElementById("num0" + i).value);

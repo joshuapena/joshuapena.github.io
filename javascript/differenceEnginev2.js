@@ -83,7 +83,7 @@ $('#add8').click(function() {
 
 // Add row to row
 $('#clear').click(function() {
-  alert("hi");
+  $("#num01").value = 5;
   /*
   document.write("foo)";
   for (var i = 0; i < 6; i++) {

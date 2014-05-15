@@ -18,8 +18,8 @@ function enterPage() {
 function collatzConjecture() {
 	var x = $("#collatzInital").value;
 	//x = 23;
-	//alert(x);
-	//$("#output").html(x);
+	alert(x);
+	$("#output").html(x);
 };
 
 $("#mePhoto").click(function() {

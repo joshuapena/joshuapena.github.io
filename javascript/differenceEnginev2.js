@@ -88,7 +88,7 @@ $('#clear').click(function() {
     document.getElementById("num6" + i).value =
       parseInt(document.getElementById("num6" + (i + 1)).value) + 
       parseInt(document.getElementById("num6" + i).value);
-    document.getElementById("num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
+    //document.getElementById("num" + 6 + i).value = 5; //$("#num" + 6 + (i + 1)).value;
   }
   /*
   for (i = 6; i > -1; i--) {

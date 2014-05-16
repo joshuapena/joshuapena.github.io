@@ -97,9 +97,7 @@ $('#clear').click(function() {
       document.getElementById("num" + (j - 1) + i).value = 
         parseInt(document.getElementById("num" + (j - 1) + i).value) + 
         parseInt(document.getElementById("num" + j + i).value);
-      //document.getElementById("num" + j + (i + 1)).value = 
-      //  parseInt(document.getElementById("num" + j + (i + 1)).value) + 
-      //  parseInt(document.getElementById("num" + j + i).value);
+      $("#clear").css("visibility", "hidden");
       updateNumbers();
     }
   }

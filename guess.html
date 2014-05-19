@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Guess</title>
+	</head>
+	<body>
+		<script>
+			var number = Math.floor(Math.random() * 10) + 1;
+			var guess = prompt("Guess A Number. You only get 10 guesses.");
+			var numGuess = 9;
+			do {
+				if (guess > number) {
+					alert("Too High. " + numGuess + " more guesses.");
+					guess = prompt("Guess Again");
+					numGuess--;
+				} else {
+					alert("Too Low. " + numGuess + " more guesses.");
+					guess = prompt("Guess Again");
+					numGuess--;
+				}
+			} while (guess != number && numGuess != 0);
+			if (guess == number) {
+					alert("Correct");
+			} else {
+				alert("You lose");
+			}
+		</script>
+	</body>
+</html>

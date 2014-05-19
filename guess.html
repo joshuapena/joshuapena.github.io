@@ -6,18 +6,15 @@
 		<script>
 			var number = Math.floor(Math.random() * 10) + 1;
 			var guess = prompt("Guess A Number. You only get 10 guesses.");
-			var numGuess = 9;
-			do {
+			for (var numGuess = 9; guess != number && numGuess != 0; numGuess--) {
 				if (guess > number) {
 					alert("Too High. " + numGuess + " more guesses.");
 					guess = prompt("Guess Again");
-					numGuess--;
-				} else {
+				} else if (guess < number) {
 					alert("Too Low. " + numGuess + " more guesses.");
 					guess = prompt("Guess Again");
-					numGuess--;
 				}
-			} while (guess != number && numGuess != 0);
+			};
 			if (guess == number) {
 					alert("Correct");
 			} else {

@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,700italic);
+
+body {
+  font-family: "Ubuntu Mono";
+  background-color: #04022E;
+  color: #888;
+  font-size: 16pt;
+  line-heigt: 1.4;
+  font-weight: 400;
+  margin: 2em;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+#titleButton {
+	-moz-box-shadow:inset 0px 0px 16px 3px #2b3285;
+	-webkit-box-shadow:inset 0px 0px 16px 3px #2b3285;
+	box-shadow:inset 0px 0px 16px 3px #2b3285;
+	background-color:#3d3166;
+	-moz-border-radius:11px;
+	-webkit-border-radius:11px;
+	border-radius:11px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	font-size:16px;
+	padding:6px 24px;
+	text-decoration:none;
+}
+#titleButton:hover {
+	background-color:#382d66;
+}
+#titleButton:active {
+	position:relative;
+	top:1px;
+}

@@ -6,20 +6,24 @@
 		<script>
 			var number = Math.floor(Math.random() * 10) + 1;
 			var guess = prompt("Guess A Number. You only get 10 guesses.");
-			for (var numGuess = 9; guess != number && numGuess != 0; numGuess--) {
+			var numGuess = 10;
+			for (var round = 0; round < 10; round++) {
+				numGuess--;
 				if (guess > number) {
 					alert("Too High. " + numGuess + " more guesses.");
 					guess = prompt("Guess Again");
 				} else if (guess < number) {
 					alert("Too Low. " + numGuess + " more guesses.");
 					guess = prompt("Guess Again");
+				} else if (guess == number) {
+					alert("Correct");
+					break;
+				} 
+				if (numGuess == 1) {
+					alert("You lose");
+					break;
 				}
 			};
-			if (guess == number) {
-					alert("Correct");
-			} else {
-				alert("You lose");
-			}
 		</script>
 	</body>
 </html>

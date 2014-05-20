@@ -31,13 +31,18 @@
 				<hr />
 				
 				<h2>Collatz Conjecture</h2>
-				<input id="collatzInital" type="number" />
-				<input type="button" onclick="collatzConjecture()" value="Start" />
-				<p id="output">Test</p>
+				<input id="collatzInital" onkeypress="return isNumberKey(event)" />
+				<input type="button" onclick="collatzPrint()" value="Start" />
+				<p id="outputCollatz">Test</p>
 				
 				<hr />
 				
-				<h1>Games</h1>
+				<h2>Games</h2>
+				<h3>Number Guessing Game</h3>
+				<h4>Guess A Number. You only get 10 guesses.</h4>
+				<input id="guessInput" onkeypress="return isNumberKey(event)" />
+				<input type="button" id="guessEnter" onclick="guessGame()" value="Guess" />
+				<p id="guessAnswer"></p>
 				<p><a href="guess.html">Number Guessing Game</a></p>
 				
 				<hr />

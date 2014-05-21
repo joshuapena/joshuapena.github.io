@@ -9,20 +9,20 @@ canvas.width = width;
 canvas.height = height;
 var state = "idle";
 
-this.idleSprite = new Image();
-this.idleSprite.src = "../image/png/joshua-sprite-idle.png";
-this.idleSprite.frameWidth = 28;
-this.idleSprite.frameHeight = 40;
-this.idleSprite.frames = 12;
-this.idleSprite.frameCount = 0;
+idleSprite = new Image();
+idleSprite.src = "../image/png/joshua-sprite-idle.png";
+idleSprite.frameWidth = 28;
+idleSprite.frameHeight = 40;
+idleSprite.frames = 12;
+idleSprite.frameCount = 0;
 
 this.draw = function() {
-  if (this.state == "idle") {
-    ctx.drawImage(this.idleSprite, this.idleSprite.frameWidth * this.idleSprite.frameCount, 0, this.idleSprite.frameWidth, this.idleSprite.frameHeight, this.xpos, this.ypos, this.idleSprite.frameWidth, this.idleSprite.frameHeight);
-    if (this.idleSprite.frameCount < this.idleSprite.frame - 1) {
-      this.idleSprite.frameCount++;
+  if (state == "idle") {
+    ctx.drawImage(idleSprite, idleSprite.frameWidth * idleSprite.frameCount, 0, idleSprite.frameWidth, idleSprite.frameHeight, xpos, ypos, idleSprite.frameWidth, idleSprite.frameHeight);
+    if (idleSprite.frameCount < idleSprite.frame - 1) {
+      idleSprite.frameCount++;
     } else {
-      this.idleSprite.frameCount = 0;
+      idleSprite.frameCount = 0;
     }
   }
 }

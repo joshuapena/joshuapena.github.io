@@ -9,11 +9,11 @@ canvas.width = width;
 canvas.height = height;
 var state = "idle";
 
-idleSprite = new Image();
+var idleSprite = new Image();
 idleSprite.src = "../image/png/joshua-sprite-idle.png";
 idleSprite.frameWidth = 28;
 idleSprite.frameHeight = 40;
-idleSprite.frames = 12;
+idleSprite.frames = 2;
 idleSprite.frameCount = 0;
 
 this.draw = function() {

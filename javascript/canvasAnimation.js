@@ -46,6 +46,8 @@ heroIdle.frames = 2;
 heroIdle.frameCount = 0;
 heroIdle.src = "../image/png/joshua-sprite-idle.png";
 
+var state = "idle";
+
 // Game objects
 var hero = {
   speed: 256,
@@ -122,14 +124,16 @@ var render = function () {
   }
   
   if (heroIdleReady && heroWalkReady) {
-    ctx.drawImage(heroIdle, heroIdle.frameWidth * heroIdle.frameCount, 0, heroIdle.frameWidth, heroIdle.frameHeight, hero.x, hero.y, heroIdle.frameWidth, heroIdle.frameHeight);
-    if (countDownImage > 500) {
-      thenImage = nowImage;
-      if (heroIdle.frameCount < heroIdle.frames - 1) {
-        heroIdle.frameCount++;
-      } else {
-        heroIdle.frameCount = 0;
-      }
+    if (state = "idle") {
+     ctx.drawImage(heroIdle, heroIdle.frameWidth * heroIdle.frameCount, 0, heroIdle.frameWidth, heroIdle.frameHeight, hero.x, hero.y, heroIdle.frameWidth, heroIdle.frameHeight);
+     if (countDownImage > 500) {
+        thenImage = nowImage;
+        if (heroIdle.frameCount < heroIdle.frames - 1) {
+          heroIdle.frameCount++;
+        } else {
+          heroIdle.frameCount = 0;
+        }
+      } 
     }
   }
   

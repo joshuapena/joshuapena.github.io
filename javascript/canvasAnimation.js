@@ -138,7 +138,7 @@ var render = function () {
       } 
     } else if (joshuaState == "walk") {
       ctx.drawImage(heroWalk, heroWalk.frameWidth * heroWalk.frameCount, 0, heroWalk.frameWidth, heroWalk.frameHeight, hero.x, hero.y, heroWalk.frameWidth, heroWalk.frameHeight);
-      if (countDownImage > 500) {
+      if (countDownImage > 300) {
         thenImage = nowImage;
         if (heroWalk.frameCount < heroWalk.frames -1) {
           heroWalk.frameCount++;

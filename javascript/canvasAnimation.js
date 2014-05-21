@@ -16,20 +16,24 @@ bgImage.onload = function () {
 };
 bgImage.src = "http://placekitten.com/512/480";
 // Hero Image
-var heroReady = false;
-var heroImage = new Image();
-heroImage.onload = function () {
-  heroReady = true;
-};
-heroImage.src = "../image/png/spaceCat.png";
-
-// Kitty Image
 var kittyReady = false;
 var kittyImage = new Image();
 kittyImage.onload = function () {
   kittyReady = true;
 };
-kittyImage.src = "../image/png/joshua-sprite-idle.png";
+kittyImage.src = "../image/png/spaceCat.png";
+
+// Kitty Image
+var heroReady = false;
+var heroImage = new Image();
+heroImage.onload = function () {
+  heroReady = true;
+};
+var heroImage.frameWidth = 88;
+var heroImage.frameWidth = 90;
+var heroImage.frames = 1;
+var heroImage.frameCount = 0;
+heroImage.src = "../image/png/joshua-sprite-idle.png";
 
 // Game objects
 var hero = {

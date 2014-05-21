@@ -25,15 +25,17 @@ kittyImage.src = "../image/png/spaceCat.png";
 
 // Joshua Image
 var heroWalkReady = false;
+var heroWalk = new Image();
+heroWalk.onload = function() {
+  heroWalkReady = true;
+};
+heroWalk.src = "../image/png/joshua-sprite-walk.png";
+
 var heroIdleReady = false;
 var heroIdle = new Image();
-var heroWalk = new Image();
 heroIdle.onload = function () {
   heroIdleReady = true;
 };
-heroWalk.onload = function() {
-  heroWalkReady = true;
-}
 heroIdle.frameWidth = 88;
 heroIdle.frameHeight = 150;
 heroIdle.frames = 2;

@@ -29,10 +29,10 @@ var heroImage = new Image();
 heroImage.onload = function () {
   heroReady = true;
 };
-var heroImage.frameWidth = 88;
-var heroImage.frameWidth = 90;
-var heroImage.frames = 1;
-var heroImage.frameCount = 0;
+heroImage.frameWidth = 88;
+heroImage.frameWidth = 90;
+heroImage.frames = 1;
+heroImage.frameCount = 0;
 heroImage.src = "../image/png/joshua-sprite-idle.png";
 
 // Game objects

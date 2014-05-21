@@ -138,7 +138,7 @@ var render = function () {
       ctx.drawImage(heroWalk, heroWalk.frameWidth * heroWalk.frameCount, 0, heroWalk.frameWidth, heroWalk.frameHeight, hero.x, hero.y, heroWalk.frameWidth, heroWalk.frameHeight);
       if (countDownImage > 500) {
         thenImage = nowImage;
-        if (hero.Walk.frameCount < heroWalk.frames -1) {
+        if (heroWalk.frameCount < heroWalk.frames -1) {
           heroWalk.frameCount++;
         } else {
           heroWalk.frameCount = 0;

@@ -112,6 +112,14 @@ var render = function () {
   
   if (heroReady) {
     ctx.drawImage(heroImage, heroImage.frameWidth * heroImage.frameCount, 0, heroImage.frameWidth, heroImage.frameHeight, hero.x, hero.y, heroImage.frameWidth, heroImage.frameHeight);
+    if (countDownImage > 2000) {
+      thenImage = nowImage;
+      if (heroImage.frameCount < heroImage.frames - 1) {
+        heroImage.frameCount++;
+      } else {
+        heroImage.frameCount = 0;
+      }
+    }
   }
   
   if (kittyReady) {
@@ -135,11 +143,12 @@ var main = function () {
   now = Date.now();
   var delta = now - then;
   
-  nowSwitch = Date.now();
+  nowSwitch = nowImage = Date.now();
   
   update(delta / 1100);
   
   countDown = nowSwitch - thenSwitch;
+  countDownImage = nowImage - thenImage;
   
   if (countDown >= 1000) {
     lives--;
@@ -161,12 +170,12 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Initalized Variables
-var then, thenSwitch, nowSwitch;
+var then, thenSwitch, nowSwitch, thenImage, nowImage;
 var countDown;
 var lives;
 
 var start = function() {
-  then = thenSwitch = nowSwitch = Date.now();
+  then = thenSwitch = nowSwitch = thenImage = nowImage = Date.now();
   reset();
   countDown = 0;
   lives = 9;

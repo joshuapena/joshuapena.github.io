@@ -30,7 +30,7 @@ heroImage.onload = function () {
   heroReady = true;
 };
 heroImage.frameWidth = 88;
-heroImage.frameHeight = 150;
+heroImage.frameHeight = 100;
 heroImage.frames = 1;
 heroImage.frameCount = 0;
 heroImage.src = "../image/png/joshua-sprite-idle.png";

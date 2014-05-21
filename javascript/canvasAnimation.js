@@ -7,6 +7,7 @@ var canvas = document.getElementById("canvas"),
 canvas.tabIndex = 1;
 canvas.width = width;
 canvas.height = height;
+var state = "idle";
 
 this.idleSprite = new Image();
 this.idleSprite.src = "../image/png/joshua-sprite-idle.png";

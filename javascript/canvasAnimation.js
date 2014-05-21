@@ -112,7 +112,7 @@ var render = function () {
   
   if (heroReady) {
     ctx.drawImage(heroImage, heroImage.frameWidth * heroImage.frameCount, 0, heroImage.frameWidth, heroImage.frameHeight, hero.x, hero.y, heroImage.frameWidth, heroImage.frameHeight);
-    if (countDownImage > 2000) {
+    if (countDownImage > 500) {
       thenImage = nowImage;
       if (heroImage.frameCount < heroImage.frames - 1) {
         heroImage.frameCount++;

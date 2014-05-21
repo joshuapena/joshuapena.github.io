@@ -40,7 +40,7 @@ var heroIdle = new Image();
 heroIdle.onload = function () {
   heroIdleReady = true;
 };
-heroIdle.frameWidth = 88;
+heroIdle.frameWidth = 89;
 heroIdle.frameHeight = 150;
 heroIdle.frames = 2;
 heroIdle.frameCount = 0;

@@ -98,9 +98,6 @@ var update = function (modifier) {
     thenSwitch = nowSwitch;
     reset();
   }
-  
-  ctx.save;
-  ctx.scale(-1, 1);
 };
 
 // Render

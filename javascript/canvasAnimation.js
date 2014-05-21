@@ -124,7 +124,7 @@ var render = function () {
   }
   
   if (heroIdleReady && heroWalkReady) {
-    if (joshuaState = "idle") {
+    if (joshuaState == "idle") {
       ctx.drawImage(heroIdle, heroIdle.frameWidth * heroIdle.frameCount, 0, heroIdle.frameWidth, heroIdle.frameHeight, hero.x, hero.y, heroIdle.frameWidth, heroIdle.frameHeight);
       if (countDownImage > 500) {
         thenImage = nowImage;
@@ -134,7 +134,7 @@ var render = function () {
           heroIdle.frameCount = 0;
         }
       } 
-    } else if (joshuaState = "walk") {
+    } else if (joshuaState == "walk") {
       ctx.drawImage(heroWalk, heroWalk.frameWidth * heroWalk.frameCount, 0, heroWalk.frameWidth, heroWalk.frameHeight, hero.x, hero.y, heroWalk.frameWidth, heroWalk.frameHeight);
       if (countDownImage > 500) {
         thenImage = nowImage;

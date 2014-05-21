@@ -96,7 +96,7 @@ var update = function (modifier) {
     hero.x += hero.speed * modifier;
   }
   
-  if (37 || 38 || 39 || 40 in keysDown) {
+  if ((37 || 38 || 39 || 40) in keysDown) {
     joshuaState = "walk";
   } else {
     joshuaState = "idle";

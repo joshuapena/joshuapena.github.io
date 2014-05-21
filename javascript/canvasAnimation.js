@@ -29,6 +29,10 @@ var heroWalk = new Image();
 heroWalk.onload = function() {
   heroWalkReady = true;
 };
+heroWalk.frameWidth = 80;
+heroWalk.frameHeight = 150;
+heroWalk.frames = 2;
+heroWalk.frameCount = 0;
 heroWalk.src = "../image/png/joshua-sprite-walk.png";
 
 var heroIdleReady = false;

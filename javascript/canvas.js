@@ -29,7 +29,7 @@ var kittyImage = new Image();
 kittyImage.onload = function () {
   kittyReady = true;
 };
-kittyImage.src = "http://placekitten.com/30/32";
+kittyImage.src = "../image/png/catDeathStar.png";
 
 // Game objects
 var hero = {

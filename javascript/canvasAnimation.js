@@ -46,7 +46,7 @@ heroIdle.frames = 2;
 heroIdle.frameCount = 0;
 heroIdle.src = "../image/png/joshua-sprite-idle.png";
 
-var state = "idle";
+var joshuaState = "idle";
 
 // Game objects
 var hero = {
@@ -85,19 +85,19 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    state = "walk";
+    joshuaState = "walk";
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;
-    state = "walk";
+    joshuaState = "walk";
   }
   if (37 in keysDown) {
     hero.x -= hero.speed * modifier;
-    state = "walk";
+    joshuaState = "walk";
   }
   if (39 in keysDown) {
     hero.x += hero.speed * modifier;
-    state = "walk";
+    joshuaState = "walk";
   }
   
   // Stop from going off the page
@@ -128,7 +128,7 @@ var render = function () {
   }
   
   if (heroIdleReady && heroWalkReady) {
-    if (state = "idle") {
+    if (joshuaState = "idle") {
       ctx.drawImage(heroIdle, heroIdle.frameWidth * heroIdle.frameCount, 0, heroIdle.frameWidth, heroIdle.frameHeight, hero.x, hero.y, heroIdle.frameWidth, heroIdle.frameHeight);
       if (countDownImage > 500) {
         thenImage = nowImage;
@@ -138,7 +138,7 @@ var render = function () {
           heroIdle.frameCount = 0;
         }
       } 
-    } else if (state = "walk") {
+    } else if (joshuaState = "walk") {
       ctx.drawImage(heroWalk, heroWalk.frameWidth * heroWalk.frameCount, 0, heroWalk.frameWidth, heroWalk.frameHeight, hero.x, hero.y, heroWalk.frameWidth, heroWalk.frameHeight);
       if (countDownImage > 500) {
         thenImage = nowImage;

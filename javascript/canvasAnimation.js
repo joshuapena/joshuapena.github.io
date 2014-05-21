@@ -23,5 +23,5 @@ this.draw = function() {
     } else {
       this.idleSprite.frameCount = 0;
     }
-  } else if ()
+  }
 }

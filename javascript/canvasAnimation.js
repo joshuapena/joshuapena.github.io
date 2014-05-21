@@ -15,7 +15,7 @@ bgImage.onload = function () {
   bgReady = true;
 };
 bgImage.src = "http://placekitten.com/512/480";
-// Hero Image
+// Kitty Image
 var kittyReady = false;
 var kittyImage = new Image();
 kittyImage.onload = function () {
@@ -23,17 +23,22 @@ kittyImage.onload = function () {
 };
 kittyImage.src = "../image/png/spaceCat.png";
 
-// Kitty Image
-var heroReady = false;
-var heroImage = new Image();
-heroImage.onload = function () {
-  heroReady = true;
+// Joshua Image
+var heroWalkReady = false;
+var heroIdleReady = false;
+var heroIdle = new Image();
+var heroWalk = new Image();
+heroIdle.onload = function () {
+  heroIdleReady = true;
 };
-heroImage.frameWidth = 88;
-heroImage.frameHeight = 150;
-heroImage.frames = 2;
-heroImage.frameCount = 0;
-heroImage.src = "../image/png/joshua-sprite-idle.png";
+heroWalk.onload = function() {
+  heroWalkReady = true;
+}
+heroIdle.frameWidth = 88;
+heroIdle.frameHeight = 150;
+heroIdle.frames = 2;
+heroIdle.frameCount = 0;
+heroIdle.src = "../image/png/joshua-sprite-idle.png";
 
 // Game objects
 var hero = {
@@ -110,14 +115,14 @@ var render = function () {
     ctx.drawImage(bgImage, 0, 0);
   }
   
-  if (heroReady) {
-    ctx.drawImage(heroImage, heroImage.frameWidth * heroImage.frameCount, 0, heroImage.frameWidth, heroImage.frameHeight, hero.x, hero.y, heroImage.frameWidth, heroImage.frameHeight);
+  if (heroIdleReady && heroWalkReady) {
+    ctx.drawImage(heroIdle, heroIdle.frameWidth * heroIdle.frameCount, 0, heroIdle.frameWidth, heroIdle.frameHeight, hero.x, hero.y, heroIdle.frameWidth, heroIdle.frameHeight);
     if (countDownImage > 500) {
       thenImage = nowImage;
-      if (heroImage.frameCount < heroImage.frames - 1) {
-        heroImage.frameCount++;
+      if (heroIdle.frameCount < heroIdle.frames - 1) {
+        heroIdle.frameCount++;
       } else {
-        heroImage.frameCount = 0;
+        heroIdle.frameCount = 0;
       }
     }
   }

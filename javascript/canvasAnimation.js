@@ -111,7 +111,7 @@ var render = function () {
   }
   
   if (heroReady) {
-    ctx.drawImage(heroImage, hero.x, hero.y);
+    ctx.drawImage(heroImage, heroImage.frameWidth * heroImage.frameCount, 0, heroImage.frameWidth, heroImage.frameHeight, hero.x, hero.y, heroImage.frameWidth, heroImage.frameHeight);
   }
   
   if (kittyReady) {

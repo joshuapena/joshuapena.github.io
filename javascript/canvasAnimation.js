@@ -85,7 +85,6 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    joshuaState = "walk";
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;
@@ -95,6 +94,12 @@ var update = function (modifier) {
   }
   if (39 in keysDown) {
     hero.x += hero.speed * modifier;
+  }
+  
+  if (37 || 38 || 39 || 40 in keysDown) {
+    joshuaState = "walk";
+  } else {
+    joshuaState = "idle";
   }
   
   // Stop from going off the page

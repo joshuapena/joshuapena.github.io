@@ -30,7 +30,7 @@ heroImage.onload = function () {
   heroReady = true;
 };
 heroImage.frameWidth = 88;
-heroImage.frameHeight = 130;
+heroImage.frameHeight = 150;
 heroImage.frames = 2;
 heroImage.frameCount = 0;
 heroImage.src = "../image/png/joshua-sprite-idle.png";
@@ -152,9 +152,11 @@ var main = function () {
   
   if (countDown >= 1000) {
     lives++;
+    /*
     if (lives ==  0) {
       gameOver();
     }
+    */
     thenSwitch = nowSwitch;
     reset();
   }

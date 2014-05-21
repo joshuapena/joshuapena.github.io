@@ -96,11 +96,14 @@ var update = function (modifier) {
     hero.x += hero.speed * modifier;
   }
   
+  joshuaState = (37 || 38 || 39 || 40) in keysDown ? "walk" : "idle";
+  /*
   if ((37 || 38 || 39 || 40) in keysDown) {
     joshuaState = "walk";
   } else {
     joshuaState = "idle";
   }
+  */
   
   // Stop from going off the page
   if (hero.x >= canvas.width - 32) {

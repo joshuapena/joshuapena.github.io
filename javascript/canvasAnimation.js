@@ -46,7 +46,7 @@ heroIdle.frames = 2;
 heroIdle.frameCount = 0;
 heroIdle.src = "../image/png/joshua-sprite-idle.png";
 
-var joshuaState = "walk";
+var joshuaState = "idle";
 
 // Game objects
 var hero = {

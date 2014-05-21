@@ -85,7 +85,7 @@ var reset = function () {
 var update = function (modifier) {
   if (38 in keysDown) {
     hero.y -= hero.speed * modifier;
-    joshuaState = "walk";
+    //joshuaState = "walk";
   }
   if (40 in keysDown) {
     hero.y += hero.speed * modifier;

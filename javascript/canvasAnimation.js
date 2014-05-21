@@ -96,7 +96,7 @@ var update = function (modifier) {
     hero.x += hero.speed * modifier;
   }
   
-  joshuaState = keysDown == {} ? "idle" : "walk";
+  joshuaState = (37 || 38 || 39 || 40) in keysDown ? "walk" : "idle";
   
   // Stop from going off the page
   if (hero.x >= canvas.width - 32) {

@@ -43,7 +43,7 @@ var playerImage = new Image();
 playerImage.onload = function () {
 	playerReady = true;
 };
-playerImage.src = "https://googledrive.com/host/0B9eQiXj-6puyMTZnaVNUX29rSjg/Connor%20L1.gif"; //connor.png
+playerImage.src = "./image/png/connor.png"; //connor.png
 var currentPlayerImage = playerImage;
 
 var playerJumpReady = false;
@@ -51,20 +51,20 @@ var playerJump = new Image();
 playerJump.onload = function () {
 	playerJumpReady = true;
 };
-playerJump.src = "https://googledrive.com/host/0B9eQiXj-6puyMTZnaVNUX29rSjg/Connor%20L6.gif"; //connorJump.png
+playerJump.src = "./image/png/connorJump.png"; //connorJump.png
 
 var playerReadyRight = false;
 var playerImageRight = new Image();
 playerImageRight.onload = function () {
 	playerReadyRight = true;
 };
-playerImageRight.src = "https://googledrive.com/host/0B9eQiXj-6puyMTZnaVNUX29rSjg/Connor%20R1.gif"; //connorRight.png
+playerImageRight.src = "./image/png/connorRight.png"; //connorRight.png
 var playerJumpRightReady = false;
 var playerJumpRight = new Image();
 playerJumpRight.onload = function () {
 	playerJumpRightReady = true;
 };
-playerJumpRight.src = "https://googledrive.com/host/0B9eQiXj-6puyMTZnaVNUX29rSjg/Connor%20R6.gif"; //connorRightJump.png
+playerJumpRight.src = "./image/png/connorRightJump.png"; //connorRightJump.png
 
 function update () {
 	if (keys[38] || keys[32]) {

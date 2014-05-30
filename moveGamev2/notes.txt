@@ -1,0 +1,18 @@
+1. DONE : Load Sprite
+	DONE : Create a Button so there is a callback to load the images
+2. Draw Sprite
+3. Update Sprite
+4. Separate Folders
+
+callback :
+function firstFunction(callback) {
+	callback(); //Happens and waits
+	document.write("foo"); //Writes foo
+}
+function callBack() {
+	//Something
+}
+
+call function : 
+doSomething(foo)
+firstFunction(callback)

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="assets/css/default.css" />
+	</head>
+	<body>
+		<div id="canvasContainer">
+			<input id="startButton" type="button" value="start" onclick="start()" />
+			<canvas id="world" width="600" height="300">
+				This browser can not run this game (canvas support missing).
+			</canvas>
+		</div>
+		
+		<script type="text/javascript" src="js/lib/Game.js"></script>
+		<script type="text/javascript" src="js/lib/init.js"></script>
+		<script type="text/javascript" src="js/lib/spriteLoader.js"></script>
+		<script type="text/javascript" src="js/lib/update.js"></script>
+		<script type="text/javascript" src="js/lib/draw.js"></script>
+		<script type="text/javascript" src="js/gameEntities/Player.js"></script>
+		<script type="text/javascript" src="js/gameEntities/World.js"></script>
+		<script type="text/javascript">
+			function start2(a, b, callback, c, d) {
+				document.write(a + b);
+				callback();
+				document.write(c+d);
+			}
+			function say() {
+				alert("here");
+			}
+		</script>
+	</body>
+</html>

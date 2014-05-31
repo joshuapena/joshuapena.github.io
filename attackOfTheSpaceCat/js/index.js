@@ -23,7 +23,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "/image/png/spaceKitty.png";
+heroImage.src = "/image/png/spaceCat.png";
 
 // Kitty Image
 var kittyReady = false;
@@ -31,7 +31,7 @@ var kittyImage = new Image();
 kittyImage.onload = function () {
 	kittyReady = true;
 };
-kittyImage.src = "/images/png/catDeathStar.png";
+kittyImage.src = "/image/png/catDeathStar.png";
 
 // Game objects
 var hero = {

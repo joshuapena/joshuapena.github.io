@@ -31,7 +31,7 @@ var kittyImage = new Image();
 kittyImage.onload = function () {
 	kittyReady = true;
 };
-kittyImage.src = "image/png/catDeathStar.png";
+kittyImage.src = "../../image/png/catDeathStar.png";
 
 // Game objects
 var hero = {

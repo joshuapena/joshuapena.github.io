@@ -23,7 +23,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "/image/png/spaceCat.png";
+heroImage.src = "assets/images/spaceKitty.png";
 
 // Kitty Image
 var kittyReady = false;
@@ -31,7 +31,7 @@ var kittyImage = new Image();
 kittyImage.onload = function () {
 	kittyReady = true;
 };
-kittyImage.src = "/image/png/catDeathStar.png";
+kittyImage.src = "assets/images/catDeathStar.png";
 
 // Game objects
 var hero = {
@@ -182,6 +182,13 @@ var pause = function() {
 		paused = false;
 	} else {
 		document.getElementById("pauseButton").value = "Resume";
+		ctx.globalAlpha = 0.4;
+		ctx.fillStyle = "#333";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "#FFF";
+		ctx.font = "50px Ubuntu Mono";
+		ctx.globalAlpha = 1.0;
+		ctx.fillText("Pawsed", 185, 200);
 		paused = true;
 	}
 }

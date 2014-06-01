@@ -23,7 +23,7 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "image/png/spaceKitty.png";
+heroImage.src = "image/png/spaceCat.png";
 
 // Kitty Image
 var kittyReady = false;

@@ -138,7 +138,13 @@ var render = function () {
 
 var gameOver = function () {
 	isGameOver = true;
-	var caughtText = "You caught " + kittyCaught + " kitties."
+	if (kittyCaught == 0) {
+		var caughtText = "You caught no kitties."
+	} else if (kittyCaught == 1) {
+		var caughtText = "You caught " + kittyCaught + " kitty."
+	} else {
+		var caughtText = "You caught " + kittyCaught + " kitties."
+	}
 	document.getElementById("startButton").value = "Start Over";
 	document.getElementById("pauseButton").style.display = "none";
 	ctx.fillStyle = "#000";

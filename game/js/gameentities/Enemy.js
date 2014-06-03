@@ -40,6 +40,12 @@ Enemy.prototype.update = function() {
 	this.velX *= this.friction;
 	
 	this.x += this.velX;
+	
+	if (this.direction === "right" && this.x > this.world.width ) {
+		this.active = false;
+	} else if (this.direction === "left" && this.x < -this.width) {
+		this.active = false;
+	}
 };
 
 Enemy.prototype.draw = function() {

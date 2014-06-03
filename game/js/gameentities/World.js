@@ -8,7 +8,9 @@ var World = function(context, options, sprites) {
 	
 	this.players = [];
 	this.enemies = [];
+	this.boss = [];
 	this.bullets = [];
+	this.healthBars = [];
 };
 
 World.prototype.addPlayer = function(player) {

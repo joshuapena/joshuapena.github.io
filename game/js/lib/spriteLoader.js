@@ -16,4 +16,4 @@ SpriteLoader.prototype.load = function(folder, names, extension, callback) {
 		};
 		imgage.src = folder + '/' + name + extension;
 	});
-}
+};

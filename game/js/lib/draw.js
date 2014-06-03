@@ -6,7 +6,8 @@ var draw = function(world) {
 	
 	[world.enemies,
 	world.players,
-	world.bullets
+	world.bullets, 
+	world.boss
 	].forEach (
 		function (gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {

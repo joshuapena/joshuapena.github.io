@@ -1,7 +1,8 @@
 "use strict";
 
-var Player = function(world, Bullet) {
+var Player = function(world, Bullet, audio) {
 	this.world = world;
+	this.audio = audio;
 	this.idleLeftAnimation = new SpriteAnimation("connor/connorL", 2, 1, 32);
 	this.idleRightAnimation = new SpriteAnimation("connor/connorR", 2, 1, 32);
 	this.walkLeftAnimation = new SpriteAnimation("connor/connorL", 2, 3, 32);
@@ -24,16 +25,25 @@ var Player = function(world, Bullet) {
 	this.shootLock = false;
 	this.friction = 0.8;
 	this.gravity = 0.3;
-	this.kills = 0;
 	this.state = this.idleRightAnimation;
+	this.shootAudio = "pewPewBizNiss";
+	this.jumpAudio = "jumpFins";
+	
+	this.kills = 0;
+	this.lives = 10;
 };
 
 var keydown = [];
 
 Player.prototype.explode = function() {
 	//alert("You died");
-	if (this.kills > 1) {
+	if (this.kills > 1 && this.kills < 24) {
 		this.kills--;
+	} else {
+		this.lives--;
+		if (this.lives == 0) {
+			alert("You Died");
+		}
 	}
 };
 
@@ -43,6 +53,8 @@ Player.prototype.update = function() {
 		if (!this.jumping) {
 			this.jumping = true;
 			this.velY = -this.speed * 2;
+			this.audio[this.jumpAudio].stop();
+			this.audio[this.jumpAudio].play();
 		}
 	}
 	
@@ -114,6 +126,10 @@ Player.prototype.update = function() {
 			this.state = this.idleLeftAnimation;
 		}
 	}
+	
+	if (this.kills > 25) {
+		this.myHealth.update(this.lives);
+	}
 };
 
 Player.prototype.draw = function() {
@@ -126,6 +142,10 @@ Player.prototype.draw = function() {
 	this.world.drawText("Happy Anniversary", 115, 90);
 	if (this.kills < 24) {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
+	}
+	
+	if (this.kills > 25) {
+		this.myHealth.draw();
 	}
 };
 
@@ -140,7 +160,7 @@ Player.prototype.shoot = function() {
 	this.world.bullets.push (
 		new this.Bullet(this.world, {
 			x: this.midpoint().x,
-			y: this.midpoint().y,
+			y: this.midpoint().y - 1,
 			width: 9,
 			height: 3,
 			direction: this.direction,
@@ -149,13 +169,22 @@ Player.prototype.shoot = function() {
 			owner: this.type,
 			kill: this
 			//spriteName: 'playerBullet'
-		}
+		}, this.audio
 	));
-	
+	this.audio[this.shootAudio].stop();
+	this.audio[this.shootAudio].play();
 };
 
 Player.prototype.kill = function() {
-	this.kills++;
+	if (this.kills < 24) {
+		this.kills++;
+	} else if (this.kills == 25) {
+		this.myHealth = new HealthBar (world, this, {
+			x: 50,
+			lives: this.lives
+		});
+		this.kills++;
+	}
 };
 
 document.body.addEventListener("keydown", function(e) {

@@ -1,8 +1,10 @@
 "use strict";
 
-var Bullet = function(world, options) {
+var Bullet = function(world, options, audio) {
 	this.world = world;
 	this.color = options.color || "#F00";
+	this.audio = audio;
+	this.hitAudio = "enemyDamageBraqoon";
 	
 	this.x = options.x;
 	this.y = options.y;
@@ -21,6 +23,8 @@ var Bullet = function(world, options) {
 	
 	this.player = options.kill;
 	
+	this.owner = options.owner;
+	
 	//this.owner = options.owner;
 };
 
@@ -29,6 +33,8 @@ Bullet.prototype.explode = function(typeOfOther) {
 	if (this.player) {
 		this.player.kill();
 	}
+	this.audio[this.hitAudio].stop();
+	//this.audio[this.hitAudio].play();
 }
 
 Bullet.prototype.update = function () {
@@ -40,6 +46,10 @@ Bullet.prototype.update = function () {
 	} else {
 		this.x -= this.velX;
 		this.velX += this.acceleration;
+	}
+	
+	if (this.x - this.width < 0 || this.x > this.world.width) {
+		this.active = false;
 	}
 };
 

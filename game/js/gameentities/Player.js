@@ -28,6 +28,7 @@ var Player = function(world, Bullet, audio) {
 	this.state = this.idleRightAnimation;
 	this.shootAudio = "pewPewBizNiss";
 	this.jumpAudio = "jumpFins";
+	this.active = true;
 	
 	this.kills = 24;
 	this.lives = 10;
@@ -48,6 +49,7 @@ Player.prototype.explode = function() {
 		this.lives--;
 		if (this.lives == 0) {
 			alert("You Died");
+			this.active = false;
 		}
 	}
 };

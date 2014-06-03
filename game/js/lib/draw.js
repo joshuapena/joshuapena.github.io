@@ -11,6 +11,7 @@ var draw = function(world) {
 	].forEach (
 		function (gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {
+				world.ctx.globalAlpha = 1;
 				gameElement.draw();
 			});
 		}

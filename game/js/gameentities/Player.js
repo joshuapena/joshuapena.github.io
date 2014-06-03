@@ -147,6 +147,10 @@ Player.prototype.draw = function() {
 		});
 	} else {
 		this.world.ctx.globalAlpha = 0.4;
+		this.world.ctx.fillStyle = "#333";
+		this.world.ctx.fillRect(0, 0, 600, 300);
+		this.world.ctx.fillStyle = "#FFF";
+		this.world.ctx.font = "50px Ubuntu Mono";
 		this.world.ctx.fillText("Game Over", 300, 150);
 	}
 	//this.world.drawSprite(this.currentImage, this.x, this.y, this.width, this.height);

@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <link rel="stylesheet" href="assets/css/default.css" />
     <script data-require="processing.js@*" data-semver="1.4.1" src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"></script>
     <script type="text/processing" data-processing-target="targetcanvas">
       void setup() {
@@ -62,7 +63,9 @@
   </head>
 
   <body>
-    <canvas id="targetcanvas" width="400" height="400"></canvas>
+    <div id="canvasContainer">
+      <canvas id="targetcanvas" width="400" height="400"></canvas>
+    </div>
   </body>
 
 </html>

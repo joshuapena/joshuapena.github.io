@@ -28,7 +28,7 @@ var Player = function(world, Bullet, audio) {
 	this.state = this.idleRightAnimation;
 	this.shootAudio = "pewPewBizNiss";
 	this.jumpAudio = "jumpFins";
-	this.active = true;
+	this.alive = true;
 	
 	this.kills = 24;
 	this.lives = 10;
@@ -48,8 +48,7 @@ Player.prototype.explode = function() {
 	} else {
 		this.lives--;
 		if (this.lives == 0) {
-			alert("You Died");
-			this.active = false;
+			this.alive = false;
 		}
 	}
 };
@@ -141,10 +140,15 @@ Player.prototype.update = function() {
 
 Player.prototype.draw = function() {
 	var that = this;
-	this.state.draw(this.x, this.y, function(spriteName, x, y) {
-		that.width = that.world.sprites[spriteName].width;
-		that.world.drawSprite(spriteName, x, y, that.width, that.height);
-	});
+	if (this.alive) {
+		this.state.draw(this.x, this.y, function(spriteName, x, y) {
+			that.width = that.world.sprites[spriteName].width;
+			that.world.drawSprite(spriteName, x, y, that.width, that.height);
+		});
+	} else {
+		this.world.ctx.globalAlpha = 0.4;
+		this.world.ctx.fillText("Game Over", 300, 150);
+	}
 	//this.world.drawSprite(this.currentImage, this.x, this.y, this.width, this.height);
 	//this.world.drawText("Happy Anniversary", 115, 90);
 	if (this.kills < 24) {

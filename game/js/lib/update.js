@@ -37,10 +37,6 @@ var update = function (game, Enemy, Bullet, audio) {
 		return boss.active;
 	});
 	
-	game.world.players = game.world.players.filter(function(player) {
-		return player.active;
-	});
-	
 	if (!bossTime && !bossOn) {
 		if (Math.random() < 0.02) {
 			if (Math.random() < 0.1) {

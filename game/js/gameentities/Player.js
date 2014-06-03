@@ -31,6 +31,11 @@ var Player = function(world, Bullet, audio) {
 	
 	this.kills = 0;
 	this.lives = 10;
+	
+	this.myHealth = new HealthBar (world, this, {
+		x: 50,
+		lives: this.lives
+	});
 };
 
 var keydown = [];

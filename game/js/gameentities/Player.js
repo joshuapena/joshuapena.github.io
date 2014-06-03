@@ -132,7 +132,7 @@ Player.prototype.update = function() {
 		}
 	}
 	
-	if (this.kills > 25) {
+	if (this.kills > 24) {
 		this.myHealth.update(this.lives);
 	}
 };
@@ -149,7 +149,7 @@ Player.prototype.draw = function() {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
 	}
 	
-	if (this.kills > 25) {
+	if (this.kills > 24) {
 		this.myHealth.draw();
 	}
 };
@@ -183,13 +183,15 @@ Player.prototype.shoot = function() {
 Player.prototype.kill = function() {
 	if (this.kills < 24) {
 		this.kills++;
-	} else if (this.kills == 25) {
+	} /*
+	else if (this.kills == 24) {
 		this.myHealth = new HealthBar (world, this, {
 			x: 50,
 			lives: this.lives
 		});
 		this.kills++;
 	}
+	*/
 };
 
 document.body.addEventListener("keydown", function(e) {

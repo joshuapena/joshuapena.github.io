@@ -30,7 +30,7 @@ var Player = function(world, Bullet, audio) {
 	this.jumpAudio = "jumpFins";
 	this.alive = true;
 	
-	this.kills = 24;
+	this.kills = 0;
 	this.lives = 10;
 	
 	this.myHealth = new HealthBar (world, this, {

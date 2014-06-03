@@ -139,7 +139,7 @@ Player.prototype.draw = function() {
 		that.world.drawSprite(spriteName, x, y, that.width, that.height);
 	});
 	//this.world.drawSprite(this.currentImage, this.x, this.y, this.width, this.height);
-	this.world.drawText("Happy Anniversary", 115, 90);
+	//this.world.drawText("Happy Anniversary", 115, 90);
 	if (this.kills < 24) {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
 	}

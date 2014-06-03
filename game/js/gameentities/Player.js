@@ -155,7 +155,7 @@ Player.prototype.draw = function() {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
 	}
 	
-	if (this.kills >= 24) {
+	if (this.kills >= 24 && this.alive) {
 		this.myHealth.draw();
 	}
 };

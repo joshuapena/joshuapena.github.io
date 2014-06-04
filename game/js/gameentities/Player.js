@@ -29,8 +29,9 @@ var Player = function(world, Bullet, audio) {
 	this.shootAudio = "pewPewBizNiss";
 	this.jumpAudio = "jumpFins";
 	this.alive = true;
+	this.hit = false;
 	
-	this.kills = 0;
+	this.kills = 25;
 	this.lives = 10;
 	
 	this.myHealth = new HealthBar (world, this, {
@@ -41,100 +42,109 @@ var Player = function(world, Bullet, audio) {
 
 var keydown = [];
 
-Player.prototype.explode = function() {
+Player.prototype.explode = function(damage) {
 	//alert("You died");
+	var that = this;
 	if (this.kills > 1 && this.kills < 24) {
 		this.kills--;
 	} else {
-		this.lives--;
-		if (this.lives == 0) {
-			this.alive = false;
+		if (!this.hit) {
+			this.lives -= damage;
+			this.hit = true;
+			setTimeout(function() {
+						that.hit = false;
+					}, 500);
+			if (this.lives < 1) {
+				this.alive = false;
+			}
 		}
 	}
 };
 
 Player.prototype.update = function() {
+	if (this.alive) {
 	// Jump
-	if (keydown[38]) {
-		if (!this.jumping) {
-			this.jumping = true;
-			this.velY = -this.speed * 2;
-			this.audio[this.jumpAudio].stop();
-			this.audio[this.jumpAudio].play();
+		if (keydown[38]) {
+			if (!this.jumping) {
+				this.jumping = true;
+				this.velY = -this.speed * 2;
+				this.audio[this.jumpAudio].stop();
+				this.audio[this.jumpAudio].play();
+			}
 		}
-	}
-	
-	// Right
-	if (keydown[39]) {
-		if (this.velX < this.speed) {
-			this.velX++;
-			this.direction = "right";
+		
+		// Right
+		if (keydown[39]) {
+			if (this.velX < this.speed) {
+				this.velX++;
+				this.direction = "right";
+			}
 		}
-	}
-	
-	// Left
-	if (keydown[37]) {
-		if (this.velX > -this.speed) {
-			this.velX--;
-			this.direction = "left";
+		
+		// Left
+		if (keydown[37]) {
+			if (this.velX > -this.speed) {
+				this.velX--;
+				this.direction = "left";
+			}
 		}
-	}
-	
-	// Shoot
-	if (keydown[32]) {
-		if (!this.shootLock) {
-			this.shoot();
-			this.shootLock = true;
-			var that = this
-			setTimeout(function() {
-				that.shootLock = false;
-			}, 300);
+		
+		// Shoot
+		if (keydown[32]) {
+			if (!this.shootLock) {
+				this.shoot();
+				this.shootLock = true;
+				var that = this
+				setTimeout(function() {
+					that.shootLock = false;
+				}, 300);
+			}
 		}
-	}
-	
-	this.velX *= this.friction;
-	this.velY += this.gravity;
-	
-	this.x += this.velX;
-	this.y += this.velY;
-	
-	if (this.x >= this.world.width - this.width) {
-		this.x = this.world.width - this.width;
-	} else if (this.x <= 0) {
-		this.x = 0;
-	}
-	
-	if (this.y >= this.world.height - this.height) {
-		this.y = this.world.height - this.height;
-		this.jumping = false;
-	}
-	
-	if (this.jumping) {
-		if (this.direction === "right") {
-			this.state = this.jumpRightAnimation;
+		
+		this.velX *= this.friction;
+		this.velY += this.gravity;
+		
+		this.x += this.velX;
+		this.y += this.velY;
+		
+		if (this.x >= this.world.width - this.width) {
+			this.x = this.world.width - this.width;
+		} else if (this.x <= 0) {
+			this.x = 0;
+		}
+		
+		if (this.y >= this.world.height - this.height) {
+			this.y = this.world.height - this.height;
+			this.jumping = false;
+		}
+		
+		if (this.jumping) {
+			if (this.direction === "right") {
+				this.state = this.jumpRightAnimation;
+			} else {
+				this.state = this.jumpLeftAnimation;
+			}
+		} else if (this.shootLock) {
+			if (this.direction === "right") {
+				this.state = this.shootRightAnimation;
+			} else {
+				this.state = this.shootLeftAnimation;
+			}
+		} else if (keydown[37]) {
+			this.state = this.walkLeftAnimation;
+		} else if (keydown[39]) {
+			this.state = this.walkRightAnimation;
 		} else {
-			this.state = this.jumpLeftAnimation;
+			if (this.direction === "right") {
+				this.state = this.idleRightAnimation;
+			} else {
+				this.state = this.idleLeftAnimation;
+			}
 		}
-	} else if (this.shootLock) {
-		if (this.direction === "right") {
-			this.state = this.shootRightAnimation;
-		} else {
-			this.state = this.shootLeftAnimation;
+		
+		if (this.kills >= 24) {
+			this.myHealth.update(this.lives);
 		}
-	} else if (keydown[37]) {
-		this.state = this.walkLeftAnimation;
-	} else if (keydown[39]) {
-		this.state = this.walkRightAnimation;
-	} else {
-		if (this.direction === "right") {
-			this.state = this.idleRightAnimation;
-		} else {
-			this.state = this.idleLeftAnimation;
-		}
-	}
-	
-	if (this.kills >= 24) {
-		this.myHealth.update(this.lives);
 	}
 };
 
@@ -151,9 +161,9 @@ Player.prototype.draw = function() {
 		this.world.ctx.fillRect(0, 0, 600, 300);
 		this.world.ctx.fillStyle = "#FFF";
 		this.world.ctx.font = "50px Ubuntu Mono";
-		this.world.ctx.fillText("Game Over", 300, 150);
+		this.world.ctx.globalAlpha = 1.0;
+		this.world.ctx.fillText("Game Over", 200, 150);
 	}
-	//this.world.drawSprite(this.currentImage, this.x, this.y, this.width, this.height);
 	//this.world.drawText("Happy Anniversary", 115, 90);
 	if (this.kills < 24) {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);

@@ -20,6 +20,9 @@ var Boss = function(world, Bullet, audio) {
 	this.directionY = "up";
 	this.lives = 15;
 	this.directionShoot = "right";
+	this.sound = "meow";
+	this.alive = true;
+	this.ate = false;
 	
 	/*
 	this.world.healthBars.push(new HealthBar(world, this, {
@@ -34,48 +37,63 @@ var Boss = function(world, Bullet, audio) {
 }
 
 Boss.prototype.update = function() {
-	if (this.directionX === "right") {
-		this.velX = this.speed;
-	} else {
-		this.velX = -this.speed;
+	if (this.alive) {
+		if (this.directionX === "right") {
+			this.velX = this.speed;
+		} else {
+			this.velX = -this.speed;
+		}
+		if (this.directionY === "up") {
+			this.velY = -this.speed;
+		} else {
+			this.velY = this.speed;
+		}
+		
+		this.x += this.velX;
+		this.y += this.velY;
+		
+		if (this.x > this.world.width - this.width - 50) {
+			this.directionX = "left";
+		} else if (this.x < 50) {
+			this.directionX = "right";
+		}
+		
+		if (this.y > this.world.height - this.height) {
+			this.directionY = "up";
+		} else if (this.y < 20) {
+			this.directionY = "down";
+		}
+		
+		if (this.x < this.world.width / 2) {
+			this.directionShoot = "right";
+		} else {
+			this.directionShoot = "left";
+		}
+		
+		if (Math.random() < 0.8) {
+			this.audio[this.sound].stop();
+			this.audio[this.sound].play();
+		} else {
+			this.shoot();
+		}
+		
+		this.healthBar.update(this.lives);
 	}
-	if (this.directionY === "up") {
-		this.velY = -this.speed;
-	} else {
-		this.velY = this.speed;
-	}
-	
-	this.x += this.velX;
-	this.y += this.velY;
-	
-	if (this.x > this.world.width - this.width - 50) {
-		this.directionX = "left";
-	} else if (this.x < 50) {
-		this.directionX = "right";
-	}
-	
-	if (this.y > this.world.height - this.height) {
-		this.directionY = "up";
-	} else if (this.y < 20) {
-		this.directionY = "down";
-	}
-	
-	if (this.x < this.world.width / 2) {
-		this.directionShoot = "right";
-	} else {
-		this.directionShoot = "left";
-	}
-	
-	if (!(Math.random() < 0.8)) {
-		this.shoot();
-	}
-	
-	this.healthBar.update(this.lives);
 };
 
 Boss.prototype.draw = function() {
-	this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
-	this.healthBar.draw();
+	if (this.alive) {
+		this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
+		this.healthBar.draw();
+	} else {
+		this.world.ctx.globalAlpha = 0.4;
+		this.world.ctx.fillStyle = "#333";
+		this.world.ctx.fillRect(0, 0, 600, 300);
+		this.world.ctx.fillStyle = "#FFF";
+		this.world.ctx.font = "50px Ubuntu Mono";
+		this.world.ctx.globalAlpha = 1.0;
+		this.world.ctx.fillText("You Win", 200, 150);
+	}
 };
 
 Boss.prototype.shoot = function() {
@@ -108,8 +126,21 @@ Boss.prototype.shoot = function() {
 	}
 };
 
-Boss.prototype.explode = function() {
-	this.lives--;
+Boss.prototype.explode = function(source) {
+	if (source === "bullet") {
+		this.lives--;
+	} else if (source === "player" && this.ate == false) {
+		var that = this;
+		this.ate = true;
+		this.lives += 5;
+		if (this.lives > 15) {
+			this.lives = 15;
+		}
+		setTimeout(function() {
+					that.ate = false;
+		}, 300);
+	}
+	
 	if (this.lives === 0) {
 		this.active = false;
 		alert("You Win");

@@ -9,14 +9,14 @@ var collider = function(game) {
 		
 		game.world.enemies.forEach(function(enemy) {
 			if (collides(bullet, enemy)) {
-				enemy.explode();
+				enemy.explode("bullet");
 				bullet.explode("enemy");
 			}
 		});
 		
 		game.world.players.forEach(function(player) {
 			if (collides(bullet, player)) {
-				player.explode();
+				player.explode(1);
 				bullet.explode("player");
 			}
 		});
@@ -25,8 +25,8 @@ var collider = function(game) {
 	game.world.enemies.forEach(function(enemy) {
 		game.world.players.forEach(function(player) {
 			if (collides(enemy, player)) {
-				//enemy.explode();
-				player.explode();
+				enemy.explode("player");
+				player.explode(5);
 			}
 		});
 	});

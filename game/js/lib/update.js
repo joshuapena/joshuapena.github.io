@@ -19,7 +19,7 @@ var update = function (game, Enemy, Bullet, audio) {
 	
 	game.world.players.forEach(
 		function(gameElement) {
-			if (gameElement.kills > 23) {
+			if (gameElement.kills > 22) {
 				bossTime = true;
 			}
 		}

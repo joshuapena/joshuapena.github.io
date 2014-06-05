@@ -78,6 +78,9 @@ Boss.prototype.update = function() {
 		}
 		
 		this.healthBar.update(this.lives);
+	} else {
+		this.x = -400;
+		this.y = -400;
 	}
 };
 

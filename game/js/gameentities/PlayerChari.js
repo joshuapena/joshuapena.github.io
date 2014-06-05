@@ -145,6 +145,9 @@ Player.prototype.update = function() {
 		if (this.kills >= 24) {
 			this.myHealth.update(this.lives);
 		}
+	} else {
+		this.x = -400;
+		this.x = -400;
 	}
 };
 

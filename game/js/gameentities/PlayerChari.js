@@ -45,7 +45,7 @@ var keydown = [];
 Player.prototype.explode = function(damage) {
 	//alert("You died");
 	var that = this;
-	if (this.kills > 1 && this.kills < 24) {
+	if (this.kills > 1 && this.kills < 23) {
 		this.kills--;
 	} else {
 		//if (!this.hit) {
@@ -165,11 +165,11 @@ Player.prototype.draw = function() {
 		this.world.ctx.fillText("Game Over", 200, 150);
 	}
 	this.world.drawText("Happy Anniversary", 115, 90);
-	if (this.kills < 24) {
+	if (this.kills < 23) {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
 	}
 	
-	if (this.kills >= 24 && this.alive) {
+	if (this.kills >= 23 && this.alive) {
 		this.myHealth.draw();
 	}
 };
@@ -201,7 +201,7 @@ Player.prototype.shoot = function() {
 };
 
 Player.prototype.kill = function() {
-	if (this.kills < 24) {
+	if (this.kills < 23) {
 		this.kills++;
 	} /*
 	else if (this.kills == 24) {

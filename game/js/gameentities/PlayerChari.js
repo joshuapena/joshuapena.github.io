@@ -142,7 +142,7 @@ Player.prototype.update = function() {
 			}
 		}
 		
-		if (this.kills >= 24) {
+		if (this.kills >= 23) {
 			this.myHealth.update(this.lives);
 		}
 	} else {

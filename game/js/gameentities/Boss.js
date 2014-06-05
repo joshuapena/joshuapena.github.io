@@ -141,8 +141,7 @@ Boss.prototype.explode = function(source) {
 		}, 300);
 	}
 	
-	if (this.lives === 0) {
-		this.active = false;
-		alert("You Win");
+	if (this.lives < 1) {
+		this.alive = false;
 	}
 };

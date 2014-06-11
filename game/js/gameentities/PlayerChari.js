@@ -48,16 +48,16 @@ Player.prototype.explode = function(damage) {
 	if (this.kills > 1 && this.kills < 23) {
 		this.kills--;
 	} else {
-		//if (!this.hit) {
+		if (!this.hit) {
 			this.lives -= damage;
 			this.hit = true;
-		//	setTimeout(function() {
-		//				that.hit = false;
-		//			}, 500);
+			setTimeout(function() {
+						that.hit = false;
+					}, 500);
 			if (this.lives < 1) {
 				this.alive = false;
 			}
-		//}
+		}
 	}
 };
 

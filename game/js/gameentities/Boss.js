@@ -7,7 +7,7 @@ var Boss = function(world, Bullet, audio) {
 	this.Bullet = Bullet;
 	this.audio = audio;
 	
-	this.type = "enemy";
+	this.type = "boss";
 	this.active = true;
 	this.width = 60;
 	this.height = 114;
@@ -19,17 +19,25 @@ var Boss = function(world, Bullet, audio) {
 	this.directionX = "right";
 	this.directionY = "up";
 	this.lives = 15;
-	this.directionShoot = "right";
+	this.shootAngle = 0;
 	this.sound = "meow";
 	this.alive = true;
 	this.ate = false;
 	
-	/*
-	this.world.healthBars.push(new HealthBar(world, this, {
-			x: 350,
-			lives: this.lives
-	}));
-	*/
+	this.hitboxMetrics = {
+		x: 0,
+		y: 0,
+		width: 60,
+		height: 114
+	};
+	
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
+	
 	this.healthBar = new HealthBar(world, this, {
 		x: 350,
 		lives: this.lives
@@ -52,32 +60,50 @@ Boss.prototype.update = function() {
 		this.x += this.velX;
 		this.y += this.velY;
 		
-		if (this.x > this.world.width - this.width - 50) {
+		if (this.x > this.world.width - this.width - 35) {
 			this.directionX = "left";
-		} else if (this.x < 50) {
+		} else if (this.x < 35) {
 			this.directionX = "right";
 		}
 		
 		if (this.y > this.world.height - this.height) {
 			this.directionY = "up";
-		} else if (this.y < 20) {
+		} else if (this.y < 18) {
 			this.directionY = "down";
 		}
 		
-		if (this.x < this.world.width / 2) {
-			this.directionShoot = "right";
-		} else {
-			this.directionShoot = "left";
+		if (this.y == this.world.height / 3) {
+			this.shootArc();
 		}
 		
-		if (Math.random() < 0.8) {
-			this.audio[this.sound].stop();
-			this.audio[this.sound].play();
+		if (this.x < this.world.width / 2) {
+			this.shootAngle = 0;//"right";
 		} else {
-			this.shoot();
+			this.shootAngle = Math.PI;//"left";
+		}
+		
+		if (Math.random() < 0.7) {
+		} else {
+			// IF HARD MODE UNCOMMENT THIS
+			//this.shoot();
+			if (Math.random() < 0.3) {
+				if (Math.random() < 0.1) {
+					this.audio[this.sound].play();
+					if (Math.random() < 0.4) {
+						this.shootCircle();
+					}
+				} else if (Math.random() < 0.3) {
+					if (Math.random() < 0.1) {
+						this.shootArc();
+					}
+				}
+			}
 		}
 		
 		this.healthBar.update(this.lives);
+		
+		this.updateHitbox();
+		
 	} else {
 		this.x = -400;
 		this.y = -400;
@@ -99,35 +125,81 @@ Boss.prototype.draw = function() {
 	}
 };
 
+Boss.prototype.updateHitbox = function() {
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
+};
+
 Boss.prototype.shoot = function() {
-	if (this.directionShoot === "right") {
+	this.world.bullets.push(
+		new this.Bullet(this.world, {
+			x: (this.x + this.width / 2),
+			y: (this.y + this.height / 2),
+			width: 20,
+			height: 20,
+			hitboxMetrics: {
+				x: 0,
+				y: 0,
+				width: 20,
+				height: 20
+			},
+			angle: this.shootAngle,
+			speed: 5,
+			acceleration: 0.1,
+			owner: this.type
+		}, this.audio
+	));
+};
+
+Boss.prototype.shootArc = function() {
+	for (var i = Math.PI; i > 0; i -= Math.PI / 8) {
 		this.world.bullets.push(
 			new this.Bullet(this.world, {
 				x: (this.x + this.width / 2),
 				y: (this.y + this.height / 2),
 				width: 20,
 				height: 20,
-				direction: "right",
+				hitboxMetrics: {
+					x: 0,
+					y: 0,
+					width: 20,
+					height: 20
+				},
+				angle: i,
 				speed: 5,
 				acceleration: 0.1,
 				owner: this.type
 			}, this.audio
 		));
-	} else {
-		this.world.bullets.push(
-		new this.Bullet(this.world, {
-			x: (this.x + this.width / 2),
-			y: (this.y + this.height / 2),
-			width: 20,
-			height: 20,
-			direction: "left",
-			speed: 5,
-			acceleration: 0.1,
-			owner: this.type
-		}, this.audio
-	));
 	}
 };
+
+Boss.prototype.shootCircle = function() {
+	for (var i = 0; i < 2 * Math.PI; i += Math.PI / 8) {
+		this.world.bullets.push(
+			new this.Bullet(this.world, {
+				x: (this.x + this.width / 2),
+				y: (this.y + this.height / 2),
+				width: 20,
+				height: 20,
+				hitboxMetrics: {
+					x: 0,
+					y: 0,
+					width: 20,
+					height: 20
+				},
+				angle: i,
+				speed: 5,
+				acceleration: 0.1,
+				owner: this.type
+			}, this.audio
+		));
+	}
+}
 
 Boss.prototype.explode = function(source) {
 	if (source === "bullet") {

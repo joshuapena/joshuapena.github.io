@@ -72,9 +72,9 @@ Boss.prototype.update = function() {
 			this.directionY = "down";
 		}
 		
-		if (this.y == this.world.height / 3) {
-			this.shootArc();
-		}
+		//if (this.y == this.world.height / 3) {
+		//	this.shootArc();
+		//}
 		
 		if (this.x < this.world.width / 2) {
 			this.shootAngle = 0;//"right";

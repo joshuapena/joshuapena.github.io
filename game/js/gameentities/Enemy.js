@@ -20,9 +20,23 @@ var Enemy = function(world, direction) {
 	}
 	this.y = this.world.height - this.height;
 	this.friction = 0.8;
-}
+	
+	this.hitboxMetrics = {
+		x: 0,
+		y: 0,
+		width: 20,
+		height: 38
+	};
+	
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
+};
 
-Enemy.prototype.explode = function() {
+Enemy.prototype.explode = function(source) {
 	this.active = false;
 };
 
@@ -46,8 +60,19 @@ Enemy.prototype.update = function() {
 	} else if (this.direction === "left" && this.x < -this.width) {
 		this.active = false;
 	}
+	
+	this.updateHitbox();
 };
 
 Enemy.prototype.draw = function() {
 	this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
+};
+
+Enemy.prototype.updateHitbox = function() {
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
 };

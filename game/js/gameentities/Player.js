@@ -20,6 +20,7 @@ var Player = function(world, Bullet, audio) {
 	this.velY = 0;
 	this.jumping = false;
 	this.direction = "right";
+	this.shootAngle = 0;
 	this.type = "player";
 	this.Bullet = Bullet;
 	this.shootLock = false;
@@ -31,7 +32,21 @@ var Player = function(world, Bullet, audio) {
 	this.alive = true;
 	this.hit = false;
 	
-	this.kills = 0;
+	this.hitboxMetrics = {
+		x: 0,
+		y: 0,
+		width: 20,
+		height: 38
+	};
+	
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
+	
+	this.kills = 25;
 	this.lives = 10;
 	
 	this.myHealth = new HealthBar (world, this, {
@@ -43,9 +58,8 @@ var Player = function(world, Bullet, audio) {
 var keydown = [];
 
 Player.prototype.explode = function(damage) {
-	//alert("You died");
 	var that = this;
-	if (this.kills > 1 && this.kills < 24) {
+	if (this.kills > 1 && this.kills < 23) {
 		this.kills--;
 	} else {
 		//if (!this.hit) {
@@ -63,7 +77,7 @@ Player.prototype.explode = function(damage) {
 
 Player.prototype.update = function() {
 	if (this.alive) {
-	// Jump
+		// Jump
 		if (keydown[38]) {
 			if (!this.jumping) {
 				this.jumping = true;
@@ -90,8 +104,57 @@ Player.prototype.update = function() {
 		}
 		
 		// Shoot
-		if (keydown[32]) {
+		/*
+		if (keydown[65] || keydown[87] || keydown[68]) {
 			if (!this.shootLock) {
+				this.shootLock = true;
+				if (keydown[65] && keydown[87]) {
+					this.shootAngle = "upwardLeft";
+				} else if (keydown[87] && keydown[68]) {
+					this.shootAngle = "upwardRight";
+				} else if (keydown[65]) {
+					this.shootAngle = "left";
+				} else if (keydown[87]) {
+					this.shootAngle = "upward";
+				} else if (keydown[68]) {
+					this.shootAngle = "right";
+				} else {
+					this.shootAngle = this.direction;
+				}
+				this.shoot();
+				var that = this
+				setTimeout(function() {
+					that.shootLock = false;
+				}, 300);
+			}
+		}
+		*/
+		if (keydown[65] || keydown[87] || keydown[68]) {
+			if (!this.shootLock) {
+				this.shootLock = true;
+				if (keydown[65] && keydown[87]) {
+					this.shootAngle = 5 * Math.PI / 4;
+				} else if (keydown[87] && keydown[68]) {
+					this.shootAngle = 7 * Math.PI / 4;
+				} else if (keydown[65]) {
+					this.shootAngle = Math.PI;
+				} else if (keydown[87]) {
+					this.shootAngle = 3 * Math.PI / 2;
+				} else if (keydown[68]) {
+					this.shootAngle = 0;
+				}
+				this.shoot();
+				var that = this
+				setTimeout(function() {
+					that.shootLock = false;
+				}, 300);
+			}
+		}
+		/*
+		// upwardLeft
+		if (keydown[81]) {
+			if (!this.shootLock) {
+				this.shootAngle = "upwardLeft";
 				this.shoot();
 				this.shootLock = true;
 				var that = this
@@ -100,6 +163,19 @@ Player.prototype.update = function() {
 				}, 300);
 			}
 		}
+		// upwardRight
+		if (keydown[69]) {
+			if (!this.shootLock) {
+				this.shootAngle = "upwardRight";
+				this.shoot();
+				this.shootLock = true;
+				var that = this
+				setTimeout(function() {
+					that.shootLock = false;
+				}, 300);
+			}
+		}
+		*/
 		
 		this.velX *= this.friction;
 		this.velY += this.gravity;
@@ -142,9 +218,8 @@ Player.prototype.update = function() {
 			}
 		}
 		
-		if (this.kills >= 24) {
-			this.myHealth.update(this.lives);
-		}
+		this.updateHitbox();
+		this.myHealth.update(this.lives);
 	}
 };
 
@@ -165,13 +240,11 @@ Player.prototype.draw = function() {
 		this.world.ctx.fillText("Game Over", 200, 150);
 	}
 	//this.world.drawText("Happy Anniversary", 115, 90);
-	if (this.kills < 24) {
+	if (this.kills < 23) {
 		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
 	}
 	
-	if (this.kills >= 24 && this.alive) {
-		this.myHealth.draw();
-	}
+	this.myHealth.draw();
 };
 
 Player.prototype.midpoint = function() {
@@ -181,14 +254,29 @@ Player.prototype.midpoint = function() {
 	}
 };
 
+Player.prototype.updateHitbox = function() {
+	this.hitbox = {
+		x: this.x + this.hitboxMetrics.x,
+		y: this.y + this.hitboxMetrics.y,
+		width: this.hitboxMetrics.width,
+		height: this.hitboxMetrics.height
+	};
+};
+
 Player.prototype.shoot = function() {
 	this.world.bullets.push (
 		new this.Bullet(this.world, {
 			x: this.midpoint().x,
-			y: this.midpoint().y - 1,
-			width: 9,
-			height: 3,
-			direction: this.direction,
+			y: this.midpoint().y - 3,
+			width: 6,
+			height: 6,
+			hitboxMetrics: {
+				x: 0,
+				y: 0,
+				width: 6,
+				height: 6
+			},
+			angle: this.shootAngle,
 			speed: 20,
 			acceleration: 0.2,
 			owner: this.type,
@@ -201,7 +289,7 @@ Player.prototype.shoot = function() {
 };
 
 Player.prototype.kill = function() {
-	if (this.kills < 24) {
+	if (this.kills < 23) {
 		this.kills++;
 	} /*
 	else if (this.kills == 24) {

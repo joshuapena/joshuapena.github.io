@@ -46,7 +46,7 @@ var Player = function(world, Bullet, audio) {
 		height: this.hitboxMetrics.height
 	};
 	
-	this.kills = 25;
+	this.kills = 0;
 	this.lives = 10;
 	
 	this.myHealth = new HealthBar (world, this, {

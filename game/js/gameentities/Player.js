@@ -18,7 +18,10 @@ var Player = function(world, Bullet, audio) {
 	this.speed = 3;
 	this.velX = 0;
 	this.velY = 0;
+	
 	this.jumping = false;
+	this.jumpDown = false;
+	
 	this.direction = "right";
 	this.shootAngle = 0;
 	this.type = "player";
@@ -59,20 +62,16 @@ var keydown = [];
 
 Player.prototype.explode = function(damage) {
 	var that = this;
-	if (this.kills > 1 && this.kills < 23) {
-		this.kills--;
-	} else {
-		//if (!this.hit) {
-			this.lives -= damage;
-			this.hit = true;
-		//	setTimeout(function() {
-		//				that.hit = false;
-		//			}, 500);
-			if (this.lives < 1) {
-				this.alive = false;
-			}
-		//}
-	}
+	//if (!this.hit) {
+		this.lives -= damage;
+		this.hit = true;
+	//	setTimeout(function() {
+	//				that.hit = false;
+	//			}, 500);
+		if (this.lives < 1) {
+			this.alive = false;
+		}
+	//}
 };
 
 Player.prototype.update = function() {
@@ -81,6 +80,7 @@ Player.prototype.update = function() {
 		if (keydown[38]) {
 			if (!this.jumping) {
 				this.jumping = true;
+				this.jumpDown = false;
 				this.velY = -this.speed * 2;
 				this.audio[this.jumpAudio].stop();
 				this.audio[this.jumpAudio].play();
@@ -180,6 +180,10 @@ Player.prototype.update = function() {
 		this.velX *= this.friction;
 		this.velY += this.gravity;
 		
+		if (this.velY >= 0) {
+			this.jumpDown = true;
+		}
+		
 		this.x += this.velX;
 		this.y += this.velY;
 		
@@ -240,9 +244,9 @@ Player.prototype.draw = function() {
 		this.world.ctx.fillText("Game Over", 200, 150);
 	}
 	//this.world.drawText("Happy Anniversary", 115, 90);
-	if (this.kills < 23) {
-		this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
-	}
+	//if (this.kills < 23) {
+	//	this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
+	//}
 	
 	this.myHealth.draw();
 };

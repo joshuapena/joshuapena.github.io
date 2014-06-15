@@ -4,10 +4,12 @@ var draw = function(world) {
 	//world.drawRectangle("#EEE", 0, 0, world.width, world.height);
 	world.drawSprite("turtleWithACrown", 0, 0, world.width, world.height);
 	
-	[world.enemies,
-	world.players,
+	[world.platforms,
+	world.enemies,
 	world.bullets, 
-	world.boss
+	world.boss,
+	world.arms,
+	world.players
 	].forEach (
 		function (gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {

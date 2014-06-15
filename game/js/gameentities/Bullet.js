@@ -83,7 +83,7 @@ Bullet.prototype.update = function () {
 	this.velX += this.accelerationX;
 	this.velY += this.accelerationY;
 	
-	if ((this.hitbox.x < 0 - this.hitbox.width) || (this.hitbox.x > this.world.width) || (this.hitbox.y - this.height < 0)) {
+	if ((this.hitbox.x < 0 - this.hitbox.width) || (this.hitbox.x > this.world.width) || (this.hitbox.y < 0 - this.height ) || (this.hitbox.y > this.world.height)) {
 		this.active = false;
 	}
 	

@@ -1,6 +1,6 @@
 "use strict";
 
-var Boss = function(world, Bullet, audio) {
+var CatBoss = function(world, Bullet, audio) {
 	this.world = world;
 	
 	this.spriteName = "catBoss";
@@ -44,7 +44,7 @@ var Boss = function(world, Bullet, audio) {
 	});
 }
 
-Boss.prototype.update = function() {
+CatBoss.prototype.update = function() {
 	if (this.alive) {
 		if (this.directionX === "right") {
 			this.velX = this.speed;
@@ -110,7 +110,7 @@ Boss.prototype.update = function() {
 	}
 };
 
-Boss.prototype.draw = function() {
+CatBoss.prototype.draw = function() {
 	if (this.alive) {
 		this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
 		this.healthBar.draw();
@@ -125,7 +125,7 @@ Boss.prototype.draw = function() {
 	}
 };
 
-Boss.prototype.updateHitbox = function() {
+CatBoss.prototype.updateHitbox = function() {
 	this.hitbox = {
 		x: this.x + this.hitboxMetrics.x,
 		y: this.y + this.hitboxMetrics.y,
@@ -134,7 +134,7 @@ Boss.prototype.updateHitbox = function() {
 	};
 };
 
-Boss.prototype.shoot = function() {
+CatBoss.prototype.shoot = function() {
 	this.world.bullets.push(
 		new this.Bullet(this.world, {
 			x: (this.x + this.width / 2),
@@ -155,7 +155,7 @@ Boss.prototype.shoot = function() {
 	));
 };
 
-Boss.prototype.shootArc = function() {
+CatBoss.prototype.shootArc = function() {
 	for (var i = Math.PI; i > 0; i -= Math.PI / 8) {
 		this.world.bullets.push(
 			new this.Bullet(this.world, {
@@ -178,7 +178,7 @@ Boss.prototype.shootArc = function() {
 	}
 };
 
-Boss.prototype.shootCircle = function() {
+CatBoss.prototype.shootCircle = function() {
 	for (var i = 0; i < 2 * Math.PI; i += Math.PI / 8) {
 		this.world.bullets.push(
 			new this.Bullet(this.world, {
@@ -201,7 +201,7 @@ Boss.prototype.shootCircle = function() {
 	}
 }
 
-Boss.prototype.explode = function(source) {
+CatBoss.prototype.explode = function(source) {
 	if (source === "bullet") {
 		this.lives--;
 	} else if (source === "player" && this.ate == false) {

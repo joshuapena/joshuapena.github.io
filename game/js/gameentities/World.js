@@ -9,8 +9,10 @@ var World = function(context, options, sprites) {
 	this.players = [];
 	this.enemies = [];
 	this.boss = [];
+	this.arms = [];
 	this.bullets = [];
 	this.healthBars = [];
+	this.platforms = [];
 };
 
 World.prototype.addPlayer = function(player) {
@@ -28,6 +30,22 @@ World.prototype.cropSprite = function(spriteName, cropX, cropY, cropWidth, cropH
 World.prototype.drawRectangle = function(color, x, y, width, height) {
 	this.ctx.fillStyle = color;
 	this.ctx.fillRect(x, y, width, height);
+};
+
+World.prototype.drawPolygon = function(color, lines, points) {
+	this.ctx.fillStyle = color;
+	this.ctx.beginPath();
+	this.ctx.moveTo(points.x0, points.y0);
+	/*
+	for (var i = 1; i < lines; i++) {
+		this.ctx.lineTo(points.x + i, points.y + i);
+	}
+	*/
+	this.ctx.lineTo(points.x1, points.y1);
+	this.ctx.lineTo(points.x2, points.y2);
+	this.ctx.lineTo(points.x3, points.y3);
+	this.ctx.closePath();
+	this.ctx.fill();
 };
 
 World.prototype.drawText = function(text, x, y) {

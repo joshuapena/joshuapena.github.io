@@ -27,6 +27,13 @@ var collider = function(game) {
 				bullet.explode("boss");
 			}
 		});
+		
+		game.world.arms.forEach(function(arm) {
+			if (collides(bullet, arm)) {
+				arm.explode("bullet");
+				bullet.explode("arm");
+			}
+		});
 	});
 
 	game.world.players.forEach(function(player) {
@@ -41,6 +48,22 @@ var collider = function(game) {
 			if (collides(player, boss)) {
 				player.explode(5);
 				boss.explode("player");
+			}
+		});
+		game.world.arms.forEach(function(arm) {
+			if (collides(player, arm)) {
+				player.explode(3);
+				arm.explode("player");
+			}
+		});
+		
+		game.world.platforms.forEach(function(platform) {
+			if (collides(player, platform)) {
+				if (player.jumpDown == true) {
+					player.jumping = false;
+					player.y = platform.y - player.height;
+					player.velY = 0;
+				}
 			}
 		});
 	});

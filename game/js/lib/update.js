@@ -5,10 +5,11 @@ var bossOn = false;
 
 var update = function (game, Enemy, Bullet, audio) {
 
-	[game.world.enemies,
+	[game.world.platforms,
+	game.world.enemies,
+	game.world.boss,
 	game.world.players,
-	game.world.bullets,
-	game.world.boss
+	game.world.bullets
 	].forEach (
 		function(gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {
@@ -37,6 +38,14 @@ var update = function (game, Enemy, Bullet, audio) {
 		return boss.active;
 	});
 	
+	game.world.arms = game.world.arms.filter(function(arm) {
+		return arm.active;
+	});
+	
+	game.world.platforms = game.world.platforms.filter(function(platform) {
+		return platform.active;
+	});
+	
 	if (!bossTime && !bossOn) {
 		if (Math.random() < 0.02) {
 			if (Math.random() < 0.1) {
@@ -49,7 +58,23 @@ var update = function (game, Enemy, Bullet, audio) {
 			}
 		}
 	} else if (bossTime && !bossOn) {
-		game.world.enemies.push(new Boss(game.world, Bullet, audio));
+		game.world.boss.push(new QuadrapusBoss(game.world, Bullet, audio));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 125,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 425,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 100,
+			y: 191,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 450,
+			y: 191,
+		}));
 		bossTime = false;
 		bossOn = true;
 		audio["casanova"].stop();
@@ -57,6 +82,5 @@ var update = function (game, Enemy, Bullet, audio) {
 		audio["pokemonRuby"].volume = 30;
 		audio["pokemonRuby"].play();
 	} else if (bossTime && bossOn) {
-		//document.write("foo");
 	}
 };

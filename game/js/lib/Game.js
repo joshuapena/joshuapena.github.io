@@ -1,3 +1,4 @@
+"use strict";
 var Game = function(canvas, sprites, audio) {
 	this.fps = 60;
 	var canvas = canvas;

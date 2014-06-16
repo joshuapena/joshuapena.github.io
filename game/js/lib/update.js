@@ -102,8 +102,10 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		}
 		
 		audio["pokemonRuby"].stop();
+		/*
 		audio["underTheSea"].loop();
 		audio["underTheSea"].play();
+		*/
 		
 		if (nextStage) {
 			bossTime = true;
@@ -129,10 +131,12 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			y: 191,
 		}));
 		
+		/*
 		audio["underTheSea"].stop();
 		audio["itsPossible"].setVolume(100);
 		audio["itsPossible"].loop();
 		audio["itsPossible"].play();
+		*/
 		bossTime = false;
 	} else if (minionTime && round == 2) {
 		if (Math.random() < 0.02) {

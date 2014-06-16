@@ -12,10 +12,7 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 	this.width = 114;
 	this.height = 114;
 	this.x = this.world.width / 2 - this.width / 2;
-	this.y = this.world.height - this.height - 60;
-	
-	this.lives = 30;
-	this.alive = true;
+	this.y = this.world.height - this.height - 100;
 	
 	this.hitboxMetrics = {
 		x: 0,
@@ -62,9 +59,11 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 	
 	this.world.arms.push(this.armUpperRight, this.armUpperLeft, this.armLowerRight, this.armLowerLeft);
 	
+	this.lives = 15;
+	
 	this.healthBar = new HealthBar(world, this, {
 		x: 350,
-		lives: this.lives
+		lives: this.lives + this.armUpperRight.lives + this.armUpperLeft.lives + this.armLowerRight.lives + this.armLowerLeft.lives
 	});
 };
 
@@ -107,21 +106,17 @@ QuadrapusBoss.prototype.update = function () {
 		}
 	}
 
-	if (this.alive) {
-		this.healthBar.update(this.lives);
-		this.updateHitbox();
-	}
+	this.healthBar.update(this.lives + this.armUpperRight.lives + this.armUpperLeft.lives + this.armLowerRight.lives + this.armLowerLeft.lives);
+	this.updateHitbox();
 };
 
 QuadrapusBoss.prototype.draw = function() {
-	if (this.alive) {
-		if (this.spriteName === null) {
-			this.world.drawRectangle("#580058", this.x, this.y, this.width, this.height);
-		} else {
-			this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
-		}
-		this.healthBar.draw();
+	if (this.spriteName === null) {
+		this.world.drawRectangle("#580058", this.x, this.y, this.width, this.height);
+	} else {
+		this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
 	}
+	this.healthBar.draw();
 };
 
 QuadrapusBoss.prototype.shotCircle = function() {
@@ -163,5 +158,14 @@ QuadrapusBoss.prototype.explode = function(source) {
 	
 	if (this.lives < 1) {
 		this.active = false;
+		this.armUpperRight.active = false;
+		this.armUpperLeft.active = false;
+		this.armLowerRight.active = false;
+		this.armLowerLeft.active = false;
+		this.world.platforms.forEach(
+			function(platform) {
+				platform.active = false;
+			}
+		);
 	}
 };

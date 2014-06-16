@@ -11,7 +11,7 @@ var QuadrapusEnemy = function(world, options) {
 	this.active = true;
 	this.width = 55;
 	this.height = 30;
-	this.speed = 1.5;
+	this.speed = 1.4;
 	this.velX = 0;
 	this.velY = 0;
 	if (this.side === "right") {
@@ -19,7 +19,8 @@ var QuadrapusEnemy = function(world, options) {
 	} else {
 		this.x = this.world.width + this.width;
 	}
-	this.y = this.world.height / 2;
+	this.direction = "down";
+	this.y = this.world.height / 2 - this.width / 2;
 	
 	this.hitboxMetrics = {
 		x: 0,
@@ -42,16 +43,25 @@ QuadrapusEnemy.prototype.explode = function(source) {
 
 QuadrapusEnemy.prototype.update = function() {
 	if (this.side === "right") {
-		if (this.velX < this.speed) {
-			this.velX++;
+		this.velX = this.speed;
+	} else {
+		this.velX = -this.speed;
+	}
+	
+	if (this.direction === "down") {
+		this.velY = 0.5;
+		if (this.y > this.world.height / 2 + this.height / 2) {
+			this.direction = "up";
 		}
 	} else {
-		if (this.velX > -this.speed) {
-			this.velX--;
+		this.velY = -0.5;
+		if (this.y < this.world.height / 2 - this.width / 2) {
+			this.direction = "down";
 		}
 	}
 	
 	this.x += this.velX;
+	this.y += this.velY;
 	
 	if (this.side === "right" && this.x > this.world.width) {
 		this.active = false;

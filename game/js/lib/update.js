@@ -1,14 +1,15 @@
 "use strict";
 
+// Stages
+var nextStage = false;
+var minionTime = true;
 var bossTime = false;
-var bossOn = false;
+var round = 0;
 
-var update = function (game, Enemy, Bullet, audio) {
+var update = function (game, CatEnemy, Bullet, audio) {
 
 	[game.world.platforms,
 	game.world.enemies,
-	game.world.boss,
-	game.world.players,
 	game.world.bullets
 	].forEach (
 		function(gameElementArray) {
@@ -19,9 +20,21 @@ var update = function (game, Enemy, Bullet, audio) {
 	);
 	
 	game.world.players.forEach(
-		function(gameElement) {
-			if (gameElement.kills > 22) {
-				bossTime = true;
+		function(player) {
+			game.world.boss.forEach (
+				function(boss) {
+					if (boss.lives < 1) {
+						round++;
+						minionTime = true;
+						player.kills = 20;
+						nextStage = false;
+					}
+					boss.update();
+				}
+			);
+			player.update();
+			if (player.kills > 22) {
+				nextStage = true;
 			}
 		}
 	);
@@ -46,41 +59,84 @@ var update = function (game, Enemy, Bullet, audio) {
 		return platform.active;
 	});
 	
-	if (!bossTime && !bossOn) {
+	if (minionTime && round == 0) {
 		if (Math.random() < 0.02) {
 			if (Math.random() < 0.1) {
 			} else {
 				if (Math.random() < 0.8) {
-					game.world.enemies.push(new Enemy(game.world, "right"));
+					game.world.enemies.push(new CatEnemy(game.world, "right"));
 				} else {
-					game.world.enemies.push(new Enemy(game.world, "left"));
+					game.world.enemies.push(new CatEnemy(game.world, "left"));
 				}
 			}
 		}
-	} else if (bossTime && !bossOn) {
-		game.world.boss.push(new QuadrapusBoss(game.world, Bullet, audio));
-		game.world.platforms.push(new Platform(game.world, {
-			x: 125,
-			y: 250,
-		}));
-		game.world.platforms.push(new Platform(game.world, {
-			x: 425,
-			y: 250,
-		}));
-		game.world.platforms.push(new Platform(game.world, {
-			x: 100,
-			y: 191,
-		}));
-		game.world.platforms.push(new Platform(game.world, {
-			x: 450,
-			y: 191,
-		}));
-		bossTime = false;
-		bossOn = true;
+		if (nextStage) {
+			nextStage = false;
+			bossTime = true;
+			minionTime = false;
+		}
+	} else if (bossTime && round == 0) {
+		game.world.boss.push(new CatBoss(game.world, Bullet, audio));
+		
 		audio["casanova"].stop();
 		audio["pokemonRuby"].loop();
-		audio["pokemonRuby"].volume = 30;
+		audio["pokemonRuby"].setVolume(80);
 		audio["pokemonRuby"].play();
-	} else if (bossTime && bossOn) {
+		bossTime = false;
+	} else if (minionTime && round == 1) {
+		if (Math.random() < 0.02) {
+			if (Math.random() < 0.1) {
+			} else {
+				if (Math.random() < 0.8) {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						side: "left"
+					}));
+				} else {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						side: "right"
+					}));
+				}
+			}
+		}
+		
+		audio["pokemonRuby"].stop();
+		/*
+		audio["underTheSea"].loop();
+		audio["underTheSea"].play();
+		*/
+		
+		if (nextStage) {
+			bossTime = true;
+			minionTime = false;
+			nextStage = false;
+		}
+	} else if (bossTime && round == 1) {
+		game.world.boss.push(new QuadrapusBoss(game.world, Bullet, audio));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 75,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 475,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 50,
+			y: 191,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 500,
+			y: 191,
+		}));
+		
+		/*
+		audio["underTheSea"].stop();
+		audio["itsPossible"].setVolume(100);
+		audio["itsPossible"].loop();
+		audio["itsPossible"].play();
+		*/
+		bossTime = false;
+	} else if (minionTime && round == 2) {
+		game.world.end = true;
 	}
 };

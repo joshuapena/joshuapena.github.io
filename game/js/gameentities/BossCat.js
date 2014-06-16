@@ -18,11 +18,11 @@ var CatBoss = function(world, Bullet, audio) {
 	this.y = this.world.height - this.height;
 	this.directionX = "right";
 	this.directionY = "up";
-	this.lives = 15;
 	this.shootAngle = 0;
 	this.sound = "meow";
-	this.alive = true;
 	this.ate = false;
+	
+	this.lives = 1;
 	
 	this.hitboxMetrics = {
 		x: 0,
@@ -45,84 +45,77 @@ var CatBoss = function(world, Bullet, audio) {
 }
 
 CatBoss.prototype.update = function() {
-	if (this.alive) {
-		if (this.directionX === "right") {
-			this.velX = this.speed;
-		} else {
-			this.velX = -this.speed;
-		}
-		if (this.directionY === "up") {
-			this.velY = -this.speed;
-		} else {
-			this.velY = this.speed;
-		}
-		
-		this.x += this.velX;
-		this.y += this.velY;
-		
-		if (this.x > this.world.width - this.width - 35) {
-			this.directionX = "left";
-		} else if (this.x < 35) {
-			this.directionX = "right";
-		}
-		
-		if (this.y > this.world.height - this.height) {
-			this.directionY = "up";
-		} else if (this.y < 18) {
-			this.directionY = "down";
-		}
-		
-		if (this.y == this.world.height / 3) {
-			this.shootArc();
-		}
-		
-		if (this.x < this.world.width / 2) {
-			this.shootAngle = 0;//"right";
-		} else {
-			this.shootAngle = Math.PI;//"left";
-		}
-		
-		if (Math.random() < 0.7) {
-		} else {
-			// IF HARD MODE UNCOMMENT THIS
-			//this.shoot();
-			if (Math.random() < 0.3) {
+	if (this.directionX === "right") {
+		this.velX = this.speed;
+	} else {
+		this.velX = -this.speed;
+	}
+	if (this.directionY === "up") {
+		this.velY = -this.speed;
+	} else {
+		this.velY = this.speed;
+	}
+	
+	this.x += this.velX;
+	this.y += this.velY;
+	
+	if (this.x > this.world.width - this.width - 35) {
+		this.directionX = "left";
+	} else if (this.x < 35) {
+		this.directionX = "right";
+	}
+	
+	if (this.y > this.world.height - this.height) {
+		this.directionY = "up";
+	} else if (this.y < 18) {
+		this.directionY = "down";
+	}
+	
+	if (this.y == this.world.height / 3) {
+		this.shootArc();
+	}
+	
+	if (this.x < this.world.width / 2) {
+		this.shootAngle = 0;//"right";
+	} else {
+		this.shootAngle = Math.PI;//"left";
+	}
+	
+	if (Math.random() < 0.7) {
+	} else {
+		// IF HARD MODE UNCOMMENT THIS
+		//this.shoot();
+		if (Math.random() < 0.3) {
+			if (Math.random() < 0.1) {
+				this.audio[this.sound].play();
+				if (Math.random() < 0.4) {
+					this.shootCircle();
+				}
+			} else if (Math.random() < 0.3) {
 				if (Math.random() < 0.1) {
-					this.audio[this.sound].play();
-					if (Math.random() < 0.4) {
-						this.shootCircle();
-					}
-				} else if (Math.random() < 0.3) {
-					if (Math.random() < 0.1) {
-						this.shootArc();
-					}
+					this.shootArc();
 				}
 			}
 		}
-		
-		this.healthBar.update(this.lives);
-		
-		this.updateHitbox();
-		
-	} else {
-		this.x = -400;
-		this.y = -400;
 	}
+	
+	this.healthBar.update(this.lives);
+	
+	this.updateHitbox();
 };
 
 CatBoss.prototype.draw = function() {
-	if (this.alive) {
-		this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
-		this.healthBar.draw();
-	} else {
-		this.world.ctx.globalAlpha = 0.4;
-		this.world.ctx.fillStyle = "#333";
-		this.world.ctx.fillRect(0, 0, 600, 300);
-		this.world.ctx.fillStyle = "#FFF";
-		this.world.ctx.font = "50px Ubuntu Mono";
-		this.world.ctx.globalAlpha = 1.0;
-		this.world.ctx.fillText("You Win", 200, 150);
-	}
+	this.world.drawSprite(this.spriteName, this.x, this.y, this.width, this.height);
+	this.healthBar.draw();
+	/*
+	this.world.ctx.globalAlpha = 0.4;
+	this.world.ctx.fillStyle = "#333";
+	this.world.ctx.fillRect(0, 0, 600, 300);
+	this.world.ctx.fillStyle = "#FFF";
+	this.world.ctx.font = "50px Ubuntu Mono";
+	this.world.ctx.globalAlpha = 1.0;
+	this.world.ctx.fillText("You Win", 200, 150);
+	*/
 };
 
 CatBoss.prototype.updateHitbox = function() {
@@ -216,7 +209,7 @@ CatBoss.prototype.explode = function(source) {
 		}, 300);
 	}
 	
-	if (this.lives < 1) {
-		this.alive = false;
+	if (this.lives == 0) {
+		this.active = false;
 	}
 };

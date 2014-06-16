@@ -89,12 +89,12 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			} else {
 				if (Math.random() < 0.8) {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
-						spriteName: "enemyQuadrapus",
+						//spriteName: "enemyQuadrapus",
 						side: "left"
 					}));
 				} else {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
-						spriteName: "enemyQuadrapus",
+						//spriteName: "enemyQuadrapus",
 						side: "right"
 					}));
 				}
@@ -144,12 +144,12 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			} else {
 				if (Math.random() < 0.8) {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
-						spriteName: "enemyQuadrapus",
+						//spriteName: "enemyQuadrapus",
 						side: "left"
 					}));
 				} else {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
-						spriteName: "enemyQuadrapus",
+						//spriteName: "enemyQuadrapus",
 						side: "right"
 					}));
 				}

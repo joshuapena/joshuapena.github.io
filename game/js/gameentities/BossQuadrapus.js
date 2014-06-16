@@ -12,7 +12,7 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 	this.width = 114;
 	this.height = 114;
 	this.x = this.world.width / 2 - this.width / 2;
-	this.y = this.world.height - this.height - 60;
+	this.y = this.world.height - this.height - 100;
 	
 	this.hitboxMetrics = {
 		x: 0,

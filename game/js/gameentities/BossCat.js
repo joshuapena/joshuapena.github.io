@@ -22,7 +22,7 @@ var CatBoss = function(world, Bullet, audio) {
 	this.sound = "meow";
 	this.ate = false;
 	
-	this.lives = 10;
+	this.lives = 1;
 	
 	this.hitboxMetrics = {
 		x: 0,
@@ -44,7 +44,7 @@ var CatBoss = function(world, Bullet, audio) {
 	});
 }
 
-CatBoss.prototype.update = function() {
+CatBoss.prototype.update = function(player) {
 	if (this.directionX === "right") {
 		this.velX = this.speed;
 	} else {

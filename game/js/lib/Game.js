@@ -24,7 +24,7 @@ var Game = function(canvas, sprites, audio) {
 	
 	var gameloop = setInterval(function() {
 		collider(game);
-		update(game, Enemy, Bullet, audio);
+		update(game, CatEnemy, Bullet, audio);
 		draw(game.world);
 	}, 1000 / this.fps);
 }

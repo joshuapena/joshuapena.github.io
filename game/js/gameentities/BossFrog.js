@@ -18,12 +18,12 @@ var FrogBoss = function(world, Bullet, audio) {
 	this.y = -this.height;
 	this.gravityInital = 0.3;
 	this.gravityFinal = 0.5;
-	this.frictionInital = 0.7;
-	this.frictionFinal = 0.5;
+	this.frictionInital = 1;
+	this.frictionFinal = 0.86;
 	
 	this.landed = false;
 	
-	this.lives = 5;
+	this.lives = 20;
 	
 	this.hitboxMetrics = {
 		x: 0,

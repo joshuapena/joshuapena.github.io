@@ -72,28 +72,36 @@ QuadrapusBoss.prototype.update = function () {
 	if (Math.random() < 0.5) {
 		if (Math.random() < 0.5) {
 			if (Math.random() < 0.015) {
-				this.armUpperRight.shotArc(0, Math.PI, Math.PI / 8);
-			} else if (Math.random() < 0.02) {
+				if (this.armUpperRight.active) {
+					this.armUpperRight.shotArc(0, Math.PI, Math.PI / 8);
+				}
+			} else if (Math.random() < 0.016) {
 				this.shotCircle();
 			}
 		} else {
 			if (Math.random() < 0.015) {
-				this.armUpperLeft.shotArc(0, Math.PI, Math.PI / 8);
-			} else if (Math.random() < 0.02) {
+				if (this.armUpperLeft.active) {
+					this.armUpperLeft.shotArc(0, Math.PI, Math.PI / 8);
+				}
+			} else if (Math.random() < 0.016) {
 				this.shotCircle();
 			}
 		}
 	} else {
 		if (Math.random() < 0.5) {
 			if (Math.random() < 0.015) {
-				this.armLowerRight.shotArc(Math.PI / 2, -Math.PI / 2, -Math.PI / 8);
-			} else if (Math.random() < 0.02) {
+				if (this.armLowerRight.active) {
+					this.armLowerRight.shotArc(Math.PI / 2, -Math.PI / 2, -Math.PI / 8);
+				}
+			} else if (Math.random() < 0.016) {
 				this.shotCircle();
 			}
 		} else {
 			if (Math.random() < 0.015) {
-				this.armLowerLeft.shotArc(Math.PI / 2, 3 * Math.PI / 2, Math.PI / 8);
-			} else if (Math.random() < 0.02) {
+				if (this.armLowerLeft.active) {
+					this.armLowerLeft.shotArc(Math.PI / 2, 3 * Math.PI / 2, Math.PI / 8);
+				}
+			} else if (Math.random() < 0.016) {
 				this.shotCircle();
 			}
 		}

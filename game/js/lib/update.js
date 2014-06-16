@@ -29,7 +29,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 						player.kills = 20;
 						nextStage = false;
 					}
-					boss.update();
+					boss.update(player);
 				}
 			);
 			player.update();
@@ -89,10 +89,12 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			} else {
 				if (Math.random() < 0.8) {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						spriteName: "enemyQuadrapus",
 						side: "left"
 					}));
 				} else {
 					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						spriteName: "enemyQuadrapus",
 						side: "right"
 					}));
 				}
@@ -100,10 +102,8 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		}
 		
 		audio["pokemonRuby"].stop();
-		/*
 		audio["underTheSea"].loop();
 		audio["underTheSea"].play();
-		*/
 		
 		if (nextStage) {
 			bossTime = true;
@@ -129,14 +129,39 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			y: 191,
 		}));
 		
-		/*
 		audio["underTheSea"].stop();
 		audio["itsPossible"].setVolume(100);
 		audio["itsPossible"].loop();
 		audio["itsPossible"].play();
-		*/
 		bossTime = false;
 	} else if (minionTime && round == 2) {
+		if (Math.random() < 0.02) {
+			if (Math.random() < 0.1) {
+			} else {
+				if (Math.random() < 0.8) {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						spriteName: "enemyQuadrapus",
+						side: "left"
+					}));
+				} else {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						spriteName: "enemyQuadrapus",
+						side: "right"
+					}));
+				}
+			}
+		}
+		
+		if (nextStage) {
+			bossTime = true;
+			minionTime = false;
+			nextStage = false;
+		}
+	} else if (bossTime && round == 2) {
+		game.world.boss.push(new FrogBoss(game.world, Bullet, audio));
+		
+		bossTime = false;
+	} else if (minionTime && round == 3) {
 		game.world.end = true;
 	}
 };

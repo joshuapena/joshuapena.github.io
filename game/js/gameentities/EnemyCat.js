@@ -3,7 +3,7 @@
 var CatEnemy = function(world, direction) {
 	this.world = world;
 	
-	this.spriteName = "enemyCat";
+	this.spriteName = "enemy";
 	
 	this.direction = direction;
 	this.type = "enemy";

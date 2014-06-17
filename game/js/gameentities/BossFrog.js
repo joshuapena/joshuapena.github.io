@@ -19,7 +19,7 @@ var FrogBoss = function(world, Bullet, audio) {
 	this.gravityInital = 0.3;
 	this.gravityFinal = 0.5;
 	this.frictionInital = 0.9;
-	this.frictionFinal = 0.86;
+	this.frictionFinal = 0.84;
 	
 	this.landed = false;
 	

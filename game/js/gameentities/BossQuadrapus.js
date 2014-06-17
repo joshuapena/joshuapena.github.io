@@ -74,7 +74,7 @@ QuadrapusBoss.prototype.update = function (player) {
 				if (this.armUpperRight.active) {
 					this.armUpperRight.shotArc(0, Math.PI, Math.PI / 8);
 				}
-			} else if (Math.random() < 0.012) {
+			} else if (Math.random() < 0.01) {
 				this.shotCircle();
 			}
 		} else {
@@ -82,7 +82,7 @@ QuadrapusBoss.prototype.update = function (player) {
 				if (this.armUpperLeft.active) {
 					this.armUpperLeft.shotArc(0, Math.PI, Math.PI / 8);
 				}
-			} else if (Math.random() < 0.012) {
+			} else if (Math.random() < 0.01) {
 				this.shotCircle();
 			}
 		}
@@ -92,7 +92,7 @@ QuadrapusBoss.prototype.update = function (player) {
 				if (this.armLowerRight.active) {
 					this.armLowerRight.shotArc(Math.PI / 2, -Math.PI / 2, -Math.PI / 8);
 				}
-			} else if (Math.random() < 0.012) {
+			} else if (Math.random() < 0.01) {
 				this.shotCircle();
 			}
 		} else {

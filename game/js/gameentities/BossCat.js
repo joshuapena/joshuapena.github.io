@@ -84,7 +84,7 @@ CatBoss.prototype.update = function(player) {
 	if (Math.random() < 0.7) {
 	} else {
 		// IF HARD MODE UNCOMMENT THIS
-		//this.shoot();
+		this.shoot();
 		if (Math.random() < 0.3) {
 			if (Math.random() < 0.1) {
 				this.audio[this.sound].play();

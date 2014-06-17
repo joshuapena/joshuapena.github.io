@@ -70,37 +70,37 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 QuadrapusBoss.prototype.update = function (player) {
 	if (Math.random() < 0.5) {
 		if (Math.random() < 0.5) {
-			if (Math.random() < 0.015) {
+			if (Math.random() < 0.01) {
 				if (this.armUpperRight.active) {
 					this.armUpperRight.shotArc(0, Math.PI, Math.PI / 8);
 				}
-			} else if (Math.random() < 0.016) {
+			} else if (Math.random() < 0.012) {
 				this.shotCircle();
 			}
 		} else {
-			if (Math.random() < 0.015) {
+			if (Math.random() < 0.01) {
 				if (this.armUpperLeft.active) {
 					this.armUpperLeft.shotArc(0, Math.PI, Math.PI / 8);
 				}
-			} else if (Math.random() < 0.016) {
+			} else if (Math.random() < 0.012) {
 				this.shotCircle();
 			}
 		}
 	} else {
 		if (Math.random() < 0.5) {
-			if (Math.random() < 0.015) {
+			if (Math.random() < 0.01) {
 				if (this.armLowerRight.active) {
 					this.armLowerRight.shotArc(Math.PI / 2, -Math.PI / 2, -Math.PI / 8);
 				}
-			} else if (Math.random() < 0.016) {
+			} else if (Math.random() < 0.012) {
 				this.shotCircle();
 			}
 		} else {
-			if (Math.random() < 0.015) {
+			if (Math.random() < 0.01) {
 				if (this.armLowerLeft.active) {
 					this.armLowerLeft.shotArc(Math.PI / 2, 3 * Math.PI / 2, Math.PI / 8);
 				}
-			} else if (Math.random() < 0.016) {
+			} else if (Math.random() < 0.012) {
 				this.shotCircle();
 			}
 		}

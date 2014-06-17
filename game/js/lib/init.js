@@ -36,6 +36,7 @@ function initSound() {
 	soundLoader.load("./assets/sounds", audioNames, extensions, function (loadedAudio) {
 		for (var audioName in loadedAudio) {
 			audio[audioName] = loadedAudio[audioName];
+			audio[audioName].setVolume(20);
 		}
 	});
 	return audio;

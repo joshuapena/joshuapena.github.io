@@ -22,7 +22,7 @@ var CatBoss = function(world, Bullet, audio) {
 	this.sound = "meow";
 	this.ate = false;
 	
-	this.lives = 1;
+	this.lives = 15;
 	
 	this.hitboxMetrics = {
 		x: 0,

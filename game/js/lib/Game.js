@@ -20,6 +20,7 @@ var Game = function(canvas, sprites, audio) {
 	
 	this.audio[this.backgroundSound].loop();
 	this.audio[this.backgroundSound].setVolume(20);
+	buzz.all.setVolume(20);
 	this.audio[this.backgroundSound].play();
 	
 	var gameloop = setInterval(function() {

@@ -4,7 +4,7 @@
 var nextStage = false;
 var minionTime = true;
 var bossTime = false;
-var round = 1;
+var round = 2;
 
 var update = function (game, CatEnemy, Bullet, audio) {
 

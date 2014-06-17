@@ -23,7 +23,7 @@ var FrogBoss = function(world, Bullet, audio) {
 	
 	this.landed = false;
 	
-	this.lives = 20;
+	this.lives = 15;
 	
 	this.hitboxMetrics = {
 		x: 0,

@@ -19,7 +19,7 @@ var Game = function(canvas, sprites, audio) {
 	var game = this;
 	
 	this.audio[this.backgroundSound].loop();
-	this.audio[this.backgroundSound].setVolume(60);
+	this.audio[this.backgroundSound].setVolume(30);
 	this.audio[this.backgroundSound].play();
 	
 	var gameloop = setInterval(function() {

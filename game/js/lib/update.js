@@ -80,7 +80,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		
 		audio["casanova"].stop();
 		audio["pokemonRuby"].loop();
-		audio["pokemonRuby"].setVolume(80);
+		audio["pokemonRuby"].setVolume(20);
 		audio["pokemonRuby"].play();
 		bossTime = false;
 	} else if (minionTime && round == 1) {

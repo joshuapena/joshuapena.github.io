@@ -53,7 +53,7 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 						height: 20
 					},
 					angle: i,
-					speed: 2,
+					speed: 3,
 					acceleration: 0.1,
 					owner: this.type
 				}, this.audio
@@ -74,7 +74,7 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 						height: 20
 					},
 					angle: i,
-					speed: 2,
+					speed: 3,
 					acceleration: 0.1,
 					owner: this.type
 				}, this.audio

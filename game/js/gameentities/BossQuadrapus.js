@@ -134,7 +134,7 @@ QuadrapusBoss.prototype.shotCircle = function() {
 					height: 20
 				},
 				angle: i,
-				speed: 5,
+				speed: 2,
 				acceleration: 0.1,
 				owner: this.type
 			}, this.audio

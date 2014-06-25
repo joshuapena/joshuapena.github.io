@@ -33,7 +33,7 @@ var collider = function(game) {
 				arm.explode("bullet");
 				if (this.parent === null) {
 				} else {
-					arm.parent.explode("bullet");
+					//arm.parent.explode("bullet");
 					if (this.child === "one") {
 						this.parent.thirdStarfishOne = true;
 					} else {

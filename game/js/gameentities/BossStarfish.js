@@ -105,7 +105,7 @@ StarfishBoss.prototype.explode = function(source) {
 	if (this.lives < 23 && !this.secondStarfish) {
 		this.world.arms.push(new StarfishEnemy(this.world, {
 			x: this.x + this.width / 2,
-			y: this.y + 3 * this.height / 2,
+			y: this.y + this.height / 3,
 			width: this.width / 2,
 			height: this.height / 2,
 			direction: this.direction,
@@ -115,7 +115,7 @@ StarfishBoss.prototype.explode = function(source) {
 			child: "one"
 		}), new StarfishEnemy(this.world, {
 			x: this.x,
-			y: this.y + 3 * this.height / 2,
+			y: this.y + this.height / 3,
 			width: this.width / 2,
 			height: this.height / 2,
 			direction: this.direction,

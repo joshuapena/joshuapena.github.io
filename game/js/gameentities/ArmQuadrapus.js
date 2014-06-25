@@ -18,6 +18,7 @@ var QuadrapusArm = function(world, Bullet, options, audio) {
 	
 	this.lives = 5;
 	this.livesParent = options.parent.lives;
+	this.parent = options.parent;
 	
 	this.hitboxMetrics = {
 		x: 0,

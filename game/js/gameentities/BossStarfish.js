@@ -134,7 +134,7 @@ StarfishBoss.prototype.explode = function(source) {
 	if (this.thirdStarfishOne) {
 		this.world.arms.push(new StarfishEnemy(this.world, {
 			x: this.leftX + this.width / 2,
-			y: this.leftY + 3 * this.height / 2,
+			y: this.leftY + this.height / 3,
 			width: this.width / 4,
 			height: this.height / 4,
 			direction: this.direction,
@@ -143,7 +143,7 @@ StarfishBoss.prototype.explode = function(source) {
 			parent: this
 		}), new StarfishEnemy(this.world, {
 			x: this.leftX,
-			y: this.leftY + 3 * this.height / 2,
+			y: this.leftY + this.height / 3,
 			width: this.width / 4,
 			height: this.height / 4,
 			direction: this.direction,
@@ -157,7 +157,7 @@ StarfishBoss.prototype.explode = function(source) {
 	if (this.thirdStarfishTwo) {
 		this.world.arms.push(new StarfishEnemy(this.world, {
 			x: this.rightX + this.width / 2,
-			y: this.rightY + 3 * this.height / 2,
+			y: this.rightY + this.height / 3,
 			width: this.width / 4,
 			height: this.height / 4,
 			direction: this.direction,
@@ -166,7 +166,7 @@ StarfishBoss.prototype.explode = function(source) {
 			parent: this
 		}), new StarfishEnemy(this.world, {
 			x: this.rightX,
-			y: this.rightY + 3 * this.height / 2,
+			y: this.rightY + this.height / 3,
 			width: this.width / 4,
 			height: this.height / 4,
 			direction: this.direction,

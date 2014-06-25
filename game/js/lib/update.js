@@ -4,7 +4,7 @@
 var nextStage = false;
 var minionTime = true;
 var bossTime = false;
-var round = 0;
+var round = 3;
 
 var update = function (game, CatEnemy, Bullet, audio) {
 
@@ -30,6 +30,11 @@ var update = function (game, CatEnemy, Bullet, audio) {
 						nextStage = false;
 					}
 					boss.update(player);
+				}
+			);
+			game.world.arms.forEach (
+				function(arm) {
+					arm.update();
 				}
 			);
 			player.update();
@@ -166,6 +171,33 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		
 		bossTime = false;
 	} else if (minionTime && round == 3) {
+		if (Math.random() < 0.02) {
+			if (Math.random() < 0.1) {
+			} else {
+				if (Math.random() < 0.8) {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						//spriteName: "enemyQuadrapus",
+						side: "left"
+					}));
+				} else {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						//spriteName: "enemyQuadrapus",
+						side: "right"
+					}));
+				}
+			}
+		}
+		
+		if (nextStage) {
+			bossTime = true;
+			minionTime = false;
+			nextStage = false;
+		}
+	} else if (bossTime && round == 3) {
+		game.world.boss.push(new StarfishBoss(game.world, Bullet, audio));
+		
+		bossTime = false;
+	} else if (minionTime && round== 4) {
 		game.world.end = true;
 	}
 };

@@ -1,7 +1,8 @@
 "use strict";
 
-var QuadrapusEnemy = function(world, options) {
+var QuadrapusEnemy = function(world, options, audio) {
 	this.world = world;
+	this.audio = audio;
 	
 	this.spriteName = options.spriteName || null;
 	this.color = "#00FFFF";

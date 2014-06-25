@@ -16,7 +16,8 @@ var QuadrapusArm = function(world, Bullet, options, audio) {
 	this.side = options.side;
 	this.section = options.section;
 	
-	this.lives = 7;
+	this.lives = 5;
+	this.livesParent = options.parent.lives;
 	
 	this.hitboxMetrics = {
 		x: 0,
@@ -53,7 +54,7 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 						height: 20
 					},
 					angle: i,
-					speed: 3,
+					speed: 5,
 					acceleration: 0.1,
 					owner: this.type
 				}, this.audio
@@ -74,7 +75,7 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 						height: 20
 					},
 					angle: i,
-					speed: 3,
+					speed: 5,
 					acceleration: 0.1,
 					owner: this.type
 				}, this.audio
@@ -103,6 +104,7 @@ QuadrapusArm.prototype.updateHitbox = function() {
 QuadrapusArm.prototype.explode = function(source) {
 	if (source === "bullet") {
 		this.lives--;
+		this.livesParent--;
 	}
 	
 	if (this.lives < 1) {

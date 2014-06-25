@@ -31,6 +31,15 @@ var collider = function(game) {
 		game.world.arms.forEach(function(arm) {
 			if (collides(bullet, arm)) {
 				arm.explode("bullet");
+				if (this.parent === null) {
+				} else {
+					arm.parent.explode("bullet");
+					if (this.child === "one") {
+						this.parent.thirdStarfishOne = true;
+					} else {
+						this.parent.thirdStarfishTwo = true;
+					}
+				}
 				bullet.explode("arm");
 			}
 		});

@@ -14,7 +14,7 @@ var start = function() {
 function initGame() {
 	var spriteLoader = new SpriteLoader();
 	var sprites = {};
-	var spriteNames = ["enemy" , "turtleWithACrown", "coverTurtleWithACrown", "catBoss", /*"quadrapusBoss"*/];
+	var spriteNames = ["enemyCat" , "turtleWithACrown", "coverTurtleWithACrown", "catBoss", /*"quadrapusBoss"*/];
 	for (var i = 1; i < 7; i++) {
 		spriteNames.push("connor/connorL" + i);
 		spriteNames.push("connor/connorR" + i);

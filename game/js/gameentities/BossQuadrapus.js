@@ -33,37 +33,41 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 		y: this.y + 40,
 		width: 100,
 		side: "right",
-		section: "upper"
+		section: "upper",
+		parent: this
 	}, this.audio);
 	this.armUpperLeft = new QuadrapusArm(this.world, Bullet, {
 		x: this.x - 100,
 		y: this.y + 40,
 		width: 100,
 		side: "left",
-		section: "upper"
+		section: "upper",
+		parent: this
 	}, this.audio);
 	this.armLowerRight = new QuadrapusArm(this.world, Bullet, {
 		x: this.x + this.width,
 		y: this.y + 100,
 		width: 80,
 		side: "right",
-		section: "lower"
+		section: "lower",
+		parent: this
 	}, this.audio);
 	this.armLowerLeft = new QuadrapusArm(this.world, Bullet, {
 		x: this.x - 80,
 		y: this.y + 100,
 		width: 80,
 		side: "left",
-		section: "lower"
+		section: "lower",
+		parent: this
 	}, this.audio);
 	
 	this.world.arms.push(this.armUpperRight, this.armUpperLeft, this.armLowerRight, this.armLowerLeft);
 	
-	this.lives = 15;
+	this.lives = 35;
 	
 	this.healthBar = new HealthBar(world, this, {
 		x: 350,
-		lives: this.lives + this.armUpperRight.lives + this.armUpperLeft.lives + this.armLowerRight.lives + this.armLowerLeft.lives
+		lives: this.lives
 	});
 };
 
@@ -106,7 +110,7 @@ QuadrapusBoss.prototype.update = function (player) {
 		}
 	}
 
-	this.healthBar.update(this.lives + this.armUpperRight.lives + this.armUpperLeft.lives + this.armLowerRight.lives + this.armLowerLeft.lives);
+	this.healthBar.update(this.lives);
 	this.updateHitbox();
 };
 
@@ -134,7 +138,7 @@ QuadrapusBoss.prototype.shotCircle = function() {
 					height: 20
 				},
 				angle: i,
-				speed: 3,
+				speed: 5,
 				acceleration: 0.1,
 				owner: this.type
 			}, this.audio

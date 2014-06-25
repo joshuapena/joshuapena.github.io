@@ -158,7 +158,6 @@ QuadrapusBoss.prototype.updateHitbox = function() {
 QuadrapusBoss.prototype.explode = function(source) {
 	if (source === "bullet") {
 		this.lives--;
-		alert("foo");
 	}
 	
 	if (this.lives < 1) {

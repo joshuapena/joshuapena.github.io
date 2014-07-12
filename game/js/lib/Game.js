@@ -1,10 +1,10 @@
-"use strict";
-var Game = function(canvas, sprites, audio) {
+var Game = function(canvas, sprites, audio, Explosion) {
 	this.fps = 60;
 	var canvas = canvas;
 	this.ctx = canvas.getContext("2d");
 	this.sprites = sprites;
 	this.audio = audio;
+	this.explosion = Explosion;
 	this.backgroundSound = "casanova";
 		
 	var worldOptions = {
@@ -24,7 +24,7 @@ var Game = function(canvas, sprites, audio) {
 	
 	var gameloop = setInterval(function() {
 		collider(game);
-		update(game, CatEnemy, Bullet, audio);
+		update(game, CatEnemy, Bullet, audio, Explosion);
 		draw(game.world);
 	}, 1000 / this.fps);
 }

@@ -13,7 +13,9 @@ var World = function(context, options, sprites) {
 	this.bullets = [];
 	this.healthBars = [];
 	this.platforms = [];
+	this.explosions = [];
 	
+    this.died = false;
 	this.end = false;
 };
 
@@ -41,10 +43,10 @@ World.prototype.drawText = function(text, x, y) {
 };
 
 World.prototype.drawCircle = function(color, x, y, radius, start, stop) {
-	this.ctx.fillStyle = color;
 	this.ctx.beginPath();
 	this.ctx.arc(x, y, radius, start, stop);
 	this.ctx.closePath();
+	this.ctx.fillStyle = color;
 	this.ctx.stroke();
 };
 

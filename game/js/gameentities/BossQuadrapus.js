@@ -1,7 +1,8 @@
 "use strict";
 
-var QuadrapusBoss = function(world, Bullet, audio) {
+var QuadrapusBoss = function(world, Bullet, audio, Explosion) {
 	this.world = world;
+	this.Explosion = Explosion;
 	
 	this.spriteName = null;//"quadrapusBoss";
 	this.Bullet = Bullet;
@@ -27,6 +28,9 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 		width: this.hitboxMetrics.width,
 		height: this.hitboxMetrics.height
 	};
+
+	this.cannonFired = false;
+    this.streamReset = false;
 	
 	this.armUpperRight = new QuadrapusArm(this.world, Bullet, {
 		x: this.x + this.width,
@@ -72,6 +76,23 @@ var QuadrapusBoss = function(world, Bullet, audio) {
 };
 
 QuadrapusBoss.prototype.update = function (player) {
+    var that = this;
+    if (this.armUpperLeft.bulletsShot === 0) {
+        var shootStream = setInterval(function() {
+            that.armUpperLeft.shootStream(player);
+        }, 3000);
+    }// else {
+    if ((this.armUpperLeft.bulletsShot > 24) && !this.streamReset) {
+        this.streamReset = true;
+        clearInterval(shootStream);
+        setTimeout(function() {
+            that.armUpperLeft.bulletsShot = 0;
+            that.streamReset = false;
+        }, 2000);
+    }
+    //}
+    //console.log(this.world.bullets.length);
+    /*
 	if (Math.random() < 0.5) {
 		if (Math.random() < 0.5) {
 			if (Math.random() < 0.01) {
@@ -82,9 +103,10 @@ QuadrapusBoss.prototype.update = function (player) {
 				this.shotCircle();
 			}
 		} else {
-			if (Math.random() < 0.01) {
-				if (this.armUpperLeft.active) {
-					this.armUpperLeft.shotArc(0, Math.PI, Math.PI / 8);
+			if (Math.random() < 0.91) {
+				if (this.armUpperLeft.active && !this.armUpperLeft.shooting) {
+                    this.armUpperLeft.shooting = true;
+					this.armUpperLeft.shootStream(player);
 				}
 			} else if (Math.random() < 0.01) {
 				this.shotCircle();
@@ -109,6 +131,21 @@ QuadrapusBoss.prototype.update = function (player) {
 			}
 		}
 	}
+    */
+
+	if (!this.cannonFired) {
+        this.cannonFired = true;
+        var that = this;
+        setTimeout(function() {
+            if (that.world.explosions.length + that.world.arms.length < 5) {
+                that.world.arms.push(new GlitterCannon(that.world, that.audio, that.Explosion, {
+                    x: that.x + that.width / 2,
+                    y: that.y + that.height / 2,
+                    parent: that
+                }));
+            }
+        }, 1000);
+    }
 
 	this.healthBar.update(this.lives);
 	this.updateHitbox();

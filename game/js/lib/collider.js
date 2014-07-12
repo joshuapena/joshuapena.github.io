@@ -27,20 +27,29 @@ var collider = function(game) {
 				bullet.explode("boss");
 			}
 		});
+
+        game.world.explosions.forEach(function(explosion) {
+            if (collides(bullet, explosion)) {
+                explosion.explode();
+                bullet.explode("explosion");
+            }
+        });
 		
 		game.world.arms.forEach(function(arm) {
 			if (collides(bullet, arm)) {
 				arm.explode("bullet");
+				bullet.explode("arm");
 				if (this.parent === null) {
 				} else {
-					arm.parent.explode("bullet");
+                    if (arm.parent) {
+					  arm.parent.explode("bullet");
+                    }
 					if (this.child === "one") {
 						this.parent.thirdStarfishOne = true;
 					} else {
 						this.parent.thirdStarfishTwo = true;
 					}
 				}
-				bullet.explode("arm");
 			}
 		});
 	});
@@ -61,7 +70,7 @@ var collider = function(game) {
 		});
 		game.world.arms.forEach(function(arm) {
 			if (collides(player, arm)) {
-				player.explode(3);
+				player.explode(3, arm.object);
 				arm.explode("player");
 			}
 		});
@@ -75,6 +84,14 @@ var collider = function(game) {
 				}
 			}
 		});
+
+		// Add collider between Explosion and Player
+        game.world.explosions.forEach(function(explosion) {
+            if (collides(player, explosion)) {
+                player.explode(5);
+                explosion.explode();
+            }
+        });
 	});
 };
 

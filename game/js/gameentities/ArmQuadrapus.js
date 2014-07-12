@@ -16,6 +16,8 @@ var QuadrapusArm = function(world, Bullet, options, audio) {
 	this.side = options.side;
 	this.section = options.section;
 	
+    this.shooting = false;
+    this.bulletsShot = 0;
 	this.lives = 5;
 	this.livesParent = options.parent.lives;
 	this.parent = options.parent;
@@ -58,8 +60,7 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 					speed: 3,
 					acceleration: 0.1,
 					owner: this.type
-				}, this.audio
-			));
+				}, this.audio));
 		}
 	} else {
 		for (var i = start; i > end; i += step) {
@@ -79,10 +80,70 @@ QuadrapusArm.prototype.shotArc = function(start, end, step) {
 					speed: 3,
 					acceleration: 0.1,
 					owner: this.type
-				}, this.audio
-			));
+				}, this.audio));
 		}
 	}
+};
+
+QuadrapusArm.prototype.shootStream = function(player) {
+    //for (var bulletsShot = 0; bulletsShot < 25; bulletsShot++) {
+    var that = this;
+    if (this.bulletsShot < 25) {
+            this.shotX = this.x + this.width / 2;
+            this.shotY = this.y + this.height / 2;
+
+            if (this.shotX < player.x) {
+                this.world.bullets.push(
+                    new this.Bullet(this.world, {
+                    x: this.shotX,
+                    y: this.shotY,
+                    width: 20,
+                    height: 20,
+                    hitboxMetrics: {
+                        x: 0,
+                        y: 0,
+                        width: 20,
+                        height: 20,
+                    },
+                    angle: Math.atan((this.shotY - player.y) / (this.shotX - player.x)),
+                    speed: 3,
+                    acceleration: 0.1,
+                    owner: this.type
+                }, this.audio));
+            } else {
+                this.world.bullets.push(
+                    new this.Bullet(this.world, {
+                    x: this.shotX,
+                    y: this.shotY,
+                    width: 20,
+                    height: 20,
+                    hitboxMetrics: {
+                        x: 0,
+                        y: 0,
+                        width: 20,
+                        height: 20,
+                    },
+                    angle: Math.atan((this.shotY - player.y) / (this.shotX - player.x)) + Math.PI,
+                    speed: 3,
+                    acceleration: 0.1,
+                    owner: this.type
+                }, this.audio));
+
+            }
+            this.bulletsShot++;
+    }
+    /*
+    if (this.bulletsShot > 24){
+        setTimeout(function() {
+            that.bulletsShot = 0;
+        }, 3000);
+    }
+    */
+    /*
+    setTimeout(function() {
+        that.shooting = false;
+    }, 1000);
+    */
 };
 
 QuadrapusArm.prototype.draw = function() {

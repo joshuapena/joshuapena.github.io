@@ -6,11 +6,14 @@ var minionTime = true;
 var bossTime = false;
 var round = 0;
 
-var update = function (game, CatEnemy, Bullet, audio) {
+var test = false;
+
+var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 
 	[game.world.platforms,
 	game.world.enemies,
-	game.world.bullets
+	game.world.bullets,
+	game.world.explosions
 	].forEach (
 		function(gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {
@@ -31,18 +34,25 @@ var update = function (game, CatEnemy, Bullet, audio) {
 					}
 					boss.update(player);
 				}
+
 			);
+
 			game.world.arms.forEach (
 				function(arm) {
-					arm.update();
+					arm.update(player);
 				}
 			);
+
 			player.update();
 			if (player.kills > 22) {
 				nextStage = true;
 			}
 		}
 	);
+
+    game.world.players = game.world.players.filter(function(player) {
+        return player.active;
+    });
 	
 	game.world.enemies = game.world.enemies.filter(function(enemy) {
 		return enemy.active;
@@ -63,8 +73,15 @@ var update = function (game, CatEnemy, Bullet, audio) {
 	game.world.platforms = game.world.platforms.filter(function(platform) {
 		return platform.active;
 	});
+
+	game.world.explosions = game.world.explosions.filter(function(explosion) {
+		return explosion.active;
+	});
 	
-	if (minionTime && round == 0) {
+	if (game.world.players.length < 1) {
+       game.world.died = true; 
+    } else if (test) {
+	} else if (minionTime && round == 0) {
 		if (Math.random() < 0.02) {
 			if (Math.random() < 0.1) {
 			} else {
@@ -82,6 +99,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		}
 	} else if (bossTime && round == 0) {
 		game.world.boss.push(new CatBoss(game.world, Bullet, audio));
+
 		
 		audio["casanova"].stop();
 		audio["pokemonRuby"].loop();
@@ -93,8 +111,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			if (Math.random() < 0.1) {
 			} else {
 				if (Math.random() < 0.8) {
-					game.world.enemies.push(new QuadrapusEnemy(game.world, {
-						//spriteName: "enemyQuadrapus",
+                                        game.world.enemies.push(new QuadrapusEnemy(game.world, {
 						side: "left"
 					}));
 				} else {
@@ -106,11 +123,9 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			}
 		}
 		
-		audio["pokemonRuby"].stop();
-		/*
-		audio["underTheSea"].loop();
-		audio["underTheSea"].play();
-		*/
+		audio.pokemonRuby.stop();
+		audio.underTheSea.loop();
+		audio.underTheSea.play();
 		
 		if (nextStage) {
 			bossTime = true;
@@ -118,7 +133,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			nextStage = false;
 		}
 	} else if (bossTime && round == 1) {
-		game.world.boss.push(new QuadrapusBoss(game.world, Bullet, audio));
+		game.world.boss.push(new QuadrapusBoss(game.world, Bullet, audio, Explosion));
 		game.world.platforms.push(new Platform(game.world, {
 			x: 75,
 			y: 250,
@@ -136,12 +151,11 @@ var update = function (game, CatEnemy, Bullet, audio) {
 			y: 191,
 		}));
 		
-		/*
-		audio["underTheSea"].stop();
-		audio["itsPossible"].setVolume(100);
-		audio["itsPossible"].loop();
-		audio["itsPossible"].play();
-		*/
+		audio.underTheSea.stop();
+		audio.itsPossible.setVolume(100);
+		audio.itsPossible.loop();
+		audio.itsPossible.play();
+		
 		bossTime = false;
 	} else if (minionTime && round == 2) {
 		if (Math.random() < 0.02) {
@@ -197,7 +211,7 @@ var update = function (game, CatEnemy, Bullet, audio) {
 		game.world.boss.push(new StarfishBoss(game.world, Bullet, audio));
 		
 		bossTime = false;
-	} else if (minionTime && round== 4) {
-		game.world.end = true;
+	} else if (minionTime && round == 4) {
+		game.world.end = true;	
 	}
 };

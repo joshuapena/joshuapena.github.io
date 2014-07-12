@@ -8,8 +8,9 @@ var draw = function(world) {
 	world.enemies,
 	world.bullets, 
 	world.boss,
+	world.players,
 	world.arms,
-	world.players
+	world.explosions
 	].forEach (
 		function (gameElementArray) {
 			gameElementArray.forEach(function(gameElement) {
@@ -28,4 +29,14 @@ var draw = function(world) {
 		world.ctx.globalAlpha = 1.0;
 		world.ctx.fillText("You Win", 200, 150);
 	}
+
+    if (world.died) {
+        world.ctx.globalAlpha = 0.4;
+		world.ctx.fillStyle = "#333";
+		world.ctx.fillRect(0, 0, 600, 300);
+		world.ctx.fillStyle = "#FFF";
+		world.ctx.font = "50px Ubuntu Mono";
+		world.ctx.globalAlpha = 1.0;
+		world.ctx.fillText("Game Over", 200, 150);
+    }
 }

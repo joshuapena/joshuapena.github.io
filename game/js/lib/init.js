@@ -5,10 +5,9 @@ var start = function() {
 	document.getElementById("startButton").style.display = "none";
 	
 	var sprites = initGame();
-	
 	var audio = initSound();
 	
-	var game = new Game(document.getElementById("world"), sprites, audio);
+	var game = new Game(document.getElementById("world"), sprites, audio, Explosion);
 }
 
 function initGame() {
@@ -18,6 +17,9 @@ function initGame() {
 	for (var i = 1; i < 7; i++) {
 		spriteNames.push("connor/connorL" + i);
 		spriteNames.push("connor/connorR" + i);
+	}
+	for (i = 0; i < 17; i++) {
+		spriteNames.push("explosion/explosion-" + i);
 	}
 	spriteLoader.load("./assets/images", spriteNames, ".png", function (loadedSprites) {
 		for (var spriteName in loadedSprites) {
@@ -31,7 +33,7 @@ function initGame() {
 function initSound() {
 	var soundLoader = new SoundLoader();
 	var audio = {};
-	var audioNames = ["casanova", "jumpFins", "pewPewBizNiss", "enemyDamageBraqoon", "meow", "pokemonRuby"/*, "itsPossible", "underTheSea"*/];
+	var audioNames = ["casanova", "jumpFins", "pewPewBizNiss", "enemyDamageBraqoon", "meow", "pokemonRuby", "itsPossible", "underTheSea"];
 	var extensions = [".mp3", ".wav", ".wav", ".wav", ".wav", ".mp3", ".mp3", ".mp3"];
 	soundLoader.load("./assets/sounds", audioNames, extensions, function (loadedAudio) {
 		for (var audioName in loadedAudio) {

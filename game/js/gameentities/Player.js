@@ -32,7 +32,7 @@ var Player = function(world, Bullet, audio) {
 	this.state = this.idleRightAnimation;
 	this.shootAudio = "pewPewBizNiss";
 	this.jumpAudio = "jumpFins";
-	this.alive = true;
+	this.active = true;
 	this.hit = false;
 	
 	this.hitboxMetrics = {
@@ -49,7 +49,7 @@ var Player = function(world, Bullet, audio) {
 		height: this.hitboxMetrics.height
 	};
 	
-	this.kills = 24;
+	this.kills = 30;
 	this.lives = 10;
 	
 	this.myHealth = new HealthBar (world, this, {
@@ -60,194 +60,132 @@ var Player = function(world, Bullet, audio) {
 
 var keydown = [];
 
-Player.prototype.explode = function(damage) {
+Player.prototype.explode = function(damage, object) {
 	var that = this;
+    if (object != "glitterCannon") {
 	//if (!this.hit) {
-		this.lives -= damage;
-		this.hit = true;
+        this.lives -= damage;
+        this.hit = true;
 	//	setTimeout(function() {
 	//				that.hit = false;
 	//			}, 500);
-		if (this.lives < 1) {
-			this.alive = false;
-		}
-	//}
+	//  } 
+    }
+    if (this.lives < 1) {
+        console.log("You Died");
+        this.active = false;
+        this.myHealth.update();
+        this.myHealth.draw();
+    }
 };
 
 Player.prototype.update = function() {
-	if (this.alive) {
-		// Jump
-		if (keydown[38]) {
-			if (!this.jumping) {
-				this.jumping = true;
-				this.jumpDown = false;
-				this.velY = -this.speed * 2;
-				this.audio[this.jumpAudio].stop();
-				this.audio[this.jumpAudio].play();
-			}
+	// Jump
+	if (keydown[38]) {
+		if (!this.jumping) {
+			this.jumping = true;
+			this.jumpDown = false;
+			this.velY = -this.speed * 2;
+			this.audio[this.jumpAudio].stop();
+			this.audio[this.jumpAudio].play();
 		}
-		
-		// Right
-		if (keydown[39]) {
-			if (this.velX < this.speed) {
-				this.velX++;
-				this.direction = "right";
-			}
-		}
-		
-		// Left
-		if (keydown[37]) {
-			if (this.velX > -this.speed) {
-				this.velX--;
-				this.direction = "left";
-			}
-		}
-		
-		// Shoot
-		/*
-		if (keydown[65] || keydown[87] || keydown[68]) {
-			if (!this.shootLock) {
-				this.shootLock = true;
-				if (keydown[65] && keydown[87]) {
-					this.shootAngle = "upwardLeft";
-				} else if (keydown[87] && keydown[68]) {
-					this.shootAngle = "upwardRight";
-				} else if (keydown[65]) {
-					this.shootAngle = "left";
-				} else if (keydown[87]) {
-					this.shootAngle = "upward";
-				} else if (keydown[68]) {
-					this.shootAngle = "right";
-				} else {
-					this.shootAngle = this.direction;
-				}
-				this.shoot();
-				var that = this
-				setTimeout(function() {
-					that.shootLock = false;
-				}, 300);
-			}
-		}
-		*/
-		if (keydown[65] || keydown[87] || keydown[68]) {
-			if (!this.shootLock) {
-				this.shootLock = true;
-				if (keydown[65] && keydown[87]) {
-					this.shootAngle = 5 * Math.PI / 4;
-				} else if (keydown[87] && keydown[68]) {
-					this.shootAngle = 7 * Math.PI / 4;
-				} else if (keydown[65]) {
-					this.shootAngle = Math.PI;
-				} else if (keydown[87]) {
-					this.shootAngle = 3 * Math.PI / 2;
-				} else if (keydown[68]) {
-					this.shootAngle = 0;
-				}
-				this.shoot();
-				var that = this
-				setTimeout(function() {
-					that.shootLock = false;
-				}, 300);
-			}
-		}
-		/*
-		// upwardLeft
-		if (keydown[81]) {
-			if (!this.shootLock) {
-				this.shootAngle = "upwardLeft";
-				this.shoot();
-				this.shootLock = true;
-				var that = this
-				setTimeout(function() {
-					that.shootLock = false;
-				}, 300);
-			}
-		}
-		// upwardRight
-		if (keydown[69]) {
-			if (!this.shootLock) {
-				this.shootAngle = "upwardRight";
-				this.shoot();
-				this.shootLock = true;
-				var that = this
-				setTimeout(function() {
-					that.shootLock = false;
-				}, 300);
-			}
-		}
-		*/
-		
-		this.velX *= this.friction;
-		this.velY += this.gravity;
-		
-		if (this.velY >= 0) {
-			this.jumpDown = true;
-		}
-		
-		this.x += this.velX;
-		this.y += this.velY;
-		
-		if (this.x >= this.world.width - this.width) {
-			this.x = this.world.width - this.width;
-		} else if (this.x <= 0) {
-			this.x = 0;
-		}
-		
-		if (this.y >= this.world.height - this.height) {
-			this.y = this.world.height - this.height;
-			this.jumping = false;
-		}
-		
-		if (this.jumping) {
-			if (this.direction === "right") {
-				this.state = this.jumpRightAnimation;
-			} else {
-				this.state = this.jumpLeftAnimation;
-			}
-		} else if (this.shootLock) {
-			if (this.direction === "right") {
-				this.state = this.shootRightAnimation;
-			} else {
-				this.state = this.shootLeftAnimation;
-			}
-		} else if (keydown[37]) {
-			this.state = this.walkLeftAnimation;
-		} else if (keydown[39]) {
-			this.state = this.walkRightAnimation;
-		} else {
-			if (this.direction === "right") {
-				this.state = this.idleRightAnimation;
-			} else {
-				this.state = this.idleLeftAnimation;
-			}
-		}
-		
-		this.updateHitbox();
-		this.myHealth.update(this.lives);
 	}
+	
+	// Right
+	if (keydown[39]) {
+		if (this.velX < this.speed) {
+			this.velX++;
+			this.direction = "right";
+		}
+	}
+	
+	// Left
+	if (keydown[37]) {
+		if (this.velX > -this.speed) {
+			this.velX--;
+			this.direction = "left";
+		}
+	}
+	
+	// Shoot
+	if (keydown[65] || keydown[87] || keydown[68]) {
+		if (!this.shootLock) {
+			this.shootLock = true;
+			if (keydown[65] && keydown[87]) {
+				this.shootAngle = 5 * Math.PI / 4;
+			} else if (keydown[87] && keydown[68]) {
+				this.shootAngle = 7 * Math.PI / 4;
+			} else if (keydown[65]) {
+				this.shootAngle = Math.PI;
+			} else if (keydown[87]) {
+				this.shootAngle = 3 * Math.PI / 2;
+			} else if (keydown[68]) {
+				this.shootAngle = 0;
+			}
+			this.shoot();
+			var that = this
+			setTimeout(function() {
+				that.shootLock = false;
+			}, 300);
+		}
+	}
+			
+	this.velX *= this.friction;
+	this.velY += this.gravity;
+	
+	if (this.velY >= 0) {
+		this.jumpDown = true;
+	}
+	
+	this.x += this.velX;
+	this.y += this.velY;
+	
+	if (this.x >= this.world.width - this.width) {
+		this.x = this.world.width - this.width;
+	} else if (this.x <= 0) {
+		this.x = 0;
+	}
+	
+	if (this.y >= this.world.height - this.height) {
+		this.y = this.world.height - this.height;
+		this.jumping = false;
+	}
+	
+	if (this.jumping) {
+		if (this.direction === "right") {
+			this.state = this.jumpRightAnimation;
+		} else {
+			this.state = this.jumpLeftAnimation;
+		}
+	} else if (this.shootLock) {
+		if (this.direction === "right") {
+			this.state = this.shootRightAnimation;
+		} else {
+			this.state = this.shootLeftAnimation;
+		}
+	} else if (keydown[37]) {
+		this.state = this.walkLeftAnimation;
+	} else if (keydown[39]) {
+		this.state = this.walkRightAnimation;
+	} else {
+		if (this.direction === "right") {
+			this.state = this.idleRightAnimation;
+		} else {
+			this.state = this.idleLeftAnimation;
+		}
+	}
+	
+	this.updateHitbox();
+	this.myHealth.update(this.lives);
 };
 
 Player.prototype.draw = function() {
 	var that = this;
-	if (this.alive) {
-		this.state.draw(this.x, this.y, function(spriteName, x, y) {
-			that.width = that.world.sprites[spriteName].width;
-			that.world.drawSprite(spriteName, x, y, that.width, that.height);
-		});
-	} else {
-		this.world.ctx.globalAlpha = 0.4;
-		this.world.ctx.fillStyle = "#333";
-		this.world.ctx.fillRect(0, 0, 600, 300);
-		this.world.ctx.fillStyle = "#FFF";
-		this.world.ctx.font = "50px Ubuntu Mono";
-		this.world.ctx.globalAlpha = 1.0;
-		this.world.ctx.fillText("Game Over", 200, 150);
-	}
-	//this.world.drawText("Happy Anniversary", 115, 90);
-	//if (this.kills < 23) {
-	//	this.world.cropSprite("coverTurtleWithACrown", this.kills, this.kills, 384 - this.kills * 2, 46 - this.kills * 2, 115 + this.kills, 55 + this.kills, 384 - this.kills * 2, 46 - this.kills * 2);
-	//}
-	
+	this.state.draw(this.x, this.y, function(spriteName, x, y) {
+		that.width = that.world.sprites[spriteName].width;
+		that.world.drawSprite(spriteName, x, y, that.width, that.height);
+	});
+
 	this.myHealth.draw();
 };
 

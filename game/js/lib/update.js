@@ -4,7 +4,7 @@
 var nextStage = false;
 var minionTime = true;
 var bossTime = false;
-var round = 0;
+var round = 4;
 
 var test = false;
 
@@ -81,6 +81,7 @@ var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 	if (game.world.players.length < 1) {
        game.world.died = true; 
     } else if (test) {
+        
 	} else if (minionTime && round == 0) {
 		if (Math.random() < 0.02) {
 			if (Math.random() < 0.1) {
@@ -101,10 +102,10 @@ var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 		game.world.boss.push(new CatBoss(game.world, Bullet, audio));
 
 		
-		audio["casanova"].stop();
-		audio["pokemonRuby"].loop();
-		audio["pokemonRuby"].setVolume(20);
-		audio["pokemonRuby"].play();
+		audio.casanova.stop();
+		audio.pokemonRuby.loop();
+		audio.pokemonRuby.setVolume(20);
+		audio.pokemonRuby.play();
 		bossTime = false;
 	} else if (minionTime && round == 1) {
 		if (Math.random() < 0.02) {
@@ -212,6 +213,72 @@ var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 		
 		bossTime = false;
 	} else if (minionTime && round == 4) {
+       	if (Math.random() < 0.02) {
+			if (Math.random() < 0.1) {
+			} else {
+				if (Math.random() < 0.8) {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						//spriteName: "enemyQuadrapus",
+						side: "left"
+					}));
+				} else {
+					game.world.enemies.push(new QuadrapusEnemy(game.world, {
+						//spriteName: "enemyQuadrapus",
+						side: "right"
+					}));
+				}
+			}
+		}
+		
+		if (nextStage) {
+			bossTime = true;
+			minionTime = false;
+			nextStage = false;
+		}
+
+    } else if (bossTime && round == 4) {
+        game.world.boss.push( new TimelordBoss(game.world, Bullet, audio, Explosion));
+        
+        game.world.platforms.push(new Platform(game.world, {
+			x: 175,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 375,
+			y: 250,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 130,
+			y: 196,
+		}));
+		game.world.platforms.push(new Platform(game.world, {
+			x: 420,
+			y: 196,
+		}));
+        game.world.platforms.push(new Platform(game.world, {
+            x: 130,
+            y: 140
+        }));
+        game.world.platforms.push(new Platform(game.world, {
+            x: 420,
+            y: 140
+        }));
+        game.world.platforms.push(new Platform(game.world, {
+            x: 175,
+            y: 83
+        }));
+        game.world.platforms.push(new Platform(game.world, {
+            x: 375,
+            y: 83
+        }));
+        game.world.platforms.push(new Platform(game.world, {
+            x: 275,
+            y: 83
+        }));
+
+
+        bossTime = false;
+    } else if (minionTime && round == 5) {
 		game.world.end = true;	
 	}
 };

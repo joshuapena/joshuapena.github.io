@@ -77,6 +77,8 @@ var QuadrapusBoss = function(world, Bullet, audio, Explosion) {
 
 QuadrapusBoss.prototype.update = function (player) {
     var that = this;
+
+    // The Shooting Pattern for the Upper Left Arm
     if (this.armUpperLeft.bulletsShot === 0) {
         var shootStream = setInterval(function() {
             that.armUpperLeft.shootStream(player);
@@ -133,6 +135,7 @@ QuadrapusBoss.prototype.update = function (player) {
 	}
     */
 
+   // the Fighting Pattern for the Quadrapus Body
 	if (!this.cannonFired) {
         this.cannonFired = true;
         var that = this;
@@ -199,14 +202,15 @@ QuadrapusBoss.prototype.explode = function(source) {
 	
 	if (this.lives < 1) {
 		this.active = false;
-		this.armUpperRight.active = false;
-		this.armUpperLeft.active = false;
-		this.armLowerRight.active = false;
-		this.armLowerLeft.active = false;
 		this.world.platforms.forEach(
 			function(platform) {
 				platform.active = false;
 			}
 		);
+        this.world.arms.forEach(
+            function(arm) {
+                arm.active = false;
+            }
+        );
 	}
 };

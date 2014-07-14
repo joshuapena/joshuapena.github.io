@@ -4,7 +4,7 @@
 var nextStage = false;
 var minionTime = true;
 var bossTime = false;
-var round = 4;
+var round = 1;
 
 var test = false;
 

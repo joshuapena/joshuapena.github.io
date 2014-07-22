@@ -1,0 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,700italic);
+
+body {
+  font-size: 16pt;
+  line-height: 1.4;
+  color: #333;
+  font-family: "Ubuntu Mono";
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  color: #999;
+  font-weight: 700;
+  font-style: italic;
+}

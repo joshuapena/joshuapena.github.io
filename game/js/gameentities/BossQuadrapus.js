@@ -65,7 +65,7 @@ var QuadrapusBoss = function(world, Bullet, audio, Explosion) {
 		parent: this
 	}, this.audio);
 	
-	this.world.arms.push(this.armUpperRight, this.armUpperLeft, this.armLowerRight, this.armLowerLeft);
+	this.world.addOn.push(this.armUpperRight, this.armUpperLeft, this.armLowerRight, this.armLowerLeft);
 	
 	this.lives = 35;
 	
@@ -140,8 +140,8 @@ QuadrapusBoss.prototype.update = function (player) {
         this.cannonFired = true;
         var that = this;
         setTimeout(function() {
-            if (that.world.explosions.length + that.world.arms.length < 5) {
-                that.world.arms.push(new GlitterCannon(that.world, that.audio, that.Explosion, {
+            if (that.world.explosions.length + that.world.addOn.length < 5) {
+                that.world.addOn.push(new GlitterCannon(that.world, that.audio, that.Explosion, {
                     x: that.x + that.width / 2,
                     y: that.y + that.height / 2,
                     parent: that
@@ -207,7 +207,7 @@ QuadrapusBoss.prototype.explode = function(source) {
 				platform.active = false;
 			}
 		);
-        this.world.arms.forEach(
+        this.world.addOn.forEach(
             function(arm) {
                 arm.active = false;
             }

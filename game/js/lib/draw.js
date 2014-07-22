@@ -9,7 +9,7 @@ var draw = function(world) {
 	world.bullets, 
 	world.boss,
 	world.players,
-	world.arms,
+	world.addOn,
 	world.explosions
 	].forEach (
 		function (gameElementArray) {

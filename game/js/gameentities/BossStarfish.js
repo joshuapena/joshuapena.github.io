@@ -103,7 +103,7 @@ StarfishBoss.prototype.explode = function(source) {
 	}
 	
 	if (this.lives < 23 && !this.secondStarfish) {
-		this.world.arms.push(new StarfishEnemy(this.world, {
+		this.world.addOn.push(new StarfishEnemy(this.world, {
 			x: this.x + this.width / 2,
 			y: this.y + this.height / 3,
 			width: this.width / 2,
@@ -132,7 +132,7 @@ StarfishBoss.prototype.explode = function(source) {
 	}
 	
 	if (this.thirdStarfishOne) {
-		this.world.arms.push(new StarfishEnemy(this.world, {
+		this.world.addOn.push(new StarfishEnemy(this.world, {
 			x: this.leftX + this.width / 2,
 			y: this.leftY + this.height / 3,
 			width: this.width / 4,
@@ -155,7 +155,7 @@ StarfishBoss.prototype.explode = function(source) {
 	}
 
 	if (this.thirdStarfishTwo) {
-		this.world.arms.push(new StarfishEnemy(this.world, {
+		this.world.addOn.push(new StarfishEnemy(this.world, {
 			x: this.rightX + this.width / 2,
 			y: this.rightY + this.height / 3,
 			width: this.width / 4,

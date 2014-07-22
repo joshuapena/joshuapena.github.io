@@ -37,7 +37,7 @@ var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 
 			);
 
-			game.world.arms.forEach (
+			game.world.addOn.forEach (
 				function(arm) {
 					arm.update(player);
 				}
@@ -66,7 +66,7 @@ var update = function (game, CatEnemy, Bullet, audio, Explosion) {
 		return boss.active;
 	});
 	
-	game.world.arms = game.world.arms.filter(function(arm) {
+	game.world.addOn = game.world.addOn.filter(function(arm) {
 		return arm.active;
 	});
 	

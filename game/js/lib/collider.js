@@ -35,7 +35,7 @@ var collider = function(game) {
             }
         });
 		
-		game.world.arms.forEach(function(arm) {
+		game.world.addOn.forEach(function(arm) {
 			if (collides(bullet, arm)) {
 				arm.explode("bullet");
 				bullet.explode("arm");
@@ -68,7 +68,7 @@ var collider = function(game) {
 				boss.explode("player");
 			}
 		});
-		game.world.arms.forEach(function(arm) {
+		game.world.addOn.forEach(function(arm) {
 			if (collides(player, arm)) {
 				player.explode(3, arm.object);
 				arm.explode("player");

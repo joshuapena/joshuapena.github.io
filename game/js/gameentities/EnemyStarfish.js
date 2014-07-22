@@ -6,8 +6,8 @@ var StarfishEnemy = function(world, options) {
 	// Given by options
 	this.x = options.x;
 	this.y = options.y;
-	this.width = options.width;
-	this.height = options.height;
+	this.width = options.width || 30;
+	this.height = options.height || 30;
 	this.direction = options.direction;
 	this.side = options.side;
 	this.lives = options.lives;

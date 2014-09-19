@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Game</title>
+		<link rel="stylesheet" href="assets/css/default.css" />
+	</head>
+	<body>
+		<div id="canvasContainer">
+			<p>Move Around Using the Arrow Keys<br>Shoot Using "A", "W", and "D"<br>Good Luck and Have Fun</p>
+			<input id="startButton" type="button" value="Start" onclick="start()" />
+			<canvas id="world" width="600" height="300">
+				This browser can not run this game (canvas support missing).
+			</canvas>
+		</div>
+		
+		<script src="js/vendor/jquery.min.js"></script>
+		<script src="js/vendor/buzz.min.js"></script>
+		<script type="text/javascript" src="js/lib/Game.js"></script>
+		<script type="text/javascript" src="js/lib/init.js"></script>
+		<script type="text/javascript" src="js/lib/SpriteLoader.js"></script>
+		<script type="text/javascript" src="js/lib/SoundLoader.js"></script>
+		<script type="text/javascript" src="js/lib/collider.js"></script>
+		<script type="text/javascript" src="js/lib/update.js"></script>
+		<script type="text/javascript" src="js/lib/draw.js"></script>
+		<script type="text/javascript" src="js/lib/SpriteAnimation.js"></script>
+		<script type="text/javascript" src="js/gameentities/World.js"></script>
+		<script type="text/javascript" src="js/gameentities/Bullet.js"></script>
+		<script type="text/javascript" src="js/gameentities/Player.js"></script>
+		<script type="text/javascript" src="js/gameentities/Enemy.js"></script>
+		<script type="text/javascript" src="js/gameentities/Explosion.js"></script>
+		<script type="text/javascript" src="js/gameentities/Background.js"></script>
+		
+		<script type="text/javascript">
+			function start2(a, b, callback, c, d) {
+				document.write(a + b);
+				callback();
+				document.write(c+d);
+			}
+			function say() {
+				alert("here");
+			}
+		</script>
+	</body>
+</html>

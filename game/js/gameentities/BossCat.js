@@ -87,7 +87,6 @@ CatBoss.prototype.update = function(player) {
 		//this.shoot();
 		if (Math.random() < 0.3) {
 			if (Math.random() < 0.1) {
-				this.audio[this.sound].play();
 				if (Math.random() < 0.08) {
 					this.shootCircle();
 				}

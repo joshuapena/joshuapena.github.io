@@ -72,8 +72,6 @@ Bullet.prototype.explode = function(typeOfOther) {
 	if (this.player) {
 		this.player.kill();
 	}
-	this.audio[this.hitAudio].stop();
-	this.audio[this.hitAudio].play();
 }
 
 Bullet.prototype.update = function () {

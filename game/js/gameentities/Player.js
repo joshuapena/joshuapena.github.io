@@ -86,8 +86,6 @@ Player.prototype.update = function() {
 			this.jumping = true;
 			this.jumpDown = false;
 			this.velY = -this.speed * 2;
-			this.audio[this.jumpAudio].stop();
-			this.audio[this.jumpAudio].play();
 		}
 	}
 	
@@ -226,8 +224,6 @@ Player.prototype.shoot = function() {
 			//spriteName: 'playerBullet'
 		}, this.audio
 	));
-	this.audio[this.shootAudio].stop();
-	this.audio[this.shootAudio].play();
 };
 
 Player.prototype.kill = function() {

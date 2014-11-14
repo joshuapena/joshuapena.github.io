@@ -87,7 +87,6 @@ Boss.prototype.update = function() {
 			this.shoot();
 			if (Math.random() < 0.3) {
 				if (Math.random() < 0.1) {
-					this.audio[this.sound].play();
 				}
 			}
 		}

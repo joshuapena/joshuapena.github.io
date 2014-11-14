@@ -18,10 +18,6 @@ var Game = function(canvas, sprites, audio, Explosion) {
 	
 	var game = this;
 	
-	this.audio[this.backgroundSound].loop();
-	this.audio[this.backgroundSound].volume = 10;
-	this.audio[this.backgroundSound].play();
-	
 	var gameloop = setInterval(function() {
 		collider(game);
 		update(game, CatEnemy, Bullet, audio, Explosion);

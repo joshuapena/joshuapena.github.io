@@ -33,8 +33,8 @@ function initGame() {
 function initSound() {
 	var soundLoader = new SoundLoader();
 	var audio = {};
-	var audioNames = ["casanova", "jumpFins", "pewPewBizNiss", "enemyDamageBraqoon", "meow", "pokemonRuby", "itsPossible", "underTheSea"];
-	var extensions = [".mp3", ".wav", ".wav", ".wav", ".wav", ".mp3", ".mp3", ".mp3"];
+	var audioNames = [];
+	var extensions = [];
 	soundLoader.load("./assets/sounds", audioNames, extensions, function (loadedAudio) {
 		for (var audioName in loadedAudio) {
 			audio[audioName] = loadedAudio[audioName];

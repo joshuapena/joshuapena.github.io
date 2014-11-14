@@ -1,2 +1,0 @@
-var CrabBoss = function() {
-};
